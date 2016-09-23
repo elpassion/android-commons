@@ -32,7 +32,7 @@ String commonVersionName() {
 }
 
 int commonCompileSdkVersion() {
-    return 23
+    return 24
 }
 
 int commonTargetSdkVersion() {
