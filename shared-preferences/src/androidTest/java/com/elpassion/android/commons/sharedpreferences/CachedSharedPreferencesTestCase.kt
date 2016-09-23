@@ -1,6 +1,7 @@
 package com.elpassion.android.commons.sharedpreferences
 
 import android.support.test.runner.AndroidJUnit4
+import org.junit.Assert
 import org.junit.Assert.assertSame
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -66,6 +67,26 @@ class CachedSharedPreferencesTestCase {
         cachingRepository.write("key", value)
 
         verify(repositoryMock, times(1)).write("key", value)
+    }
+
+    @Test
+    fun containsShouldReturnFalseWhenRepositoryDoesNotContainsGivenKey() {
+        Assert.assertFalse(cachingRepository.contains("key"))
+    }
+
+    @Test
+    fun containsShouldReturnTrueWhenRepositoryContainsGivenKey() {
+        on(repositoryMock.contains("key")).thenReturn(true)
+
+        Assert.assertTrue(cachingRepository.contains("key"))
+    }
+
+    @Test
+    fun containsShouldNotCallRepositoryIfCacheContainsKey() {
+        cachingRepository.write("key", SimpleStructure(0))
+
+        Assert.assertTrue(cachingRepository.contains("key"))
+        verify(repositoryMock, never()).contains("key")
     }
 
     data class SimpleStructure(val value: Int)

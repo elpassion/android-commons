@@ -20,4 +20,6 @@ class CachingSharedPreferenceRepository<T>(private val repository: SharedPrefere
         valueMap[key] = value
         repository.write(key, value)
     }
+
+    override fun contains(key: String) = cacheMap.contains(key) || repository.contains(key)
 }

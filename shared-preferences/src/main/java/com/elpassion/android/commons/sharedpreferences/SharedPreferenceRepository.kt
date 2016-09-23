@@ -9,6 +9,8 @@ interface SharedPreferenceRepository<T> {
     fun write(key: String, value: T?)
 
     fun read(key: String): T?
+
+    fun contains(key: String): Boolean
 }
 
 inline fun <reified T> createSharedPrefs(
@@ -33,4 +35,6 @@ inline fun <reified T> createSharedPrefs(
             return gson.fromJson<T>(value, type)
         }
     }
+
+    override fun contains(key: String) = sharedPreferences.contains(key)
 }

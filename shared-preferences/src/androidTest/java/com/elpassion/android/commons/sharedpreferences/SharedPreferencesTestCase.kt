@@ -51,6 +51,21 @@ class SharedPreferencesTestCase {
         Assert.assertEquals(null, repository.read("key"))
     }
 
+    @Test
+    fun containsShouldReturnFalseWhenSharedPreferencesIsEmpty() {
+        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences)
+
+        Assert.assertFalse(repository.contains("key"))
+    }
+
+    @Test
+    fun containsShouldReturnTrueWhenSharedPreferencesContainsGivenKey() {
+        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences)
+        repository.write("key", SimpleStructure(1))
+
+        Assert.assertTrue(repository.contains("key"))
+    }
+
     @After
     fun clearSharedPrefs() {
         sharedPreferences()
