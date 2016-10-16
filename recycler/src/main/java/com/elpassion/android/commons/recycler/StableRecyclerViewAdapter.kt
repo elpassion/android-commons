@@ -1,6 +1,6 @@
 package com.elpassion.android.commons.recycler
 
-open class StableRecyclerViewAdapter : GenericRecyclerViewAdapter<StableItemAdapter<*>>(){
+open class StableRecyclerViewAdapter : GenericRecyclerViewAdapter<StableItemAdapter<*, *>>() {
 
     init {
         setHasStableIds(true)

@@ -1,7 +1,11 @@
 package com.elpassion.android.commons.recycler
 
-import android.support.annotation.LayoutRes
 import android.support.v7.widget.RecyclerView
+import android.view.View
 
-abstract class StableItemAdapter<VH : RecyclerView.ViewHolder>(val stableId: Long,
-                                                               @LayoutRes layoutId: Int) : ItemAdapter<VH>(layoutId)
+class StableItemAdapter<T, VH : RecyclerView.ViewHolder>(viewType: Int,
+                                                         creator: (View) -> VH,
+                                                         item: T,
+                                                         val stableId: Long,
+                                                         binder: T.(VH) -> Unit) :
+        ItemAdapter<VH> by ItemAdapterImpl(viewType, creator, item, binder)

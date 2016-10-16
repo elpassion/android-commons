@@ -5,9 +5,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import java.util.*
 
-open class GenericRecyclerViewAdapter<T : ItemAdapter<out RecyclerView.ViewHolder>> : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+open class GenericRecyclerViewAdapter<T : ItemAdapter<out RecyclerView.ViewHolder>> : RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    protected val adapters: MutableList<T> = ArrayList()
+    protected val adapters: MutableList<T>
+
+    constructor() {
+        adapters = ArrayList()
+    }
+
+    constructor(immutableList: List<T>) {
+        adapters = immutableList.toMutableList()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val adapter = adapters.first { it.viewType == viewType }
