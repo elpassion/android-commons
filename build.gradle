@@ -2,7 +2,7 @@ buildscript {
     ext.support_version = '25.0.1'
     ext.kotlin_version = '1.0.5-2'
     ext.espresso_version = '2.2.2'
-    ext.test_runner = '0.4.1'
+    ext.test_runner = '0.5'
     repositories {
         jcenter()
     }
