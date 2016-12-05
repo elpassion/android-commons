@@ -27,7 +27,7 @@ dependencies {
     compile "com.android.support:appcompat-v7:$support_version"
     compile "com.android.support:recyclerview-v7:$support_version"
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestCompile "com.android.support.test:runner:$test_runner"
     androidTestCompile 'junit:junit:4.12'
 }
 
