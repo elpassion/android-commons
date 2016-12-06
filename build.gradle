@@ -1,5 +1,5 @@
 buildscript {
-    ext.support_version = '23.2.1'
+    ext.support_version = '25.0.1'
     ext.kotlin_version = '1.0.5-2'
     ext.espresso_version = '2.2.2'
     ext.test_runner = '0.5'
@@ -33,7 +33,7 @@ String commonVersionName() {
 }
 
 int commonCompileSdkVersion() {
-    return 23
+    return 25
 }
 
 int commonTargetSdkVersion() {
@@ -45,7 +45,7 @@ int commonMinSdkVersion() {
 }
 
 String commonBuildToolsVersion() {
-    return '24.0.0'
+    return '25.0.1'
 }
 
 boolean isCI() {
