@@ -23,10 +23,7 @@ class StableItemIdStrategyTest {
         assertEquals(101, itemId)
     }
 
-    private fun createItemAdapter(stableId: Long) = object : StableItemAdapter<RecyclerView.ViewHolder>(stableId = stableId, layoutId = 123) {
-        override fun onCreateViewHolder(itemView: View) = Mockito.mock(RecyclerView.ViewHolder::class.java)
-
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder) {
-        }
+    private fun createItemAdapter(stableId: Long) = object : StableItemAdapter(stableId = stableId, viewType = 123) {
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder) {}
     }
 }
