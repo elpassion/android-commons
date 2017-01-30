@@ -10,7 +10,6 @@ fun OngoingStubbing<Completable>.thenError(exception: Exception) = thenReturn(Co
 
 fun OngoingStubbing<Completable>.thenComplete() = thenReturn(Completable.complete())
 
-fun Completable.test() = TestSubscriber<Unit>()
-        .apply { subscribe(this) }
+fun Completable.test() = TestSubscriber<Unit>().apply { subscribe(this) }
 
 fun Completable.test(assertion: TestSubscriber<Unit>.() -> Unit) = test().assertion()
