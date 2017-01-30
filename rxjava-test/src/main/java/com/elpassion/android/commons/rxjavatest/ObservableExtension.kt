@@ -10,14 +10,6 @@ fun <T> OngoingStubbing<Observable<T>>.thenError(exception: Exception): OngoingS
 
 fun <T> OngoingStubbing<Observable<T>>.thenJust(response: T): OngoingStubbing<Observable<T>> = thenReturn(Observable.just(response))
 
-fun <T> Observable<T>.test(): TestSubscriber<T> {
-    val subscriber = TestSubscriber<T>()
-    subscribe(subscriber)
-    return subscriber
-}
+fun <T> Observable<T>.test() = TestSubscriber<T>().apply { subscribe(this) }
 
-fun <T> Observable<T>.test(assertion: TestSubscriber<T>.() -> Unit) {
-    val subscriber = TestSubscriber<T>()
-    subscribe(subscriber)
-    subscriber.assertion()
-}
+fun <T> Observable<T>.test(assertion: TestSubscriber<T>.() -> Unit) = test().assertion()
