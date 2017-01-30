@@ -1,0 +1,32 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion commonCompileSdkVersion()
+    buildToolsVersion commonBuildToolsVersion()
+
+    defaultConfig {
+        minSdkVersion commonMinSdkVersion()
+        targetSdkVersion commonTargetSdkVersion()
+        versionCode commonVersionCode()
+        versionName commonVersionName()
+    }
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile 'io.reactivex:rxjava:1.1.9'
+
+    compile "com.nhaarman:mockito-kotlin:0.6.1"
+}
+
+apply from: '../gradle/upload-archives.gradle'
