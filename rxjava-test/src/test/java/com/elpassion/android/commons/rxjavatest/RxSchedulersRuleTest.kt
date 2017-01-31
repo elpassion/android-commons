@@ -82,11 +82,9 @@ class RxSchedulersRuleTest {
                 .assertValueThat { it != mainThread }
     }
 
-    private fun threadObservableObserveOnScheduler(scheduler: Scheduler?): Observable<Thread> {
-        return Observable.just(Unit)
-                .observeOn(scheduler)
-                .flatMap { threadObservable() }
-    }
+    private fun threadObservableObserveOnScheduler(scheduler: Scheduler) = Observable.just(Unit)
+            .observeOn(scheduler)
+            .flatMap { threadObservable() }
 
     private fun threadObservable(): Observable<Thread> =
             Observable.just(Unit).map { Thread.currentThread() }
