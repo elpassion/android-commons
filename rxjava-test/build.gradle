@@ -29,7 +29,8 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile 'io.reactivex:rxjava:1.1.9'
 
-    compile "com.nhaarman:mockito-kotlin:0.6.1"
+    compile "com.nhaarman:mockito-kotlin:1.0.1"
+    testCompile 'junit:junit:4.12'
 }
 
 apply from: '../gradle/upload-archives.gradle'
