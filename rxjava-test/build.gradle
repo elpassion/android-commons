@@ -20,6 +20,9 @@ android {
         versionCode commonVersionCode()
         versionName commonVersionName()
     }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
 }
 
 dependencies {
