@@ -7,12 +7,22 @@ import rx.Observable
 class TestSubscriberExtensionTest {
 
     @Test
-    fun shouldAssertionSuccessful() {
+    fun shouldMultipleValuesAssertionSuccessful() {
         Observable.just(2, 3, 4).test().assertValuesThat { it > 0 }
     }
 
     @Test(expected = AssertionError::class)
-    fun shouldAssertionFailed() {
-        Observable.just(1).test().assertValuesThat { it == 0 }
+    fun shouldMultipleValuesAssertionFailed() {
+        Observable.just(1, 3, 4).test().assertValuesThat { it == 0 }
+    }
+
+    @Test
+    fun shouldFirstValueAssertionSuccessful() {
+        Observable.just(4, -1).test().assertValueThat { it > 0 }
+    }
+
+    @Test(expected = AssertionError::class)
+    fun shouldFirstValueAssertionFailed() {
+        Observable.just(1, -1, -10).test().assertValuesThat { it == 0 }
     }
 }

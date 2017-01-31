@@ -6,3 +6,7 @@ import rx.observers.TestSubscriber
 fun <T> TestSubscriber<T>.assertValuesThat(predicate: (T) -> Boolean) {
     assertTrue(onNextEvents.all(predicate))
 }
+
+fun <T> TestSubscriber<T>.assertValueThat(predicate: (T) -> Boolean) {
+    assertTrue(onNextEvents.first().run(predicate))
+}
