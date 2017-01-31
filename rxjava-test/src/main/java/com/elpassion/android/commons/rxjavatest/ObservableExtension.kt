@@ -5,7 +5,7 @@ import org.mockito.stubbing.OngoingStubbing
 import rx.Observable
 import rx.observers.TestSubscriber
 
-fun <T> OngoingStubbing<Observable<T>>.thenNeverending(): OngoingStubbing<Observable<T>> = thenReturn(Observable.never())
+fun <T> OngoingStubbing<Observable<T>>.thenNever(): OngoingStubbing<Observable<T>> = thenReturn(Observable.never())
 
 fun <T> OngoingStubbing<Observable<T>>.thenError(exception: Exception): OngoingStubbing<Observable<T>> = thenReturn(Observable.error(exception))
 
