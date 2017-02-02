@@ -25,4 +25,6 @@ class TestSubscriberExtensionTest {
     fun shouldFirstValueAssertionFailed() {
         Observable.just(1, -1, -10).test().assertValuesThat { it == 0 }
     }
+
+    //TODO: CR: Add failing case for assertValueThat
 }
