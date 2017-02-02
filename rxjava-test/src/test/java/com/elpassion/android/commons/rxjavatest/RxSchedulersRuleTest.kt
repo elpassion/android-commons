@@ -3,88 +3,90 @@ package com.elpassion.android.commons.rxjavatest
 import org.junit.Rule
 import org.junit.Test
 import rx.Observable
-import rx.Scheduler
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
-import java.util.concurrent.Executors
-
+import java.util.concurrent.TimeUnit
 
 class RxSchedulersRuleTest {
 
-    @get:Rule val rule = RxSchedulersRule()
-    val mainThread: Thread = Thread.currentThread()
+    @Rule @JvmField
+    val rule = RxSchedulersRule()
+    val parentThread: Thread = Thread.currentThread()
+    private val observable = Observable.just(Unit)
 
     @Test
-    fun shouldStandardSubscriberCallOnMainThread() {
-        currentThreadObservable()
-                .test()
-                .assertValue(mainThread)
+    fun shouldNotChangeThread() {
+        observable
+                .assertThread(parentThread)
     }
 
     @Test
-    fun shouldSubscribeOnIoCallOnMainThread() {
-        observableObserveOnScheduler(Schedulers.io())
-                .test()
-                .assertValue(mainThread)
+    fun shouldNotChangeThreadWhenSubscribedOnIoThread() {
+        observable
+                .subscribeOn(Schedulers.io())
+                .assertThread(parentThread)
     }
 
     @Test
-    fun shouldObserveOnIoCallOnMainThread() {
-        observableObserveOnScheduler(Schedulers.io())
-                .test()
-                .assertValue(mainThread)
+    fun shouldNotChangeThreadWhenObservedOnIoThread() {
+        observable
+                .observeOn(Schedulers.io())
+                .assertThread(parentThread)
     }
 
     @Test
-    fun shouldSubscribeOnComputeCallOnMainThread() {
-        currentThreadObservable()
+    fun shouldNotChangeThreadWhenSubscribedOnComputationThread() {
+        observable
                 .subscribeOn(Schedulers.computation())
-                .test()
-                .assertValue(mainThread)
+                .assertThread(parentThread)
     }
 
     @Test
-    fun shouldObserveOnComputeCallOnMainThread() {
-        observableObserveOnScheduler(Schedulers.computation())
-                .test()
-                .assertValue(mainThread)
+    fun shouldNotChangeThreadWhenObservedOnComputationThread() {
+        observable
+                .observeOn(Schedulers.computation())
+                .assertThread(parentThread)
     }
 
     @Test
-    fun shouldSubscribeOnAndroidLooperCallOnMainThread() {
-        currentThreadObservable()
+    fun shouldNotChangeThreadWhenSubscribedOnAndroidMainThread() {
+        observable
                 .subscribeOn(AndroidSchedulers.mainThread())
-                .test()
-                .assertValue(mainThread)
+                .assertThread(parentThread)
     }
 
     @Test
-    fun shouldObserveOnAndroidLooperCallOnMainThread() {
-        observableObserveOnScheduler(AndroidSchedulers.mainThread())
-                .test()
-                .assertValue(mainThread)
+    fun shouldNotChangeThreadWhenObservedOnAndroidMainThread() {
+        observable
+                .observeOn(AndroidSchedulers.mainThread())
+                .assertThread(parentThread)
     }
 
     @Test
-    fun shouldSubscribeOnCustomSchedulersNotCalledOnMainThread() {
-        val scheduler = Schedulers.from(Executors.newSingleThreadExecutor())
-        currentThreadObservable()
-                .subscribeOn(scheduler)
-                .test()
-                .assertValueThat { it != mainThread }
+    fun shouldChangeThreadWhenSubscribedOnNewThread() {
+        observable
+                .subscribeOn(Schedulers.newThread())
+                .assertNotThread(parentThread)
     }
 
     @Test
-    fun shouldObserveOnCustomSchedulersNotCalledOnMainThread() {
-        val scheduler = Schedulers.from(Executors.newSingleThreadExecutor())
-        observableObserveOnScheduler(scheduler)
-                .test()
-                .assertValueThat { it != mainThread }
+    fun shouldChangeThreadWhenObservedOnNewThread() {
+        observable
+                .observeOn(Schedulers.newThread())
+                .assertNotThread(parentThread)
     }
 
-    private fun observableObserveOnScheduler(scheduler: Scheduler) = Observable.just(Unit)
-            .observeOn(scheduler)
+    private fun Observable<Unit>.assertThread(thread: Thread) = this
             .map { Thread.currentThread() }
+            .test {
+                assertValue(thread)
+            }
 
-    private fun currentThreadObservable(): Observable<Thread> = Observable.defer { Observable.just(Thread.currentThread()) }
+    private fun Observable<Unit>.assertNotThread(thread: Thread) = this
+            .map { Thread.currentThread() }
+            .test {
+                awaitValueCount(1, 1, TimeUnit.SECONDS)
+                assertValueThat { it != thread }
+            }
 }
+
