@@ -16,28 +16,28 @@ class RxSchedulersRuleTest {
 
     @Test
     fun shouldStandardSubscriberCallOnMainThread() {
-        threadObservable()
+        currentThreadObservable()
                 .test()
                 .assertValue(mainThread)
     }
 
     @Test
     fun shouldSubscribeOnIoCallOnMainThread() {
-        threadObservableObserveOnScheduler(Schedulers.io())
+        observableObserveOnScheduler(Schedulers.io())
                 .test()
                 .assertValue(mainThread)
     }
 
     @Test
     fun shouldObserveOnIoCallOnMainThread() {
-        threadObservableObserveOnScheduler(Schedulers.io())
+        observableObserveOnScheduler(Schedulers.io())
                 .test()
                 .assertValue(mainThread)
     }
 
     @Test
     fun shouldSubscribeOnComputeCallOnMainThread() {
-        threadObservable()
+        currentThreadObservable()
                 .subscribeOn(Schedulers.computation())
                 .test()
                 .assertValue(mainThread)
@@ -45,14 +45,14 @@ class RxSchedulersRuleTest {
 
     @Test
     fun shouldObserveOnComputeCallOnMainThread() {
-        threadObservableObserveOnScheduler(Schedulers.computation())
+        observableObserveOnScheduler(Schedulers.computation())
                 .test()
                 .assertValue(mainThread)
     }
 
     @Test
     fun shouldSubscribeOnAndroidLooperCallOnMainThread() {
-        threadObservable()
+        currentThreadObservable()
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .test()
                 .assertValue(mainThread)
@@ -60,7 +60,7 @@ class RxSchedulersRuleTest {
 
     @Test
     fun shouldObserveOnAndroidLooperCallOnMainThread() {
-        threadObservableObserveOnScheduler(AndroidSchedulers.mainThread())
+        observableObserveOnScheduler(AndroidSchedulers.mainThread())
                 .test()
                 .assertValue(mainThread)
     }
@@ -68,7 +68,7 @@ class RxSchedulersRuleTest {
     @Test
     fun shouldSubscribeOnCustomSchedulersNotCalledOnMainThread() {
         val scheduler = Schedulers.from(Executors.newSingleThreadExecutor())
-        threadObservable()
+        currentThreadObservable()
                 .subscribeOn(scheduler)
                 .test()
                 .assertValueThat { it != mainThread }
@@ -77,15 +77,14 @@ class RxSchedulersRuleTest {
     @Test
     fun shouldObserveOnCustomSchedulersNotCalledOnMainThread() {
         val scheduler = Schedulers.from(Executors.newSingleThreadExecutor())
-        threadObservableObserveOnScheduler(scheduler)
+        observableObserveOnScheduler(scheduler)
                 .test()
                 .assertValueThat { it != mainThread }
     }
 
-    private fun threadObservableObserveOnScheduler(scheduler: Scheduler) = Observable.just(Unit)
+    private fun observableObserveOnScheduler(scheduler: Scheduler) = Observable.just(Unit)
             .observeOn(scheduler)
-            .flatMap { threadObservable() }
+            .map { Thread.currentThread() }
 
-    private fun threadObservable(): Observable<Thread> =
-            Observable.just(Unit).map { Thread.currentThread() }
+    private fun currentThreadObservable(): Observable<Thread> = Observable.defer { Observable.just(Thread.currentThread()) }
 }
