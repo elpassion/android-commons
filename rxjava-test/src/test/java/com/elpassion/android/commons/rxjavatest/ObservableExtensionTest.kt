@@ -1,5 +1,7 @@
 package com.elpassion.android.commons.rxjavatest
 
+import com.nhaarman.mockito_kotlin.mock
+import com.nhaarman.mockito_kotlin.whenever
 import org.junit.Assert.assertFalse
 import org.junit.Test
 import rx.Observable
@@ -30,6 +32,17 @@ class ObservableExtensionTest {
         Observable.error<Int>(error).test {
             assertError(error)
             assertNoErrors()
+        }
+    }
+
+    @Test
+    fun shouldReturnObservableNeverWhenThenNeverIsUsed() {
+        val mock = mock<Function0<Observable<Unit>>>()
+        whenever(mock.invoke()).thenNever()
+        mock.invoke().test().apply {
+            assertNoValues()
+            assertNoErrors()
+            assertNotCompleted()
         }
     }
 }
