@@ -1,1 +1,2 @@
-include ':pager', ':recycler', ':parcelable', ':view', ':shared-preferences', ':espresso', ':recycler-example', ':rxjava', ':rxjava-test'
+include ':pager', ':recycler', ':parcelable', ':view', ':shared-preferences', ':espresso',
+        ':recycler-example', ':rxjava', ':rxjava-test'
