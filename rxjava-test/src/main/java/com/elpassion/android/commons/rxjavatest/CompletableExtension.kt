@@ -2,8 +2,21 @@ package com.elpassion.android.commons.rxjavatest
 
 import rx.Completable
 import rx.observers.TestSubscriber
+import com.nhaarman.mockito_kotlin.doReturn
+import org.mockito.stubbing.OngoingStubbing
 
-//TODO: CR: Restore methods removed in 2e64b5601019633a6a11e750c6e222c489356c76 in TDD
+fun OngoingStubbing<Completable>.thenNever(): OngoingStubbing<Completable> = thenReturn(Completable.never())
+
+fun OngoingStubbing<Completable>.thenError(exception: Exception): OngoingStubbing<Completable> = thenReturn(Completable.error(exception))
+
+fun OngoingStubbing<Completable>.thenComplete() = thenReturn(Completable.complete())
+
+fun OngoingStubbing<Completable>.doReturnComplete() = doReturn(Completable.complete())
+
+fun OngoingStubbing<Completable>.doReturnNever() = doReturn(Completable.never())
+
+fun OngoingStubbing<Completable>.doReturnError(exception: Exception) = doReturn(Completable.error(exception))
+
 fun Completable.test() = TestSubscriber<Unit>().apply { subscribe(this) }
 
 fun Completable.test(assertion: TestSubscriber<Unit>.() -> Unit) = test().assertion()
