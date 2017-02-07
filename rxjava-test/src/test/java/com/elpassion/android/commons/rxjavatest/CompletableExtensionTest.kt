@@ -2,7 +2,6 @@ package com.elpassion.android.commons.rxjavatest
 
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
-import org.junit.Assert.assertFalse
 import org.junit.Test
 import rx.Completable
 import rx.observers.TestSubscriber
@@ -11,19 +10,12 @@ import rx.observers.TestSubscriber
 class CompletableExtensionTest {
 
     @Test
-    fun shouldSubscribeAfterTestMethod() {
-        val subscriber = Completable.never().test()
-
-        assertFalse(subscriber.isUnsubscribed)
-    }
-
-    @Test
-    fun shouldAssertionSuccessful() {
+    fun shouldTestSubscriberAssertCompleted() {
         Completable.complete().test().assertCompleted()
     }
 
     @Test(expected = AssertionError::class)
-    fun shouldAssertionFailed() {
+    fun shouldTestSubscriberAssertFailed() {
         Completable.never().test().assertCompleted()
     }
 
