@@ -79,6 +79,24 @@ class ObservableExtensionTest {
     }
 
     @Test
+    fun shouldReturnObservableJustOnListWhenThenJustIsUsed() {
+        val mock = mock<Function0<Observable<List<Unit>>>>()
+        whenever(mock.invoke()).thenJust(Unit, Unit)
+        mock.invoke().test {
+            assertObservableJust(Unit, Unit)
+        }
+    }
+
+    @Test
+    fun shouldReturnObservableJustOnListWhenDoReturnJustIsUsed() {
+        val mock = mock<Function0<Observable<List<Unit>>>>()
+        whenever(mock.invoke()).doReturnJust(Unit, Unit)
+        mock.invoke().test {
+            assertObservableJust(Unit, Unit)
+        }
+    }
+
+    @Test
     fun shouldReturnObservableErrorWhenThenErrorIsUsed() {
         val mock = mock<Function0<Observable<Unit>>>()
         val expectedError = RuntimeException()
@@ -118,4 +136,9 @@ class ObservableExtensionTest {
         assertCompleted()
     }
 
+    private fun <T> TestSubscriber<List<T>>.assertObservableJust(vararg values: T) {
+        assertValues(values.toList())
+        assertNoErrors()
+        assertCompleted()
+    }
 }

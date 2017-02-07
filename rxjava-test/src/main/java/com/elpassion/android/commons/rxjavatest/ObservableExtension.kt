@@ -1,7 +1,7 @@
 package com.elpassion.android.commons.rxjavatest
 
 import com.nhaarman.mockito_kotlin.doReturn
- import org.mockito.stubbing.OngoingStubbing
+import org.mockito.stubbing.OngoingStubbing
 import rx.Observable
 import rx.observers.TestSubscriber
 
@@ -9,9 +9,13 @@ fun <T> OngoingStubbing<Observable<T>>.thenNever(): OngoingStubbing<Observable<T
 
 fun <T> OngoingStubbing<Observable<T>>.thenJust(value: T): OngoingStubbing<Observable<T>> = thenReturn(Observable.just(value))
 
+fun <T> OngoingStubbing<Observable<List<T>>>.thenJust(vararg values: T): OngoingStubbing<Observable<List<T>>> = thenReturn(Observable.just(values.toList()))
+
 fun <T> OngoingStubbing<Observable<T>>.thenError(exception: Exception): OngoingStubbing<Observable<T>> = thenReturn(Observable.error(exception))
 
 fun <T> OngoingStubbing<Observable<T>>.doReturnJust(value: T) = doReturn(Observable.just(value))
+
+fun <T> OngoingStubbing<Observable<List<T>>>.doReturnJust(vararg values: T) = doReturn(Observable.just(values.toList()))
 
 fun <T> OngoingStubbing<Observable<T>>.doReturnNever() = doReturn(Observable.never())
 
