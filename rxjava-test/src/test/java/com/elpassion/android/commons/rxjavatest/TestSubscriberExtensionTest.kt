@@ -16,6 +16,11 @@ class TestSubscriberExtensionTest {
         Observable.just(1, 3, 4).test().assertValuesThat { it == 0 }
     }
 
+    @Test(expected = AssertionError::class)
+    fun shouldReallyMultipleValuesAssertionFailed() {
+        Observable.just(1, -1, 4).test().assertValuesThat { it > 0 }
+    }
+
     @Test
     fun shouldFirstValueAssertionSuccessful() {
         Observable.just(4, -1).test().assertValueThat { it > 0 }
