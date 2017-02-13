@@ -21,10 +21,16 @@ class CompletableExtensionTest {
 
     @Test(expected = AssertionError::class)
     fun shouldFailAssertionErrorChain() {
+        Completable.error(RuntimeException()).test {
+            assertNoErrors()
+        }
+    }
+
+    @Test
+    fun shouldNotFailAssertionErrorChain() {
         val error = RuntimeException()
         Completable.error(error).test {
             assertError(error)
-            assertNoErrors()
         }
     }
 
