@@ -20,6 +20,31 @@ class ObservableExtensionTest {
     }
 
     @Test
+    fun shouldTestSubscriberAssertValueOnBlock() {
+        Observable.just(2).test { assertValue(2) }
+    }
+
+    @Test(expected = AssertionError::class)
+    fun shouldTestSubscriberThrowAssertionErrorOnBlock() {
+        Observable.just(2).test { assertValue(3) }
+    }
+
+    @Test(expected = AssertionError::class)
+    fun shouldFailAssertionErrorChain() {
+        Observable.error<Unit>(RuntimeException()).test {
+            assertNoErrors()
+        }
+    }
+
+    @Test
+    fun shouldNotFailAssertionErrorChain() {
+        val error = RuntimeException()
+        Observable.error<Unit>(error).test {
+            assertError(error)
+        }
+    }
+
+    @Test
     fun shouldReturnObservableNeverWhenThenNeverIsUsed() {
         val mock = mock<Function0<Observable<Unit>>>()
         whenever(mock.invoke()).thenNever()
