@@ -6,7 +6,6 @@ import org.junit.Test
 import rx.Completable
 import rx.observers.TestSubscriber
 
-
 class StubbingCompletableExtensionTest {
 
     @Test

@@ -3,7 +3,6 @@ package com.elpassion.android.commons.rxjavatest
 import org.junit.Test
 import rx.Completable
 
-
 class CompletableExtensionTest {
 
     @Test
