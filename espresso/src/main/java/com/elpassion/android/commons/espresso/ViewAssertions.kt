@@ -1,5 +1,6 @@
 package com.elpassion.android.commons.espresso
 
+import android.support.annotation.DrawableRes
 import android.support.annotation.StringRes
 import android.support.test.espresso.ViewInteraction
 import android.support.test.espresso.assertion.ViewAssertions
@@ -9,7 +10,10 @@ import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.espresso.matcher.ViewMatchers.Visibility.GONE
 import com.elpassion.android.commons.espresso.matchers.EditTextErrorMatcher
 import com.elpassion.android.commons.espresso.matchers.TextInputEditTextHintMatcher
+import com.elpassion.android.commons.espresso.matchers.withImage
+import com.elpassion.android.commons.espresso.matchers.withAnyImage
 import com.elpassion.android.commons.espresso.recycler.containerHasChildCount
+import org.hamcrest.Matcher
 import org.hamcrest.core.IsNot.not
 
 fun ViewInteraction.isDisplayed(): ViewInteraction = check(matches(ViewMatchers.isDisplayed()))
@@ -24,6 +28,14 @@ fun ViewInteraction.hasText(@StringRes textId: Int): ViewInteraction = check(mat
 
 fun ViewInteraction.hasText(text: String): ViewInteraction = check(matches(withText(text)))
 
+fun ViewInteraction.hasImage(@DrawableRes imageId: Int) = check(matches(withImage(imageId)))
+
+fun ViewInteraction.doesNotHaveImage(@DrawableRes imageId: Int) = check(matches(not(withImage(imageId))))
+
+fun ViewInteraction.hasAnyImage() = check(matches(withAnyImage()))
+
+fun ViewInteraction.doesNotHaveAnyImage() = check(matches(not(withAnyImage())))
+
 fun ViewInteraction.isEnabled(): ViewInteraction = check(matches(ViewMatchers.isEnabled()))
 
 fun ViewInteraction.isDisabled(): ViewInteraction = check(matches(not(ViewMatchers.isEnabled())))
@@ -31,6 +43,8 @@ fun ViewInteraction.isDisabled(): ViewInteraction = check(matches(not(ViewMatche
 fun ViewInteraction.isChecked(): ViewInteraction = check(matches(ViewMatchers.isChecked()))
 
 fun ViewInteraction.isNotChecked(): ViewInteraction = check(matches(not(ViewMatchers.isChecked())))
+
+fun ViewInteraction.hasTag(matcher: Matcher<Any>) = check(matches(withTagValue(matcher)))
 
 fun ViewInteraction.hasChildWithText(@StringRes textId: Int): ViewInteraction = check(matches(hasDescendant(withText(textId))))
 

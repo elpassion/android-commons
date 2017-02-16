@@ -6,6 +6,7 @@
         <activity android:name="com.elpassion.android.commons.espresso.InitIntentsRuleTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.InitIntentsRuleTest$StartingActivity" />
         <activity android:name="com.elpassion.android.commons.espresso.ClickTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.SwipeTest$FakeActivity" />
         <activity android:name="com.elpassion.android.commons.espresso.TypeTextTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.ReplaceTextTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.PressImeActionButtonTest$Activity" />
@@ -14,6 +15,8 @@
         <activity android:name="com.elpassion.android.commons.espresso.VisibilityAssertionsTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.ParentGoneChildVisiblityAssertionTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.HasTextAssertionsTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.HasTagTest$FakeActivity" />
+        <activity android:name="com.elpassion.android.commons.espresso.HasImageTest$FakeActivity" />
         <activity android:name="com.elpassion.android.commons.espresso.EnableAssertionsTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.CheckedAssertionsTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.HasChildWithTextAssertionsTest$Activity" />
