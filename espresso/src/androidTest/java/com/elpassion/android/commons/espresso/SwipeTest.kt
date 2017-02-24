@@ -61,9 +61,6 @@ class SwipeTest {
 
     data class Velocity(val x: Float, val y: Float)
 
-    companion object {
-
-        private fun withVelocity(predicate: (Velocity) -> Boolean, predicateDescription: String)
-                = createObjectMatcher<Any, Velocity>(predicate, { it.appendText("is Velocity with $predicateDescription") })
-    }
+    private fun withVelocity(predicate: (Velocity) -> Boolean, predicateDescription: String)
+            = createObjectMatcher<Any, Velocity>(predicate, { it.appendText("is Velocity with $predicateDescription") })
 }
