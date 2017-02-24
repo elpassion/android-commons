@@ -69,7 +69,7 @@ int commonMinSdkVersion() {
 }
 
 String commonBuildToolsVersion() {
-    return '24.0.0'
+    return '25.0.1'
 }
 
 boolean isCI() {
