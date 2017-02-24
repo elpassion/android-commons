@@ -5,6 +5,7 @@ buildscript {
     ext.kotlin_version = '1.0.6'
     ext.espresso_version = '2.2.2'
     ext.test_runner = '0.5'
+    ext.mockito_kotlin = '1.0.1'
     repositories {
         jcenter()
     }
