@@ -27,7 +27,7 @@ android {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile 'io.reactivex:rxjava:1.1.9'
+    compile "io.reactivex:rxjava:$rx_java_one_version"
     compile "com.nhaarman:mockito-kotlin:$mockito_kotlin"
     compile 'io.reactivex:rxandroid:1.2.1'
 
