@@ -48,8 +48,8 @@ class SwipeTest {
             val button = Button(this)
             button.id = R.id.first
             val detector = GestureDetectorCompat(this, object : GestureDetector.SimpleOnGestureListener() {
-                override fun onScroll(e1: MotionEvent, e2: MotionEvent, velocityX: Float, velocityY: Float): Boolean {
-                    button.text = detectDirection(velocityX, velocityY).name
+                override fun onScroll(e1: MotionEvent, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
+                    button.text = detectDirection(distanceX, distanceY).name
                     return true
                 }
             })
@@ -57,24 +57,24 @@ class SwipeTest {
             setContentView(button)
         }
 
-        private fun detectDirection(velocityX: Float, velocityY: Float): Direction {
-            return if (abs(velocityX) > abs(velocityY)) {
-                detectHorizontalDirection(velocityX)
+        private fun detectDirection(distanceX: Float, distanceY: Float): Direction {
+            return if (abs(distanceX) > abs(distanceY)) {
+                detectHorizontalDirection(distanceX)
             } else {
-                detectVerticalDirection(velocityY)
+                detectVerticalDirection(distanceY)
             }
         }
 
-        private fun detectHorizontalDirection(velocityX: Float): Direction {
-            return if (velocityX > 0) {
+        private fun detectHorizontalDirection(distanceX: Float): Direction {
+            return if (distanceX < 0) {
                 Direction.RIGHT
             } else {
                 Direction.LEFT
             }
         }
 
-        private fun detectVerticalDirection(velocityY: Float): Direction {
-            return if (velocityY > 0) {
+        private fun detectVerticalDirection(distanceY: Float): Direction {
+            return if (distanceY < 0) {
                 Direction.DOWN
             } else {
                 Direction.UP
