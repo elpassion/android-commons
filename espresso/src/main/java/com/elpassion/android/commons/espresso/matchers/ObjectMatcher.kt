@@ -5,7 +5,7 @@ import org.hamcrest.Description
 import org.hamcrest.Matcher
 
 inline fun <reified Base : Any, reified T : Base> createObjectMatcher(
-        crossinline matchesSafelyImpl: (view: T) -> Boolean,
+        crossinline matchesSafelyImpl: (item: T) -> Boolean,
         crossinline describeToImpl: (description: Description) -> Unit): Matcher<Base> {
 
     return object : BoundedMatcher<Base, T>(T::class.java) {
