@@ -36,21 +36,21 @@ fun <Section, Item : StableItemAdapter<out RecyclerView.ViewHolder>> stableSecti
                 getItemIdentifier = getStableItemIdentifier(itemsStrategy),
                 init = createStableIdInitialization())
 
-fun <V : View, I> basicAdapterWithHolder(items: BasicList<I>, createHolder: (parent: ViewGroup) -> BasicViewHolder<V, I>) =
-        object : BasicAdapter<V, I>(items) {
+fun <Item> basicAdapterWithHolder(items: BasicList<Item>, createHolder: (parent: ViewGroup) -> BasicViewHolder<Item>) =
+        object : BasicAdapter<Item>(items) {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = createHolder(parent)
         }
 
-fun <I> basicAdapterWithLayoutAndBinder(items: BasicList<I>, layout: Int, binder: (holder: BasicViewHolder<View, I>, item: I) -> Unit) =
+fun <Item> basicAdapterWithLayoutAndBinder(items: BasicList<Item>, layout: Int, binder: (holder: BasicViewHolder<Item>, item: Item) -> Unit) =
         basicAdapterWithHolder(items) { parent ->
-            object : BasicViewHolder<View, I>(parent.inflate(layout)) {
-                override fun bind(item: I) = binder(this, item)
+            object : BasicViewHolder<Item>(parent.inflate(layout)) {
+                override fun bind(item: Item) = binder(this, item)
             }
         }
 
-fun <V : View, I> basicAdapterWithCreator(items: BasicList<I>, getTypeAndCreator: (position: Int) -> Pair<Int, (parent: ViewGroup) -> BasicViewHolder<V, I>>) =
-        object : BasicAdapter<V, I>(items) {
-            private val creators = HashMap<Int, (parent: ViewGroup) -> BasicViewHolder<V, I>>()
+fun <Item> basicAdapterWithCreator(items: BasicList<Item>, getTypeAndCreator: (position: Int) -> Pair<Int, (parent: ViewGroup) -> BasicViewHolder<Item>>) =
+        object : BasicAdapter<Item>(items) {
+            private val creators = HashMap<Int, (parent: ViewGroup) -> BasicViewHolder<Item>>()
             override fun getItemViewType(position: Int): Int {
                 val (type, creator) = getTypeAndCreator(position)
                 creators[type] = creator
@@ -60,7 +60,7 @@ fun <V : View, I> basicAdapterWithCreator(items: BasicList<I>, getTypeAndCreator
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = creators[viewType]!!(parent)
         }
 
-fun <I> basicAdapterWithConstructors(items: BasicList<I>, getLayoutAndConstructor: (position: Int) -> Pair<Int, (itemView: View) -> BasicViewHolder<View, I>>) =
+fun <Item> basicAdapterWithConstructors(items: BasicList<Item>, getLayoutAndConstructor: (position: Int) -> Pair<Int, (itemView: View) -> BasicViewHolder<Item>>) =
         basicAdapterWithCreator(items) { position ->
             val (layout, constructor) = getLayoutAndConstructor(position)
             layout to { parent: ViewGroup -> constructor(parent.inflate(layout)) }

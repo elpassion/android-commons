@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.elpassion.android.commons.recycler_example">
+
+    <application android:theme="@style/Theme.AppCompat">
+        <activity android:name="com.elpassion.android.commons.espresso.InitIntentsRuleTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.InitIntentsRuleTest$StartingActivity" />
+        <activity android:name="com.elpassion.android.commons.espresso.ClickTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.SwipeTest$FakeActivity" />
+        <activity android:name="com.elpassion.android.commons.espresso.TypeTextTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.ReplaceTextTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.PressImeActionButtonTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.OnIdTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.OnTextTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.VisibilityAssertionsTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.ParentGoneChildVisiblityAssertionTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.HasTextAssertionsTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.HasTagTest$FakeActivity" />
+        <activity android:name="com.elpassion.android.commons.espresso.HasImageTest$FakeActivity" />
+        <activity android:name="com.elpassion.android.commons.espresso.EnableAssertionsTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.CheckedAssertionsTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.HasChildWithTextAssertionsTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.SelectedAssertionsTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.TextInputEditTextHasHintAssertionTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.HasChildCountAssertionTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.EditTextHasErrorAssertionTest$Activity" />
+    </application>
+</manifest>

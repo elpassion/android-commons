@@ -1,16 +1,19 @@
 import java.util.regex.Pattern
 
 buildscript {
-    ext.support_version = '23.2.1'
-    ext.kotlin_version = '1.0.5-2'
+    ext.support_version = '23.4.0'
+    ext.kotlin_version = '1.0.6'
     ext.espresso_version = '2.2.2'
     ext.test_runner = '0.5'
+    ext.mockito_kotlin = '1.0.1'
+    ext.mockito_version = '1.10.19'
+    ext.rx_java_one_version = '1.1.9'
     repositories {
         jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.3'
-        classpath 'com.github.ben-manes:gradle-versions-plugin:0.13.0'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.14.0'
     }
 }
 
@@ -69,9 +72,13 @@ int commonMinSdkVersion() {
 }
 
 String commonBuildToolsVersion() {
-    return '24.0.0'
+    return '25.0.1'
 }
 
 boolean isCI() {
     return "true" == System.env.CI
+}
+
+boolean isOnMasterBranch() {
+    return "master" == System.env.TRAVIS_BRANCH
 }

@@ -4,6 +4,6 @@ import android.support.v7.widget.RecyclerView.ViewHolder
 import android.view.View
 
 
-open class BasicViewHolder<V: View, in I>(itemView: V) : ViewHolder(itemView){
-    open fun bind(item: I) {}
+open class BasicViewHolder<in Item>(itemView: View) : ViewHolder(itemView){
+    open fun bind(item: Item) {}
 }

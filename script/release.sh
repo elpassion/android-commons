@@ -35,8 +35,6 @@ git merge --no-ff --no-edit release/$VERSION_NAME
 checkResult
 git push
 checkResult
-./gradlew uploadArchives
-checkResult
 git tag $VERSION_NAME
 checkResult
 git push --tags

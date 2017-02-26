@@ -15,6 +15,7 @@ android {
     buildToolsVersion commonBuildToolsVersion()
 
     defaultConfig {
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         minSdkVersion commonMinSdkVersion()
         targetSdkVersion commonTargetSdkVersion()
         versionCode commonVersionCode()

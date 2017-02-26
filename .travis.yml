@@ -6,9 +6,13 @@ android:
   components:
     - platform-tools
     - tools
-    - build-tools-24.0.0
+    - build-tools-25.0.1
     - android-23
     - extra-android-m2repository
 
 before_install:
+  - bash script/decrypt_files_if_master.sh
   - script/start_emulator.sh
+
+after_success:
+ - bash script/upload_to_sonatype_if_master.sh

@@ -1,0 +1,43 @@
+buildscript {
+    ext.retrofit_version = '2.1.0'
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion commonCompileSdkVersion()
+    buildToolsVersion commonBuildToolsVersion()
+
+    defaultConfig {
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        minSdkVersion commonMinSdkVersion()
+        targetSdkVersion commonTargetSdkVersion()
+        versionCode commonVersionCode()
+        versionName commonVersionName()
+    }
+}
+
+dependencies {
+    compile "com.android.support:appcompat-v7:$support_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile "io.reactivex:rxjava:$rx_java_one_version"
+    compile "com.squareup.retrofit2:retrofit:$retrofit_version"
+    compile "com.squareup.retrofit2:adapter-rxjava:$retrofit_version"
+
+    testCompile 'junit:junit:4.12'
+    testCompile "com.squareup.okhttp3:mockwebserver:3.3.0"
+    testCompile("org.mockito:mockito-core:$mockito_version") {
+        exclude group: 'org.hamcrest'
+    }
+    testCompile "com.nhaarman:mockito-kotlin:$mockito_kotlin"
+}
+
+apply from: '../gradle/upload-archives.gradle'

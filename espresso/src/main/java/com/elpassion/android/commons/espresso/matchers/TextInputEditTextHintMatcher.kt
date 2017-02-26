@@ -1,20 +1,24 @@
 package com.elpassion.android.commons.espresso.matchers
 
 import android.support.annotation.StringRes
-import android.support.design.widget.TextInputEditText
 import android.support.design.widget.TextInputLayout
-import android.support.test.espresso.matcher.BoundedMatcher
 import android.view.View
 import org.hamcrest.Description
+import org.hamcrest.TypeSafeMatcher
 
-class TextInputEditTextHintMatcher(@StringRes private val textId: Int) : BoundedMatcher<View, TextInputEditText>(TextInputEditText::class.java) {
+class TextInputEditTextHintMatcher(@StringRes private val textId: Int) : TypeSafeMatcher<View>(View::class.java) {
 
-    override fun matchesSafely(view: TextInputEditText): Boolean {
-        val grandpa = view.parent?.parent
-        if (grandpa is TextInputLayout) {
-            return grandpa.hint == view.context.getString(textId)
+    override fun matchesSafely(view: View): Boolean {
+        return matchTextInputLayoutHint(view, view.context.getString(textId))
+    }
+
+    private fun matchTextInputLayoutHint(view: View, expectedHint: String): Boolean {
+        val parent = view.parent
+        return when (parent) {
+            is TextInputLayout -> parent.hint == expectedHint
+            is View -> matchTextInputLayoutHint(parent, expectedHint)
+            else -> false
         }
-        return false
     }
 
     override fun describeTo(description: Description) {

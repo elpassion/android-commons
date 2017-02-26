@@ -4,7 +4,17 @@ apply plugin: 'signing'
 group = 'com.elpassion.android.commons'
 version = commonVersionName()
 
-if (!isCI()) {
+if (isCI() && isOnMasterBranch()) {
+
+    def propsFile = rootProject.file('setup.properties')
+    def setupProperties = new Properties()
+    setupProperties.load(new FileInputStream(propsFile))
+
+    ext['signing.secretKeyRingFile'] = rootProject.file("secring.gpg").absolutePath
+    ext['signing.keyId'] = setupProperties['signing.keyId']
+    ext['signing.password'] = setupProperties['signing.password']
+    ext['elSonatypeUserName'] = setupProperties['elSonatypeUserName']
+    ext['elSonatypePassword'] = setupProperties['elSonatypePassword']
 
     signing {
         sign configurations.archives
@@ -16,7 +26,7 @@ if (!isCI()) {
 
     task sourcesJar(type: Jar) {
         classifier = 'sources'
-        from android.sourceSets.main.java.sourceFiles
+        from android.sourceSets.main.java.srcDirs
     }
 
     artifacts {
