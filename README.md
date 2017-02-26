@@ -10,7 +10,7 @@ Download
 Espresso commons:
 
 ```groovy
-androidTestCompile "com.elpassion.android.commons:espresso:0.0.11"
+compile "com.elpassion.android.commons:espresso:0.0.11"
 ```
 
 Pager commons:
