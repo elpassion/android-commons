@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/elpassion/android-commons.svg?branch=develop)](https://travis-ci.org/elpassion/android-commons)
 [![Maven Central](https://img.shields.io/maven-central/v/com.elpassion.android.commons/espresso.svg?label=maven%20central)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.elpassion.android.commons%22)
 
-Libraries used in most EL Passion Android projects.
+Libraries written in Kotlin and used in most EL Passion Android projects.
 
 Download
 --------
