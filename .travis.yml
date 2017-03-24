@@ -14,11 +14,5 @@ before_install:
   - bash script/decrypt_files_if_master.sh
   - script/start_emulator.sh
 
-script:
-  - ./gradlew :recycler-example:lint
-
 after_success:
  - bash script/upload_to_sonatype_if_master.sh
-
-after_failure:
- - cat recycler-example/build/reports/lint-results.xml
