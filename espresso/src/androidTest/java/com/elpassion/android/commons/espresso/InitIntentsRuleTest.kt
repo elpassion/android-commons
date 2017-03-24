@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.test.rule.ActivityTestRule
 import android.widget.FrameLayout
+import junit.framework.AssertionFailedError
 import org.junit.Rule
 import org.junit.Test
 
@@ -20,7 +21,7 @@ class InitIntentsRuleTest {
         checkIntent(StartingActivity::class.java)
     }
 
-    @Test(expected = AssertionError::class)
+    @Test(expected = AssertionFailedError::class)
     fun shouldFailCheckIntent() {
         checkIntent(NotStartingActivity::class.java)
     }
