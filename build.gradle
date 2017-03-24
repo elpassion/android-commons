@@ -1,7 +1,7 @@
 import java.util.regex.Pattern
 
 buildscript {
-    ext.support_version = '25.0.1'
+    ext.support_version = '25.1.0'
     ext.kotlin_version = '1.1.0'
     ext.espresso_version = '2.2.2'
     ext.test_runner = '0.5'
