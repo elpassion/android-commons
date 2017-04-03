@@ -1,28 +1,4 @@
-buildscript {
-    ext.retrofit_version = '2.1.0'
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
-
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-
-android {
-    compileSdkVersion commonCompileSdkVersion()
-    buildToolsVersion commonBuildToolsVersion()
-
-    defaultConfig {
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        minSdkVersion commonMinSdkVersion()
-        targetSdkVersion commonTargetSdkVersion()
-        versionCode commonVersionCode()
-        versionName commonVersionName()
-    }
-}
+apply from: '../gradle/android-module.gradle'
 
 dependencies {
     compile "com.android.support:appcompat-v7:$support_version"
@@ -39,5 +15,3 @@ dependencies {
     }
     testCompile "com.nhaarman:mockito-kotlin:$mockito_kotlin"
 }
-
-apply from: '../gradle/upload-archives.gradle'
