@@ -3,7 +3,7 @@ package com.elpassion.android.commons.rxjavatest
 import org.junit.Test
 import rx.Observable
 
-class TestSubscriberExtensionTest {
+class AssertableSubscriberExtensionTest {
 
     @Test
     fun shouldMultipleValuesAssertionSuccessful() {
