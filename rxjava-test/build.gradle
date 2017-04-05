@@ -1,29 +1,4 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
-
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-
-android {
-    compileSdkVersion commonCompileSdkVersion()
-    buildToolsVersion commonBuildToolsVersion()
-
-    defaultConfig {
-        minSdkVersion commonMinSdkVersion()
-        targetSdkVersion commonTargetSdkVersion()
-        versionCode commonVersionCode()
-        versionName commonVersionName()
-    }
-    lintOptions {
-        disable 'InvalidPackage'
-    }
-}
+apply from: '../gradle/android-module.gradle'
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -34,5 +9,3 @@ dependencies {
     provided 'junit:junit:4.12'
     testCompile 'junit:junit:4.12'
 }
-
-apply from: '../gradle/upload-archives.gradle'
