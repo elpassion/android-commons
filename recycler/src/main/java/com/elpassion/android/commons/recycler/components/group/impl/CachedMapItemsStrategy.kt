@@ -27,4 +27,9 @@ class CachedMapItemsStrategy<Section, Item>(private val itemsStrategy: MutableSe
         itemsStrategy.set(section, from)
         cache = null
     }
+
+    override fun remove(section: Section) {
+        itemsStrategy.remove(section)
+        cache = null
+    }
 }

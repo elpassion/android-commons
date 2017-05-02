@@ -19,4 +19,6 @@ interface MutableSectionedItemsStrategy<Section, Item> : SectionedItemsStrategy<
     fun clear()
 
     fun set(section: Section, from: List<Item>)
+
+    fun remove(section: Section)
 }

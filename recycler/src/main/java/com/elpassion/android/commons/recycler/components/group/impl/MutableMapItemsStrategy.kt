@@ -17,7 +17,6 @@ class MutableMapItemsStrategy<Section, Item> : MutableSectionedItemsStrategy<Sec
         }
     }
 
-
     override fun addAll(section: Section, from: List<Item>) {
         items[section]!!.addAll(from)
     }
@@ -42,4 +41,7 @@ class MutableMapItemsStrategy<Section, Item> : MutableSectionedItemsStrategy<Sec
 
     override fun getSectionForItemPosition(itemPosition: Int) = getSectionForItem(allItems()[itemPosition], items)
 
+    override fun remove(section: Section) {
+        items.remove(section)
+    }
 }
