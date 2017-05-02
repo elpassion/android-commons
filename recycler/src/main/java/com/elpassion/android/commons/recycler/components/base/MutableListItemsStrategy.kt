@@ -31,4 +31,8 @@ class MutableListItemsStrategy<T> : MutableItemsStrategy<T> {
         items.clear()
         items.addAll(from)
     }
+
+    override fun remove(item: T) {
+        items.remove(item)
+    }
 }
