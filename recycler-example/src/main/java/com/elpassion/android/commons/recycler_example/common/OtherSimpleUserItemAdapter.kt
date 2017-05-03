@@ -6,7 +6,10 @@ import com.elpassion.android.commons.recycler.components.base.ItemAdapter
 import com.elpassion.android.commons.recycler_example.R
 import kotlinx.android.synthetic.main.github_item.view.*
 
-class OtherSimpleUserItemAdapter(private val user: User) : ItemAdapter<OtherSimpleUserItemAdapter.VH>(R.layout.other_github_item) {
+class OtherSimpleUserItemAdapter(
+        private val user: User
+) : ItemAdapter<OtherSimpleUserItemAdapter.VH>(R.layout.other_github_item) {
+
     override fun onCreateViewHolder(itemView: View) = VH(itemView)
 
     override fun onBindViewHolder(holder: VH) {

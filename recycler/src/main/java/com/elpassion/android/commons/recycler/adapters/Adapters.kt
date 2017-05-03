@@ -20,48 +20,66 @@ import com.elpassion.android.commons.recycler.components.stable.getStableItemIde
 import com.elpassion.android.view.inflate
 import java.util.*
 
-fun recyclerViewAdapter(adapters: List<ItemAdapter<*>>) = RecyclerViewCompositeAdapter(ListItemsStrategy(adapters))
+fun recyclerViewAdapter(
+        adapters: List<ItemAdapter<*>>
+) = RecyclerViewCompositeAdapter(ListItemsStrategy(adapters))
 
-fun mutableRecyclerViewAdapter(adapters: MutableList<ItemAdapter<*>> = mutableListOf()) = RecyclerViewCompositeAdapter(MutableListItemsStrategy(adapters))
+fun mutableRecyclerViewAdapter(
+        adapters: MutableList<ItemAdapter<*>> = mutableListOf()
+) = RecyclerViewCompositeAdapter(MutableListItemsStrategy(adapters))
 
-fun stableRecyclerViewAdapter(itemsStrategy: ItemsStrategy<StableItemAdapter<out RecyclerView.ViewHolder>>) =
-        RecyclerViewCompositeAdapter(
-                itemsStrategy = itemsStrategy,
-                getItemIdentifier = getStableItemIdentifier(itemsStrategy),
-                init = createStableIdInitialization())
+fun stableRecyclerViewAdapter(
+        itemsStrategy: ItemsStrategy<StableItemAdapter<out RecyclerView.ViewHolder>>
+) = RecyclerViewCompositeAdapter(
+        itemsStrategy = itemsStrategy,
+        getItemIdentifier = getStableItemIdentifier(itemsStrategy),
+        init = createStableIdInitialization()
+)
 
-fun <Section, Item : StableItemAdapter<out RecyclerView.ViewHolder>> stableSectionedRecyclerViewAdapter(itemsStrategy: SectionedItemsStrategy<Section, Item>) =
-        RecyclerViewCompositeAdapter(
-                itemsStrategy = itemsStrategy,
-                getItemIdentifier = getStableItemIdentifier(itemsStrategy),
-                init = createStableIdInitialization())
+fun <Section, Item : StableItemAdapter<out RecyclerView.ViewHolder>> stableSectionedRecyclerViewAdapter(
+        itemsStrategy: SectionedItemsStrategy<Section, Item>
+) = RecyclerViewCompositeAdapter(
+        itemsStrategy = itemsStrategy,
+        getItemIdentifier = getStableItemIdentifier(itemsStrategy),
+        init = createStableIdInitialization()
+)
 
 fun <Item> basicAdapterWithHolder(items: BasicList<Item>, createHolder: (parent: ViewGroup) -> BasicViewHolder<Item>) =
         object : BasicAdapter<Item>(items) {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = createHolder(parent)
         }
 
-fun <Item> basicAdapterWithLayoutAndBinder(items: BasicList<Item>, layout: Int, binder: (holder: BasicViewHolder<Item>, item: Item) -> Unit) =
-        basicAdapterWithHolder(items) { parent ->
-            object : BasicViewHolder<Item>(parent.inflate(layout)) {
-                override fun bind(item: Item) = binder(this, item)
-            }
-        }
+fun <Item> basicAdapterWithLayoutAndBinder(
+        items: BasicList<Item>,
+        layout: Int,
+        binder: (holder: BasicViewHolder<Item>, item: Item) -> Unit
+) = basicAdapterWithHolder(items) { parent ->
+    object : BasicViewHolder<Item>(parent.inflate(layout)) {
 
-fun <Item> basicAdapterWithCreator(items: BasicList<Item>, getTypeAndCreator: (position: Int) -> Pair<Int, (parent: ViewGroup) -> BasicViewHolder<Item>>) =
-        object : BasicAdapter<Item>(items) {
-            private val creators = HashMap<Int, (parent: ViewGroup) -> BasicViewHolder<Item>>()
-            override fun getItemViewType(position: Int): Int {
-                val (type, creator) = getTypeAndCreator(position)
-                creators[type] = creator
-                return type
-            }
+        override fun bind(item: Item) = binder(this, item)
+    }
+}
 
-            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = creators[viewType]!!(parent)
-        }
+fun <Item> basicAdapterWithCreator(
+        items: BasicList<Item>,
+        getTypeAndCreator: (position: Int) -> Pair<Int, (parent: ViewGroup) -> BasicViewHolder<Item>>
+) = object : BasicAdapter<Item>(items) {
 
-fun <Item> basicAdapterWithConstructors(items: BasicList<Item>, getLayoutAndConstructor: (position: Int) -> Pair<Int, (itemView: View) -> BasicViewHolder<Item>>) =
-        basicAdapterWithCreator(items) { position ->
-            val (layout, constructor) = getLayoutAndConstructor(position)
-            layout to { parent: ViewGroup -> constructor(parent.inflate(layout)) }
-        }
+    private val creators = HashMap<Int, (parent: ViewGroup) -> BasicViewHolder<Item>>()
+
+    override fun getItemViewType(position: Int): Int {
+        val (type, creator) = getTypeAndCreator(position)
+        creators[type] = creator
+        return type
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = creators[viewType]!!(parent)
+}
+
+fun <Item> basicAdapterWithConstructors(
+        items: BasicList<Item>,
+        getLayoutAndConstructor: (position: Int) -> Pair<Int, (itemView: View) -> BasicViewHolder<Item>>
+) = basicAdapterWithCreator(items) { position ->
+    val (layout, constructor) = getLayoutAndConstructor(position)
+    layout to { parent: ViewGroup -> constructor(parent.inflate(layout)) }
+}

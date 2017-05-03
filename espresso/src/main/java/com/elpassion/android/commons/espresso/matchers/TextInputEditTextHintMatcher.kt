@@ -6,7 +6,9 @@ import android.view.View
 import org.hamcrest.Description
 import org.hamcrest.TypeSafeMatcher
 
-class TextInputEditTextHintMatcher(@StringRes private val textId: Int) : TypeSafeMatcher<View>(View::class.java) {
+class TextInputEditTextHintMatcher(
+        @StringRes private val textId: Int
+) : TypeSafeMatcher<View>(View::class.java) {
 
     override fun matchesSafely(view: View): Boolean {
         return matchTextInputLayoutHint(view, view.context.getString(textId))

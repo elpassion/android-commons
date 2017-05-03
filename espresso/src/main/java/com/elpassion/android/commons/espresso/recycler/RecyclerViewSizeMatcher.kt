@@ -9,19 +9,17 @@ import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
 
 fun containerHasChildCount(count: Int): Matcher<View> = object : TypeSafeMatcher<View>() {
+
     public override fun matchesSafely(view: View): Boolean {
         val groupSize = getGroupCount(view)
         return groupSize == count
     }
 
-    private fun getGroupCount(view: View): Int {
-        val groupSize = when (view) {
-            is RecyclerView -> view.adapter.itemCount
-            is AdapterView<*> -> view.adapter.count
-            is ViewGroup -> view.childCount
-            else -> throw IllegalArgumentException("Unknown view type")
-        }
-        return groupSize
+    private fun getGroupCount(view: View): Int = when (view) {
+        is RecyclerView -> view.adapter.itemCount
+        is AdapterView<*> -> view.adapter.count
+        is ViewGroup -> view.childCount
+        else -> throw IllegalArgumentException("Unknown view type")
     }
 
     override fun describeTo(description: Description) {

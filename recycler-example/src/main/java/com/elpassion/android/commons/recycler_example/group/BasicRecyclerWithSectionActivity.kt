@@ -33,6 +33,7 @@ class BasicRecyclerWithSectionActivity : AppCompatActivity() {
     }
 
     companion object {
+
         fun start(context: Context) {
             context.startActivity(Intent(context, BasicRecyclerWithSectionActivity::class.java))
         }

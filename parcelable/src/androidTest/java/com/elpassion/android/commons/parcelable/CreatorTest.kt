@@ -27,6 +27,7 @@ class CreatorTest {
     }
 
     private class ParcelableImpl : Parcelable {
+
         override fun describeContents() = 0
 
         override fun writeToParcel(dest: Parcel?, flags: Int) {
