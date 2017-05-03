@@ -30,5 +30,4 @@ class MutableListItemsStrategy<T> @JvmOverloads constructor(
     override fun remove(item: T) {
         items.remove(item)
     }
-
 }
