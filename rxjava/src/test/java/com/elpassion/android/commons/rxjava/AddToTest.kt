@@ -12,8 +12,7 @@ class AddToTest {
     @Test
     fun shouldAddSubscriptionToCompositeSubscription() {
 
-        subject
-                .subscribe()
+        subject.subscribe()
                 .addTo(subscription)
 
         assert(subscription.hasSubscriptions())

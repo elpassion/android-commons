@@ -4,5 +4,7 @@ import android.support.annotation.LayoutRes
 import android.support.v7.widget.RecyclerView
 import com.elpassion.android.commons.recycler.components.base.ItemAdapter
 
-abstract class StableItemAdapter<VH : RecyclerView.ViewHolder>(val stableId: Long,
-                                                               @LayoutRes layoutId: Int) : ItemAdapter<VH>(layoutId)
+abstract class StableItemAdapter<VH : RecyclerView.ViewHolder>(
+        val stableId: Long,
+        @LayoutRes layoutId: Int
+) : ItemAdapter<VH>(layoutId)

@@ -15,7 +15,8 @@ interface SharedPreferenceRepository<T> {
 
 inline fun <reified T> createSharedPrefs(
         noinline sharedPreferencesProvider: () -> SharedPreferences,
-        noinline gsonProvider: () -> Gson = ::Gson) = object : SharedPreferenceRepository<T> {
+        noinline gsonProvider: () -> Gson = ::Gson
+) = object : SharedPreferenceRepository<T> {
 
     private val sharedPreferences by lazy(sharedPreferencesProvider)
     private val gson by lazy(gsonProvider)

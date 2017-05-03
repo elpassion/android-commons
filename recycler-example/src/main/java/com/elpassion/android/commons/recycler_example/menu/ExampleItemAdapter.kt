@@ -6,7 +6,9 @@ import com.elpassion.android.commons.recycler.components.base.ItemAdapter
 import com.elpassion.android.commons.recycler_example.R
 import kotlinx.android.synthetic.main.example_item.view.*
 
-class ExampleItemAdapter(private val exampleItem: ExampleItem) : ItemAdapter<ExampleItemAdapter.VH>(R.layout.example_item) {
+class ExampleItemAdapter(
+        private val exampleItem: ExampleItem
+) : ItemAdapter<ExampleItemAdapter.VH>(R.layout.example_item) {
 
     override fun onCreateViewHolder(itemView: View) = VH(itemView)
 

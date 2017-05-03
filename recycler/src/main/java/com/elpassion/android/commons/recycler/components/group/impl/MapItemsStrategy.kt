@@ -3,7 +3,9 @@ package com.elpassion.android.commons.recycler.components.group.impl
 import com.elpassion.android.commons.recycler.components.group.SectionedItemsStrategy
 import java.util.*
 
-class MapItemsStrategy<Section, Item>(map: Map<Section, List<Item>>) : SectionedItemsStrategy<Section, Item> {
+class MapItemsStrategy<Section, Item>(
+        map: Map<Section, List<Item>>
+) : SectionedItemsStrategy<Section, Item> {
 
     private val items: Map<Section, List<Item>> = LinkedHashMap<Section, List<Item>>(map.size).apply {
         putAll(map.mapValues { ArrayList(it.value) })

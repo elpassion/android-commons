@@ -2,7 +2,9 @@ package com.elpassion.android.commons.sharedpreferences
 
 import java.util.*
 
-class CachingSharedPreferenceRepository<T>(private val repository: SharedPreferenceRepository<T>) : SharedPreferenceRepository<T> {
+class CachingSharedPreferenceRepository<T>(
+        private val repository: SharedPreferenceRepository<T>
+) : SharedPreferenceRepository<T> {
 
     private val cacheMap = HashSet<String>()
     private val valueMap = HashMap<String, T?>()
