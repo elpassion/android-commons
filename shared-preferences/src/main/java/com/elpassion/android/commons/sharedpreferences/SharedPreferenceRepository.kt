@@ -27,14 +27,7 @@ inline fun <reified T> createSharedPrefs(
                 .apply()
     }
 
-    override fun read(key: String): T? {
-        val value = sharedPreferences.getString(key, null)
-        if (value == null) {
-            return null
-        } else {
-            return gson.fromJson<T>(value, type)
-        }
-    }
+    override fun read(key: String): T? = sharedPreferences.getString(key, null)?.let { gson.fromJson<T>(it, type) }
 
     override fun contains(key: String) = sharedPreferences.contains(key)
 }

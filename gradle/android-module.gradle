@@ -1,0 +1,20 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion commonCompileSdkVersion()
+    buildToolsVersion commonBuildToolsVersion()
+
+    defaultConfig {
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        minSdkVersion commonMinSdkVersion()
+        targetSdkVersion commonTargetSdkVersion()
+        versionCode commonVersionCode()
+        versionName commonVersionName()
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+
+apply from: '../gradle/upload-archives.gradle'

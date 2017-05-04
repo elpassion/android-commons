@@ -78,15 +78,13 @@ class RxSchedulersRuleTest {
 
     private fun Observable<Unit>.assertThread(thread: Thread) = this
             .map { Thread.currentThread() }
-            .test {
-                assertValue(thread)
-            }
+            .test()
+            .assertValue(thread)
 
     private fun Observable<Unit>.assertNotThread(thread: Thread) = this
             .map { Thread.currentThread() }
-            .test {
-                awaitValueCount(1, 1, TimeUnit.SECONDS)
-                assertValueThat { it != thread }
-            }
+            .test()
+            .awaitValueCount(1, 1, TimeUnit.SECONDS)
+            .assertValueThat { it != thread }
 }
 
