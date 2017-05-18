@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import com.elpassion.android.commons.recycler.RecyclerViewCompositeAdapter
 import com.elpassion.android.commons.recycler.adapters.stableSectionedRecyclerViewAdapter
 import com.elpassion.android.commons.recycler.components.group.impl.CachedMapItemsStrategy
 import com.elpassion.android.commons.recycler.components.group.impl.MutableMapItemsStrategy
@@ -21,23 +22,35 @@ class StableMutableRecyclerWithSectionsActivity : AppCompatActivity() {
         setContentView(R.layout.recycler_view_with_action)
         recyclerView.layoutManager = LinearLayoutManager(this)
         val users = createManyUsers()
-        val adapters = users.groupBy(User::organization).mapValues { it.value.map(::StableUserItemAdapter) }
+        val adapters = getAdapters(users)
         val itemsStrategy = CachedMapItemsStrategy(MutableMapItemsStrategy(adapters))
         val adapterCompositor = stableSectionedRecyclerViewAdapter(itemsStrategy)
         recyclerView.adapter = adapterCompositor
 
         clearSectionButton.setOnClickListener {
-            itemsStrategy.set("A", emptyList())
-            adapterCompositor.notifyDataSetChanged()
-            restoreSectionButton.isEnabled = true
-            clearSectionButton.isEnabled = false
+            onClearClicked(adapterCompositor, itemsStrategy)
         }
         restoreSectionButton.setOnClickListener {
-            itemsStrategy.addAll("A", createUsersWithASection().map(::StableUserItemAdapter))
-            adapterCompositor.notifyDataSetChanged()
-            restoreSectionButton.isEnabled = false
-            clearSectionButton.isEnabled = true
+            orRestoreClicked(adapterCompositor, itemsStrategy)
         }
+    }
+
+    private fun getAdapters(users: List<User>) = users
+            .groupBy(User::organization)
+            .mapValues { it.value.map(::StableUserItemAdapter) }
+
+    private fun onClearClicked(adapterCompositor: RecyclerViewCompositeAdapter<StableUserItemAdapter>, itemsStrategy: CachedMapItemsStrategy<String, StableUserItemAdapter>) {
+        itemsStrategy.set("A", emptyList())
+        adapterCompositor.notifyDataSetChanged()
+        restoreSectionButton.isEnabled = true
+        clearSectionButton.isEnabled = false
+    }
+
+    private fun orRestoreClicked(adapterCompositor: RecyclerViewCompositeAdapter<StableUserItemAdapter>, itemsStrategy: CachedMapItemsStrategy<String, StableUserItemAdapter>) {
+        itemsStrategy.addAll("A", createUsersWithASection().map(::StableUserItemAdapter))
+        adapterCompositor.notifyDataSetChanged()
+        restoreSectionButton.isEnabled = false
+        clearSectionButton.isEnabled = true
     }
 
     companion object {

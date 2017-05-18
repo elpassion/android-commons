@@ -2,7 +2,9 @@ package com.elpassion.android.commons.recycler.components.group.impl
 
 import com.elpassion.android.commons.recycler.components.group.MutableSectionedItemsStrategy
 
-class CachedMapItemsStrategy<Section, Item>(private val itemsStrategy: MutableSectionedItemsStrategy<Section, Item>) : MutableSectionedItemsStrategy<Section, Item> by itemsStrategy {
+class CachedMapItemsStrategy<Section, Item>(
+        private val itemsStrategy: MutableSectionedItemsStrategy<Section, Item>
+) : MutableSectionedItemsStrategy<Section, Item> by itemsStrategy {
 
     private var cache: List<Item>? = null
 
@@ -25,6 +27,11 @@ class CachedMapItemsStrategy<Section, Item>(private val itemsStrategy: MutableSe
 
     override fun set(section: Section, from: List<Item>) {
         itemsStrategy.set(section, from)
+        cache = null
+    }
+
+    override fun remove(section: Section) {
+        itemsStrategy.remove(section)
         cache = null
     }
 }

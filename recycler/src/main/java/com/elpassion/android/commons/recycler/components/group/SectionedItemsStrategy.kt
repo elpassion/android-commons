@@ -2,7 +2,6 @@ package com.elpassion.android.commons.recycler.components.group
 
 import com.elpassion.android.commons.recycler.components.ItemsStrategy
 
-
 interface SectionedItemsStrategy<Section, Item> : ItemsStrategy<Item> {
     fun getSection(section: Section): List<Item>
 
@@ -19,4 +18,6 @@ interface MutableSectionedItemsStrategy<Section, Item> : SectionedItemsStrategy<
     fun clear()
 
     fun set(section: Section, from: List<Item>)
+
+    fun remove(section: Section)
 }

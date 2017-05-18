@@ -4,7 +4,9 @@ import com.elpassion.android.commons.recycler.basic.BasicListWithMutableSections
 import com.elpassion.android.commons.recycler.basic.BasicMutableList
 import com.elpassion.android.commons.recycler.basic.asBasicMutableMap
 
-class BasicListWithMutableSectionsImpl<Item, in Section>(private val source: MutableMap<Section, BasicMutableList<Item>>) : BasicListWithMutableSections<Item, Section> {
+class BasicListWithMutableSectionsImpl<Item, in Section>(
+        private val source: MutableMap<Section, BasicMutableList<Item>>
+) : BasicListWithMutableSections<Item, Section> {
 
     override val sections = source.asBasicMutableMap()
 

@@ -16,19 +16,25 @@ fun onRecyclerViewItem(@IdRes recyclerViewId: Int, itemPosition: Int, @IdRes vie
     return onRecyclerViewItem(recyclerViewId, itemPosition, withId(viewId))
 }
 
-private fun onRecyclerViewItem(@IdRes recyclerViewId: Int, itemPosition: Int, viewMatcher: Matcher<View>): ViewInteraction {
-    return onView(allOf(
-            anyOf(
-                    atPosition(recyclerViewId, itemPosition),
-                    isDescendantOfA(atPosition(recyclerViewId, itemPosition))),
-            viewMatcher))
-}
+private fun onRecyclerViewItem(
+        @IdRes recyclerViewId: Int,
+        itemPosition: Int,
+        viewMatcher: Matcher<View>
+): ViewInteraction = onView(allOf(
+        anyOf(
+                atPosition(recyclerViewId, itemPosition),
+                isDescendantOfA(atPosition(recyclerViewId, itemPosition))),
+        viewMatcher
+))
 
-private fun atPosition(parentId: Int, itemPosition: Int): Matcher<View>? {
-    return allOf(
-            withParent(withId(parentId)),
-            atPosition(itemPosition))
-}
+private fun atPosition(
+        parentId: Int,
+        itemPosition: Int
+): Matcher<View>? = allOf(
+        withParent(withId(parentId)),
+        atPosition(itemPosition)
+)
+
 
 private fun atPosition(position: Int) = object : TypeSafeMatcher<View>() {
 

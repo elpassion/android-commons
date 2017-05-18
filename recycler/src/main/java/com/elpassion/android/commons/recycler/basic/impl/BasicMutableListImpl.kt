@@ -2,7 +2,9 @@ package com.elpassion.android.commons.recycler.basic.impl
 
 import com.elpassion.android.commons.recycler.basic.BasicMutableList
 
-class BasicMutableListImpl<Item>(private val source: MutableList<Item>) : BasicMutableList<Item> {
+class BasicMutableListImpl<Item>(
+        private val source: MutableList<Item>
+) : BasicMutableList<Item> {
 
     override val size: Int get() = source.size
 

@@ -2,7 +2,9 @@ package com.elpassion.android.commons.recycler.basic.impl
 
 import com.elpassion.android.commons.recycler.basic.BasicMutableMap
 
-class BasicMutableMapImpl<in Key, Value>(private val source: MutableMap<Key, Value>) : BasicMutableMap<Key, Value?> {
+class BasicMutableMapImpl<in Key, Value>(
+        private val source: MutableMap<Key, Value>
+) : BasicMutableMap<Key, Value?> {
 
     override fun get(key: Key): Value? = source[key]
 

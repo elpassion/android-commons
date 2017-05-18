@@ -9,6 +9,7 @@ import rx.plugins.RxJavaHooks
 import rx.schedulers.Schedulers
 
 class RxSchedulersRule : TestRule {
+
     override fun apply(base: Statement, description: Description): Statement = object : Statement() {
         override fun evaluate() {
             RxJavaHooks.setOnIOScheduler { Schedulers.immediate() }

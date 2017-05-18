@@ -26,6 +26,7 @@ class NullableParcelTest {
     }
 
     private data class ParcelableImpl(val id: String) : Parcelable {
+
         override fun describeContents() = 0
 
         override fun writeToParcel(dest: Parcel, flags: Int) {
@@ -33,7 +34,6 @@ class NullableParcelTest {
         }
 
         companion object {
-
             @JvmField
             val CREATOR = createCreator {
                 ParcelableImpl(readString())

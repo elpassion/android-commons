@@ -8,4 +8,6 @@ interface MutableItemsStrategy<T> : ItemsStrategy<T> {
     fun clear()
 
     fun set(from: List<T>)
+
+    fun remove(item: T)
 }
