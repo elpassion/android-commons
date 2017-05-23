@@ -8,7 +8,7 @@ class MutableListItemsStrategy<T> @JvmOverloads constructor(
 
     private val items: MutableList<T> = list.toMutableList()
 
-    override fun allItems() = items
+    override fun allItems(): List<T> = items
 
     override fun addAll(from: List<T>) {
         items.addAll(from)
