@@ -10,6 +10,7 @@ import com.elpassion.android.commons.recycler.basic.asBasicList
 import com.elpassion.android.commons.recycler_example.R
 import com.elpassion.android.commons.recycler_example.common.OtherSimpleUserViewHolder
 import com.elpassion.android.commons.recycler_example.common.SimpleUserViewHolder
+import com.elpassion.android.commons.recycler_example.common.User
 import com.elpassion.android.commons.recycler_example.common.createManyUsers
 import kotlinx.android.synthetic.main.recycler_view.*
 
@@ -22,11 +23,13 @@ class BasicListActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         recyclerView.adapter = basicAdapterWithConstructors(users) { position ->
-            when (users[position].organization) {
-                "A" -> R.layout.github_item to ::SimpleUserViewHolder
-                else -> R.layout.other_github_item to ::OtherSimpleUserViewHolder
-            }
+            getLayoutAndConstructor(users[position])
         }
+    }
+
+    private fun getLayoutAndConstructor(user: User) = when (user.organization) {
+        "A" -> R.layout.github_item to ::SimpleUserViewHolder
+        else -> R.layout.other_github_item to ::OtherSimpleUserViewHolder
     }
 
     companion object {

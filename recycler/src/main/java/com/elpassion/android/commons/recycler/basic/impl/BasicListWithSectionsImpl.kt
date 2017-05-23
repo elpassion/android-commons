@@ -3,7 +3,9 @@ package com.elpassion.android.commons.recycler.basic.impl
 import com.elpassion.android.commons.recycler.basic.BasicListWithSections
 import com.elpassion.android.commons.recycler.basic.asBasicMapOfBasicLists
 
-class BasicListWithSectionsImpl<out Item, in Section>(private val source: Map<Section, List<Item>>) : BasicListWithSections<Item, Section> {
+class BasicListWithSectionsImpl<out Item, in Section>(
+        private val source: Map<Section, List<Item>>
+) : BasicListWithSections<Item, Section> {
 
     override val sections = source.asBasicMapOfBasicLists()
 

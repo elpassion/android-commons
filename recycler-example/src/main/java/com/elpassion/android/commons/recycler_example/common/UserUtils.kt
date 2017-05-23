@@ -2,13 +2,16 @@ package com.elpassion.android.commons.recycler_example.common
 
 import java.util.*
 
-fun createManyUsers() = listOf(createDoctorHouse(), createDoctorWho(), createDoctorX(),
+fun createManyUsers() = listOf(
         createDoctorHouse(), createDoctorWho(), createDoctorX(),
         createDoctorHouse(), createDoctorWho(), createDoctorX(),
         createDoctorHouse(), createDoctorWho(), createDoctorX(),
-        createDoctorHouse(), createDoctorWho(), createDoctorX())
+        createDoctorHouse(), createDoctorWho(), createDoctorX(),
+        createDoctorHouse(), createDoctorWho(), createDoctorX()
+)
 
-fun createUsersWithASection() = createManyUsers().filter { it.organization == "A" }
+fun createUsersWithASection() = createManyUsers()
+        .filter { it.organization == "A" }
 
 private val random by lazy { Random() }
 

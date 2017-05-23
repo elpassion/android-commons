@@ -2,7 +2,6 @@ package com.elpassion.android.commons.recycler.components.group
 
 import com.elpassion.android.commons.recycler.components.ItemsStrategy
 
-
 interface SectionedItemsStrategy<Section, Item> : ItemsStrategy<Item> {
     fun getSection(section: Section): List<Item>
 

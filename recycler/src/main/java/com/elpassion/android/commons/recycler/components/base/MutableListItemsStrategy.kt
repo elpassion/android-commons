@@ -2,18 +2,13 @@ package com.elpassion.android.commons.recycler.components.base
 
 import com.elpassion.android.commons.recycler.components.MutableItemsStrategy
 
-class MutableListItemsStrategy<T> : MutableItemsStrategy<T> {
-    private val items: MutableList<T>
+class MutableListItemsStrategy<T> @JvmOverloads constructor(
+        list: List<T> = listOf()
+) : MutableItemsStrategy<T> {
 
-    constructor() {
-        items = mutableListOf()
-    }
+    private val items: MutableList<T> = list.toMutableList()
 
-    constructor(list: List<T>) {
-        items = list.toMutableList()
-    }
-
-    override fun allItems() = items
+    override fun allItems(): List<T> = items
 
     override fun addAll(from: List<T>) {
         items.addAll(from)

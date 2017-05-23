@@ -5,6 +5,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.elpassion.android.commons.recycler.adapters.basicAdapterWithConstructors
+import com.elpassion.android.commons.recycler.basic.BasicAdapter
 import com.elpassion.android.commons.recycler.basic.addAll
 import com.elpassion.android.commons.recycler.basic.asBasicListWithMutableSections
 import com.elpassion.android.commons.recycler.basic.asBasicMutableList
@@ -27,29 +28,40 @@ class BasicMutableRecyclerWithSectionsActivity : AppCompatActivity() {
         setContentView(R.layout.recycler_view_with_action)
         recyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = basicAdapterWithConstructors(users) { position ->
-            when (users[position].organization) {
-                "A" -> R.layout.github_item to ::SimpleUserViewHolder
-                else -> R.layout.other_github_item to ::OtherSimpleUserViewHolder
-            }
+            getViewLayoutAndConstructor(users[position])
         }
         adapter.setHasStableIds(true)
         recyclerView.adapter = adapter
 
         clearSectionButton.setOnClickListener {
-            users.sections["A"]!!.clear()
-            adapter.notifyDataSetChanged()
-            restoreSectionButton.enable()
-            clearSectionButton.disable()
+            onClearClicked(adapter)
         }
         restoreSectionButton.setOnClickListener {
-            users.sections["A"]!!.addAll(createUsersWithASection())
-            adapter.notifyDataSetChanged()
-            restoreSectionButton.disable()
-            clearSectionButton.enable()
+            onRestoreClicked(adapter)
         }
     }
 
+    private fun onClearClicked(adapter: BasicAdapter<User>) {
+        users.sections["A"]!!.clear()
+        adapter.notifyDataSetChanged()
+        restoreSectionButton.enable()
+        clearSectionButton.disable()
+    }
+
+    private fun onRestoreClicked(adapter: BasicAdapter<User>) {
+        users.sections["A"]!!.addAll(createUsersWithASection())
+        adapter.notifyDataSetChanged()
+        restoreSectionButton.disable()
+        clearSectionButton.enable()
+    }
+
+    private fun getViewLayoutAndConstructor(user: User) = when (user.organization) {
+        "A" -> R.layout.github_item to ::SimpleUserViewHolder
+        else -> R.layout.other_github_item to ::OtherSimpleUserViewHolder
+    }
+
     companion object {
+
         fun start(context: Context) {
             context.startActivity(Intent(context, BasicMutableRecyclerWithSectionsActivity::class.java))
         }
