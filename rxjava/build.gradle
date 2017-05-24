@@ -1,12 +1,12 @@
 apply from: '../gradle/android-module.gradle'
 
 dependencies {
-    compile "com.android.support:appcompat-v7:$support_version"
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile "io.reactivex:rxjava:$rx_java_one_version"
-    compile "com.squareup.retrofit2:retrofit:$retrofit_version"
-    compile "com.squareup.retrofit2:adapter-rxjava:$retrofit_version"
+    provided "com.android.support:appcompat-v7:$support_version"
+    provided "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    provided 'io.reactivex:rxandroid:1.2.1'
+    provided "io.reactivex:rxjava:$rx_java_one_version"
+    provided "com.squareup.retrofit2:retrofit:$retrofit_version"
+    provided "com.squareup.retrofit2:adapter-rxjava:$retrofit_version"
 
     testCompile 'junit:junit:4.12'
     testCompile "com.squareup.okhttp3:mockwebserver:3.3.0"

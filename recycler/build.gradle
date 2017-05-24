@@ -2,11 +2,15 @@ apply from: '../gradle/android-module.gradle'
 
 dependencies {
     compile project(":view")
-    compile "com.android.support:appcompat-v7:$support_version"
     compile "com.android.support:recyclerview-v7:$support_version"
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    provided "com.android.support:appcompat-v7:$support_version"
+    provided "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    androidTestCompile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     androidTestCompile "com.android.support.test:runner:$test_runner"
     androidTestCompile 'junit:junit:4.12'
+
+    testCompile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testCompile 'junit:junit:4.12'
     testCompile "org.mockito:mockito-core:$mockito_version"
 }
