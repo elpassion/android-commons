@@ -24,7 +24,5 @@
         <activity android:name="com.elpassion.android.commons.espresso.TextInputEditTextHasHintAssertionTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.HasChildCountAssertionTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.EditTextHasErrorAssertionTest$Activity" />
-        <activity android:name="com.elpassion.android.commons.espresso.OnToolbarBackArrow_With_Test$Activity" />
-        <activity android:name="com.elpassion.android.commons.espresso.OnToolbarBackArrow_Without_Test$Activity" />
     </application>
 </manifest>
