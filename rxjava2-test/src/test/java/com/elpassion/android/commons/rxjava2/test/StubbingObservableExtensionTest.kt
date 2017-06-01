@@ -1,4 +1,4 @@
-package com.elpassion.android.commons.rxjavatest
+package com.elpassion.android.commons.rxjava2.test
 
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
@@ -65,7 +65,6 @@ class StubbingObservableExtensionTest {
         whenever(mock.invoke()).doReturnError(expectedError)
         mock.invoke().test().assertObservableError(expectedError)
     }
-
 
     private fun <T> TestObserver<T>.assertObservableError(expectedError: RuntimeException) {
         assertError(expectedError)

@@ -1,4 +1,4 @@
-package com.elpassion.android.commons.rxjavatest
+package com.elpassion.android.commons.rxjava2.test
 
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
