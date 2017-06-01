@@ -1,4 +1,4 @@
-package com.elpassion.android.commons.rxjavatest
+package com.elpassion.android.commons.rxjava2.test
 
 import io.reactivex.observers.TestObserver
 import junit.framework.Assert.assertTrue
