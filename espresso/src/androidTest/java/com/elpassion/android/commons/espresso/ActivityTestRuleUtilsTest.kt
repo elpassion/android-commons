@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.test.InstrumentationRegistry
 import android.support.test.rule.ActivityTestRule
 import android.widget.TextView
+import org.junit.Assert.assertNull
 import org.junit.Rule
 import org.junit.Test
 
@@ -14,9 +15,9 @@ class ActivityTestRuleUtilsTest {
     @JvmField @Rule
     val activityRule = ActivityTestRule(Activity::class.java, false, false)
 
-    @Test(expected = RuntimeException::class)
-    fun shouldFailWhenActivityNotStarted() {
-        onText("text").doesNotExist()
+    @Test
+    fun shouldNotStartActivity() {
+        assertNull(activityRule.activity)
     }
 
     @Test
