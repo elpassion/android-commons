@@ -7,6 +7,6 @@ fun ActivityTestRule<*>.startActivity() {
     startActivity(Intent(Intent.ACTION_MAIN))
 }
 
-private fun ActivityTestRule<*>.startActivity(intent: Intent) {
+fun ActivityTestRule<*>.startActivity(intent: Intent) {
     launchActivity(intent)
 }
