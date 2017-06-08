@@ -16,6 +16,12 @@ class ActivityTestRuleUtilsTest {
         onText("text").doesNotExist()
     }
 
+    @Test
+    fun shouldStartActivity() {
+        activityRule.startActivity()
+        onText("text").doesNotExist()
+    }
+
     class Activity : android.app.Activity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
