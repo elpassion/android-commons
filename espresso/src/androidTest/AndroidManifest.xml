@@ -3,6 +3,7 @@
     package="com.elpassion.android.commons.recycler_example">
 
     <application android:theme="@style/Theme.AppCompat">
+        <activity android:name="com.elpassion.android.commons.espresso.ActivityTestRuleUtilsTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.InitIntentsRuleTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.InitIntentsRuleTest$StartingActivity" />
         <activity android:name="com.elpassion.android.commons.espresso.ClickTest$Activity" />
