@@ -1,23 +1,20 @@
 apply from: '../gradle/android-module.gradle'
 
 dependencies {
+    compile "com.android.support:appcompat-v7:$support_version"
     provided "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     provided "com.android.support:design:$support_version"
     provided "com.android.support:recyclerview-v7:$support_version"
-    provided "com.android.support.test.espresso:espresso-core:$espresso_version"
-    provided "com.android.support.test.espresso:espresso-contrib:$espresso_version"
-    provided "com.android.support.test.espresso:espresso-intents:$espresso_version"
-
+    compile("com.android.support.test.espresso:espresso-core:$espresso_version") {
+        exclude group: 'com.android.support'
+    }
+    compile("com.android.support.test.espresso:espresso-contrib:$espresso_version") {
+        exclude group: 'com.android.support'
+    }
+    compile("com.android.support.test.espresso:espresso-intents:$espresso_version") {
+        exclude group: 'com.android.support'
+    }
     androidTestCompile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     androidTestCompile "com.android.support:design:$support_version"
     androidTestCompile "com.android.support:recyclerview-v7:$support_version"
-    androidTestCompile("com.android.support.test.espresso:espresso-core:$espresso_version") {
-        exclude group: 'com.android.support'
-    }
-    androidTestCompile("com.android.support.test.espresso:espresso-contrib:$espresso_version") {
-        exclude group: 'com.android.support'
-    }
-    androidTestCompile("com.android.support.test.espresso:espresso-intents:$espresso_version") {
-        exclude group: 'com.android.support'
-    }
 }

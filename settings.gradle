@@ -6,4 +6,5 @@ include ':pager',
         ':espresso',
         ':recycler-example',
         ':rxjava',
-        ':rxjava-test'
+        ':rxjava-test',
+        ':rxjava2-test'

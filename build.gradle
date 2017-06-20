@@ -1,19 +1,20 @@
 import java.util.regex.Pattern
 
 buildscript {
-    ext.support_version = '25.0.1'
+    ext.support_version = '25.4.0'
     ext.kotlin_version = '1.0.6'
     ext.espresso_version = '2.2.2'
     ext.test_runner = '0.5'
     ext.mockito_kotlin = '1.3.0'
     ext.mockito_version = '1.10.19'
     ext.rx_java_one_version = '1.2.7'
+    ext.rx_java_two_version = '2.1.0'
     ext.retrofit_version = '2.1.0'
     repositories {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.1'
+        classpath 'com.android.tools.build:gradle:2.3.2'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.14.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
@@ -24,6 +25,9 @@ apply plugin: 'com.github.ben-manes.versions'
 allprojects {
     repositories {
         jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
     }
 }
 
@@ -62,7 +66,7 @@ String commonVersionName() {
 }
 
 int commonCompileSdkVersion() {
-    return 23
+    return 25
 }
 
 int commonTargetSdkVersion() {
@@ -74,7 +78,7 @@ int commonMinSdkVersion() {
 }
 
 String commonBuildToolsVersion() {
-    return '25.0.1'
+    return '25.0.3'
 }
 
 boolean isCI() {
