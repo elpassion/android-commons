@@ -10,7 +10,6 @@ import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.elpassion.android.commons.recycler.adapters.basicAdapterWithLayoutAndBinder
-import com.elpassion.android.commons.recycler.basic.BasicList
 import com.elpassion.android.commons.recycler_example.R
 import com.elpassion.android.commons.recycler_example.common.User
 import kotlinx.android.synthetic.main.github_item.view.*
@@ -23,7 +22,7 @@ class BasicContactsListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) == PERMISSION_DENIED) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) == PERMISSION_DENIED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_CONTACTS), 1)
             finish()
             return
@@ -44,12 +43,12 @@ class BasicContactsListActivity : AppCompatActivity() {
         super.onDestroy()
     }
 
-    inner class BasicContactsList : BasicList<User>, Closeable {
+    inner class BasicContactsList : AbstractList<User>(), Closeable {
 
         private val cursor = contentResolver.query(Contacts.CONTENT_URI, null, null, null, null)
 
-        override fun get(key: Int): User {
-            cursor.moveToPosition(key)
+        override fun get(index: Int): User {
+            cursor.moveToPosition(index)
             return User(0L, cursor.getString(cursor.getColumnIndex(Contacts.DISPLAY_NAME_PRIMARY)), "C")
         }
 

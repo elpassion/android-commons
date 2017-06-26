@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.elpassion.android.commons.recycler.adapters.basicAdapterWithLayoutAndBinder
-import com.elpassion.android.commons.recycler.basic.asBasicList
 import com.elpassion.android.commons.recycler_example.R
 import com.elpassion.android.commons.recycler_example.group.*
 import com.elpassion.android.commons.recycler_example.list.BasicListActivity
@@ -28,7 +27,7 @@ class MenuActivity : AppCompatActivity() {
                 ExampleItem(name = StableMutableRecyclerWithSectionsActivity.DESCRIPTION, onClick = { StableMutableRecyclerWithSectionsActivity.start(this) }),
                 ExampleItem(name = BasicMutableRecyclerWithSectionsActivity.DESCRIPTION, onClick = { BasicMutableRecyclerWithSectionsActivity.start(this) }),
                 ExampleItem(name = BasicContactsListActivity.DESCRIPTION, onClick = { BasicContactsListActivity.start(this) })
-        ).asBasicList()
+        )
 
         recyclerView.adapter = basicAdapterWithLayoutAndBinder(examples, R.layout.example_item) { holder, item ->
             holder.itemView.example_name.text = item.name

@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.elpassion.android.commons.recycler.RecyclerViewCompositeAdapter
 import com.elpassion.android.commons.recycler.basic.BasicAdapter
-import com.elpassion.android.commons.recycler.basic.BasicList
 import com.elpassion.android.commons.recycler.basic.BasicViewHolder
 import com.elpassion.android.commons.recycler.components.ItemsStrategy
 import com.elpassion.android.commons.recycler.components.base.ItemAdapter
@@ -44,13 +43,13 @@ fun <Section, Item : StableItemAdapter<out RecyclerView.ViewHolder>> stableSecti
         init = createStableIdInitialization()
 )
 
-fun <Item> basicAdapterWithHolder(items: BasicList<Item>, createHolder: (parent: ViewGroup) -> BasicViewHolder<Item>) =
+fun <Item> basicAdapterWithHolder(items: List<Item>, createHolder: (parent: ViewGroup) -> BasicViewHolder<Item>) =
         object : BasicAdapter<Item>(items) {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = createHolder(parent)
         }
 
 fun <Item> basicAdapterWithLayoutAndBinder(
-        items: BasicList<Item>,
+        items: List<Item>,
         layout: Int,
         binder: (holder: BasicViewHolder<Item>, item: Item) -> Unit
 ) = basicAdapterWithHolder(items) { parent ->
@@ -61,7 +60,7 @@ fun <Item> basicAdapterWithLayoutAndBinder(
 }
 
 fun <Item> basicAdapterWithCreator(
-        items: BasicList<Item>,
+        items: List<Item>,
         getTypeAndCreator: (position: Int) -> Pair<Int, (parent: ViewGroup) -> BasicViewHolder<Item>>
 ) = object : BasicAdapter<Item>(items) {
 
@@ -77,7 +76,7 @@ fun <Item> basicAdapterWithCreator(
 }
 
 fun <Item> basicAdapterWithConstructors(
-        items: BasicList<Item>,
+        items: List<Item>,
         getLayoutAndConstructor: (position: Int) -> Pair<Int, (itemView: View) -> BasicViewHolder<Item>>
 ) = basicAdapterWithCreator(items) { position ->
     val (layout, constructor) = getLayoutAndConstructor(position)
