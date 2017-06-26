@@ -1,6 +1,6 @@
 package com.elpassion.android.commons.recycler.basic.impl
 
-import com.elpassion.android.commons.recycler.basic.BasicListWithSections
+import com.elpassion.android.commons.recycler.basic.ListWithSections
 import com.elpassion.android.commons.recycler.basic.asBasicListWithSections
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -9,35 +9,35 @@ class BasicListWithSectionsImplTest {
 
     @Test
     fun shouldCreateBasicListWithSections() {
-        val basicListWithSections = BasicListWithSectionsImpl<String, String>(mapOf())
+        val basicListWithSections = ListWithSectionsImpl<String, String>(mapOf())
 
-        assert(basicListWithSections is BasicListWithSections<String, String>)
+        assert(basicListWithSections is ListWithSections<String, String>)
     }
 
     @Test
     fun shouldReturnCorrectSizeForOneEmptySection() {
-        val basicListWithSections = BasicListWithSectionsImpl(mapOf("A" to listOf<String>()))
+        val basicListWithSections = ListWithSectionsImpl(mapOf("A" to listOf<String>()))
 
         assertEquals(basicListWithSections.size, 0)
     }
 
     @Test
     fun shouldReturnCorrectSizeForOneNotEmptySection() {
-        val basicListWithSections = BasicListWithSectionsImpl(mapOf("A" to listOf("AA", "AB")))
+        val basicListWithSections = ListWithSectionsImpl(mapOf("A" to listOf("AA", "AB")))
 
         assertEquals(basicListWithSections.size, 2)
     }
 
     @Test
     fun shouldReturnCorrectSizeForTwoNotEmptySections() {
-        val basicListWithSections = BasicListWithSectionsImpl(mapOf("A" to listOf("AA", "AB"), "B" to listOf("BA", "BB", "BC")))
+        val basicListWithSections = ListWithSectionsImpl(mapOf("A" to listOf("AA", "AB"), "B" to listOf("BA", "BB", "BC")))
 
         assertEquals(basicListWithSections.size, 5)
     }
 
     @Test
     fun shouldReturnCorrectValuesForGivenPositionsWithOnlyOneSection() {
-        val basicListWithSections = BasicListWithSectionsImpl(mapOf("A" to listOf("AA", "AB", "AC")))
+        val basicListWithSections = ListWithSectionsImpl(mapOf("A" to listOf("AA", "AB", "AC")))
 
         assertEquals(basicListWithSections[0], "AA")
         assertEquals(basicListWithSections[1], "AB")
@@ -46,7 +46,7 @@ class BasicListWithSectionsImplTest {
 
     @Test
     fun shouldReturnCorrectValuesForGivenPositionsWithMoreSections() {
-        val basicListWithSections = BasicListWithSectionsImpl(mapOf(
+        val basicListWithSections = ListWithSectionsImpl(mapOf(
                 "A" to listOf("AA", "AB", "AC"),
                 "B" to listOf("BA", "BB", "BC"),
                 "C" to listOf("CA", "CB")
@@ -64,7 +64,7 @@ class BasicListWithSectionsImplTest {
 
     @Test(expected = IndexOutOfBoundsException::class)
     fun shouldThrowOutOfBoundsExceptionForNonExistingValue() {
-        val basicListWithSections = BasicListWithSectionsImpl(mapOf("A" to listOf("AA", "AB")))
+        val basicListWithSections = ListWithSectionsImpl(mapOf("A" to listOf("AA", "AB")))
 
         basicListWithSections[2]
     }
@@ -95,7 +95,7 @@ class BasicListWithSectionsImplTest {
                 "A" to mutableListOf("AA", "AB"),
                 "B" to mutableListOf("BA")
         )
-        val basicListWithSections = BasicListWithSectionsImpl(source)
+        val basicListWithSections = ListWithSectionsImpl(source)
         assertEquals(basicListWithSections.size, 3)
         source["D"] = mutableListOf("DA", "DB")
         assertEquals(basicListWithSections.size, 5)

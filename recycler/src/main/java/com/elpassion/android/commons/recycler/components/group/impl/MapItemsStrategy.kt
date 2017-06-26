@@ -3,6 +3,7 @@ package com.elpassion.android.commons.recycler.components.group.impl
 import com.elpassion.android.commons.recycler.components.group.SectionedItemsStrategy
 import java.util.*
 
+@Deprecated("Use BasicAdapter instead", ReplaceWith("BasicAdapter"))
 class MapItemsStrategy<Section, Item>(
         map: Map<Section, List<Item>>
 ) : SectionedItemsStrategy<Section, Item> {

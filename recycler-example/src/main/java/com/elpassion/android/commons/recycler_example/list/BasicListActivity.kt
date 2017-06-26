@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.elpassion.android.commons.recycler.adapters.basicAdapterWithConstructors
-import com.elpassion.android.commons.recycler.basic.asBasicList
 import com.elpassion.android.commons.recycler_example.R
 import com.elpassion.android.commons.recycler_example.common.OtherSimpleUserViewHolder
 import com.elpassion.android.commons.recycler_example.common.SimpleUserViewHolder
@@ -19,7 +18,7 @@ class BasicListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.recycler_view)
-        val users = createManyUsers().asBasicList()
+        val users = createManyUsers()
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         recyclerView.adapter = basicAdapterWithConstructors(users) { position ->

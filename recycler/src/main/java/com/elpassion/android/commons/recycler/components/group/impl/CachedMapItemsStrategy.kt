@@ -2,6 +2,7 @@ package com.elpassion.android.commons.recycler.components.group.impl
 
 import com.elpassion.android.commons.recycler.components.group.MutableSectionedItemsStrategy
 
+@Deprecated("Use BasicAdapter instead", ReplaceWith("BasicAdapter"))
 class CachedMapItemsStrategy<Section, Item>(
         private val itemsStrategy: MutableSectionedItemsStrategy<Section, Item>
 ) : MutableSectionedItemsStrategy<Section, Item> by itemsStrategy {
