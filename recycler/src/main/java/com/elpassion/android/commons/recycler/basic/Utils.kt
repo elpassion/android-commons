@@ -1,10 +1,10 @@
 package com.elpassion.android.commons.recycler.basic
 
-import com.elpassion.android.commons.recycler.basic.impl.BasicListWithMutableSectionsImpl
-import com.elpassion.android.commons.recycler.basic.impl.BasicListWithSectionsImpl
+import com.elpassion.android.commons.recycler.basic.impl.ListWithMutableSectionsImpl
+import com.elpassion.android.commons.recycler.basic.impl.ListWithSectionsImpl
 
-fun <Item, Section> Map<Section, List<Item>>.asBasicListWithSections(): BasicListWithSections<Item, Section>
-        = BasicListWithSectionsImpl(this)
+fun <Item, Section> Map<Section, List<Item>>.asBasicListWithSections(): ListWithSections<Item, Section>
+        = ListWithSectionsImpl(this)
 
-fun <Item, Section> MutableMap<Section, MutableList<Item>>.asBasicListWithMutableSections(): BasicListWithMutableSections<Item, Section>
-        = BasicListWithMutableSectionsImpl(this)
+fun <Item, Section> MutableMap<Section, MutableList<Item>>.asBasicListWithMutableSections(): ListWithMutableSections<Item, Section>
+        = ListWithMutableSectionsImpl(this)

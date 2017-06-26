@@ -1,10 +1,10 @@
 package com.elpassion.android.commons.recycler.basic.impl
 
-import com.elpassion.android.commons.recycler.basic.BasicListWithMutableSections
+import com.elpassion.android.commons.recycler.basic.ListWithSections
 
-class BasicListWithMutableSectionsImpl<Item, Section>(
-        override val sections: MutableMap<Section, MutableList<Item>>
-) : BasicListWithMutableSections<Item, Section>() {
+class ListWithSectionsImpl<out Item, Section>(
+        override val sections: Map<Section, List<Item>>
+) : ListWithSections<Item, Section>() {
 
     override fun get(index: Int): Item {
         var offset = 0
