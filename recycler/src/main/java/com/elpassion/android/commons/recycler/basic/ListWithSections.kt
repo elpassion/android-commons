@@ -1,5 +1,5 @@
 package com.elpassion.android.commons.recycler.basic
 
-abstract class ListWithSections<out Item, in Section> : AbstractList<Item>() {
-    abstract val sections: Map<in Section, List<Item>?>
+interface ListWithSections<out Item, in Section> : List<Item> {
+    val sections: Map<in Section, List<Item>?>
 }

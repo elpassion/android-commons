@@ -4,7 +4,7 @@ import com.elpassion.android.commons.recycler.basic.ListWithMutableSections
 
 class ListWithMutableSectionsImpl<Item, Section>(
         override val sections: MutableMap<Section, MutableList<Item>>
-) : ListWithMutableSections<Item, Section>() {
+) : ListWithMutableSections<Item, Section>, AbstractList<Item>() {
 
     override fun get(index: Int): Item {
         var offset = 0

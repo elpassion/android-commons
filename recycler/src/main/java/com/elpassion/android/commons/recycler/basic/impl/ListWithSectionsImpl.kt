@@ -4,7 +4,7 @@ import com.elpassion.android.commons.recycler.basic.ListWithSections
 
 class ListWithSectionsImpl<out Item, Section>(
         override val sections: Map<Section, List<Item>>
-) : ListWithSections<Item, Section>() {
+) : ListWithSections<Item, Section>, AbstractList<Item>() {
 
     override fun get(index: Int): Item {
         var offset = 0
