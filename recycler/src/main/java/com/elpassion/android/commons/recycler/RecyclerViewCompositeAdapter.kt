@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import com.elpassion.android.commons.recycler.components.ItemsStrategy
 import com.elpassion.android.commons.recycler.components.base.ItemAdapter
 
+@Deprecated("Use BasicAdapter", ReplaceWith("BasicAdapter"))
 class RecyclerViewCompositeAdapter<T : ItemAdapter<out RecyclerView.ViewHolder>>(
         private val itemsStrategy: ItemsStrategy<T>,
         private val getItemIdentifier: (position: Int) -> Long = { 0L },

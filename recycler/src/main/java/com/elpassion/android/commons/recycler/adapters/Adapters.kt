@@ -19,14 +19,17 @@ import com.elpassion.android.commons.recycler.components.stable.getStableItemIde
 import com.elpassion.android.view.inflate
 import java.util.*
 
+@Deprecated("Use BasicAdapter instead", ReplaceWith("BasicAdapter"))
 fun recyclerViewAdapter(
         adapters: List<ItemAdapter<*>>
 ) = RecyclerViewCompositeAdapter(ListItemsStrategy(adapters))
 
+@Deprecated("Use BasicAdapter with MutableList instead", ReplaceWith("BasicAdapter + MutableList"))
 fun mutableRecyclerViewAdapter(
         adapters: MutableList<ItemAdapter<*>> = mutableListOf()
 ) = RecyclerViewCompositeAdapter(MutableListItemsStrategy(adapters))
 
+@Deprecated("Use BasicAdapter with WithStableId instead", ReplaceWith("BasicAdapter + WithStableId"))
 fun stableRecyclerViewAdapter(
         itemsStrategy: ItemsStrategy<StableItemAdapter<out RecyclerView.ViewHolder>>
 ) = RecyclerViewCompositeAdapter(
@@ -35,6 +38,7 @@ fun stableRecyclerViewAdapter(
         init = createStableIdInitialization()
 )
 
+@Deprecated("Use BasicAdapter with BasicListWithSections instead", ReplaceWith("BasicAdapter + BasicListWithSections"))
 fun <Section, Item : StableItemAdapter<out RecyclerView.ViewHolder>> stableSectionedRecyclerViewAdapter(
         itemsStrategy: SectionedItemsStrategy<Section, Item>
 ) = RecyclerViewCompositeAdapter(

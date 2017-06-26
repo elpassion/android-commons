@@ -3,6 +3,7 @@ package com.elpassion.android.commons.recycler.components.group.impl
 import com.elpassion.android.commons.recycler.components.group.MutableSectionedItemsStrategy
 import java.util.*
 
+@Deprecated("Use BasicAdapter instead", ReplaceWith("BasicAdapter"))
 class MutableMapItemsStrategy<Section, Item> : MutableSectionedItemsStrategy<Section, Item> {
 
     private val items: MutableMap<Section, MutableList<Item>>
