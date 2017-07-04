@@ -11,6 +11,7 @@
         <activity android:name="com.elpassion.android.commons.espresso.TypeTextTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.ReplaceTextTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.PressImeActionButtonTest$Activity" />
+        <activity android:name="com.elpassion.android.commons.espresso.OnChildWithIdTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.OnIdTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.OnTextTest$Activity" />
         <activity android:name="com.elpassion.android.commons.espresso.VisibilityAssertionsTest$Activity" />
