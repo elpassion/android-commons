@@ -1,5 +1,7 @@
 package com.elpassion.android.commons.espresso.matchers
 
+import android.support.annotation.IdRes
+import android.support.test.espresso.matcher.ViewMatchers
 import android.view.View
 import org.hamcrest.Description
 import org.hamcrest.Matcher
@@ -10,3 +12,5 @@ inline fun <reified T : View> createViewMatcher(
 ): Matcher<View> {
     return createObjectMatcher<View, T>(matchesSafelyImpl, describeToImpl)
 }
+
+fun withParentId(@IdRes parentId: Int): Matcher<View> = ViewMatchers.withParent(ViewMatchers.withId(parentId))
