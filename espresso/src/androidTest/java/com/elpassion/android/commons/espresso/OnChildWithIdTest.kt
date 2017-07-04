@@ -1,6 +1,8 @@
 package com.elpassion.android.commons.espresso
 
 import android.os.Bundle
+import android.support.test.espresso.Espresso.onView
+import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.rule.ActivityTestRule
 import android.view.View
 import android.widget.FrameLayout
@@ -17,27 +19,27 @@ class OnChildWithIdTest {
 
     @Test
     fun shouldNotFindWhenParentNotExisting() {
-        withParentId(parentNotExistingId).onChildWithId(childExistingId).doesNotExist()
+        onView(withId(childExistingId).withParentId(parentNotExistingId)).doesNotExist()
     }
 
     @Test
     fun shouldNotFindWhenChildNotExisting() {
-        withParentId(parentFirstExistingId).onChildWithId(childNotExistingId).doesNotExist()
+        onView(withId(childNotExistingId).withParentId(parentFirstExistingId)).doesNotExist()
     }
 
     @Test
     fun shouldFindFirstChildWhenParentAndChildExisting() {
-        withParentId(parentFirstExistingId).onChildWithId(childExistingId).isDisplayed()
+        onView(withId(childExistingId).withParentId(parentFirstExistingId)).isDisplayed()
     }
 
     @Test
     fun shouldFindSecondChildWhenParentAndChildExisting() {
-        withParentId(parentSecondExistingId).onChildWithId(childExistingId).isDisplayed()
+        onView(withId(childExistingId).withParentId(parentSecondExistingId)).isDisplayed()
     }
 
     @Test
     fun shouldNotDisplayThirdChildWhenParentIsGone() {
-        withParentId(parentThirdExistingId).onChildWithId(childExistingId).isNotDisplayed()
+        onView(withId(childExistingId).withParentId(parentThirdExistingId)).isNotDisplayed()
     }
 
     class Activity : android.app.Activity() {
