@@ -35,6 +35,11 @@ class OnChildWithIdTest {
         withParentId(parentSecondExistingId).onChildWithId(childExistingId).isDisplayed()
     }
 
+    @Test
+    fun shouldNotDisplayThirdChildWhenParentIsGone() {
+        withParentId(parentThirdExistingId).onChildWithId(childExistingId).isNotDisplayed()
+    }
+
     class Activity : android.app.Activity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -51,6 +56,13 @@ class OnChildWithIdTest {
                         id = childExistingId
                     })
                 })
+                addView(LinearLayout(context).apply {
+                    id = parentThirdExistingId
+                    visibility = View.GONE
+                    addView(View(context).apply {
+                        id = childExistingId
+                    })
+                })
             })
         }
     }
@@ -60,6 +72,7 @@ class OnChildWithIdTest {
         private val childNotExistingId = R.id.second
         private val parentFirstExistingId = R.id.third
         private val parentSecondExistingId = R.id.fourth
+        private val parentThirdExistingId = R.id.fifth
         private val childExistingId = R.id.sixth
     }
 }
