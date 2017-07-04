@@ -25,6 +25,11 @@ class OnChildWithIdTest {
         withParentId(parentFirstExistingId).onChildWithId(childNotExistingId).doesNotExist()
     }
 
+    @Test
+    fun shouldFindFirstChildWhenParentAndChildExisting() {
+        withParentId(parentFirstExistingId).onChildWithId(childExistingId).isDisplayed()
+    }
+
     class Activity : android.app.Activity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
