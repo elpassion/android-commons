@@ -20,6 +20,11 @@ class OnChildWithIdTest {
         withParentId(parentNotExistingId).onChildWithId(childExistingId).doesNotExist()
     }
 
+    @Test
+    fun shouldNotFindWhenChildNotExisting() {
+        withParentId(parentFirstExistingId).onChildWithId(childNotExistingId).doesNotExist()
+    }
+
     class Activity : android.app.Activity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -36,6 +41,7 @@ class OnChildWithIdTest {
 
     companion object {
         private val parentNotExistingId = R.id.first
+        private val childNotExistingId = R.id.second
         private val parentFirstExistingId = R.id.third
         private val childExistingId = R.id.sixth
     }
