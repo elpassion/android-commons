@@ -1,4 +1,6 @@
 include ':pager',
+        ':shared-preferences-gson-converter-adapter',
+        ':shared-preferences-moshi-converter-adapter',
         ':recycler',
         ':parcelable',
         ':view',
