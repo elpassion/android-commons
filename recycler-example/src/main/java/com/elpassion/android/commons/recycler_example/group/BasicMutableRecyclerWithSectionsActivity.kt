@@ -6,9 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.elpassion.android.commons.recycler.adapters.basicAdapterWithConstructors
 import com.elpassion.android.commons.recycler.basic.BasicAdapter
-import com.elpassion.android.commons.recycler.basic.addAll
 import com.elpassion.android.commons.recycler.basic.asBasicListWithMutableSections
-import com.elpassion.android.commons.recycler.basic.asBasicMutableList
 import com.elpassion.android.commons.recycler_example.R
 import com.elpassion.android.commons.recycler_example.common.*
 import com.elpassion.android.view.disable
@@ -20,7 +18,7 @@ class BasicMutableRecyclerWithSectionsActivity : AppCompatActivity() {
 
     val users = createManyUsers()
             .groupByTo(LinkedHashMap(), User::organization)
-            .mapValuesTo(LinkedHashMap()) { it.value.asBasicMutableList() }
+            .mapValuesTo(LinkedHashMap()) { it.value }
             .asBasicListWithMutableSections()
 
     override fun onCreate(savedInstanceState: android.os.Bundle?) {

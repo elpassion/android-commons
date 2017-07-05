@@ -2,6 +2,7 @@ package com.elpassion.android.commons.recycler.components.base
 
 import com.elpassion.android.commons.recycler.components.MutableItemsStrategy
 
+@Deprecated("Use BasicAdapter instead", ReplaceWith("BasicAdapter"))
 class MutableListItemsStrategy<T> @JvmOverloads constructor(
         list: List<T> = listOf()
 ) : MutableItemsStrategy<T> {
