@@ -2,6 +2,7 @@ package com.elpassion.android.commons.espresso
 
 import android.support.annotation.IdRes
 import android.support.annotation.StringRes
+import android.support.test.InstrumentationRegistry
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.ViewInteraction
 import android.support.test.espresso.matcher.ViewMatchers.*
@@ -14,4 +15,7 @@ fun onText(@StringRes textId: Int): ViewInteraction = onView(withText(textId))
 
 fun onText(text: String): ViewInteraction = onView(withText(text))
 
-fun onToolbarBackArrow(): ViewInteraction = onView(allOf(withParent(withClassName(`is`(Toolbar::class.java.name))), withContentDescription(containsString("Navigate up"))))
+fun onToolbarBackArrow(): ViewInteraction {
+    val arrowDescription = InstrumentationRegistry.getContext().getString(R.string.abc_action_bar_up_description)
+    return onView(allOf(withParent(withClassName(`is`(Toolbar::class.java.name))), withContentDescription(containsString(arrowDescription))))
+}
