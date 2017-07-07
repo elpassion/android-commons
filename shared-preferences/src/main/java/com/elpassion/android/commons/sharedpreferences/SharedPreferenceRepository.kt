@@ -1,8 +1,6 @@
 package com.elpassion.android.commons.sharedpreferences
 
 import android.content.SharedPreferences
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 
 interface SharedPreferenceRepository<T> {
 
@@ -15,20 +13,18 @@ interface SharedPreferenceRepository<T> {
 
 inline fun <reified T> createSharedPrefs(
         noinline sharedPreferencesProvider: () -> SharedPreferences,
-        noinline gsonProvider: () -> Gson = ::Gson
+        jsonAdapter: JsonConverterAdapter<T>
 ) = object : SharedPreferenceRepository<T> {
 
     private val sharedPreferences by lazy(sharedPreferencesProvider)
-    private val gson by lazy(gsonProvider)
-    private val type = object : TypeToken<T>() {}.type
 
     override fun write(key: String, value: T?) {
         sharedPreferences.edit()
-                .putString(key, gson.toJson(value, type))
+                .putString(key, jsonAdapter.toJson(value))
                 .apply()
     }
 
-    override fun read(key: String): T? = sharedPreferences.getString(key, null)?.let { gson.fromJson<T>(it, type) }
+    override fun read(key: String): T? = sharedPreferences.getString(key, null)?.let { jsonAdapter.fromJson(it) }
 
     override fun contains(key: String) = sharedPreferences.contains(key)
 }

@@ -1,8 +1,10 @@
-package com.elpassion.android.commons.sharedpreferences
+package com.elpassion.sharedpreferences.moshiadapter
 
 import android.preference.PreferenceManager
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
+import com.elpassion.android.commons.sharedpreferences.createSharedPrefs
+import com.squareup.moshi.Types
 import org.junit.After
 import org.junit.Assert
 import org.junit.Test
@@ -13,7 +15,7 @@ class SharedPreferencesTestCase {
 
     @Test
     fun shouldSaveStringToRepository() {
-        val repository = createSharedPrefs<String>(sharedPreferences)
+        val repository = createSharedPrefs<String>(sharedPreferences, moshiConverterAdapter())
         val valueSaved = "someValue"
         repository.write("key", valueSaved)
 
@@ -25,7 +27,7 @@ class SharedPreferencesTestCase {
 
     @Test
     fun shouldSaveObjectToRepository() {
-        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences)
+        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences, moshiConverterAdapter())
         val valueSaved = SimpleStructure(1)
         repository.write("key", valueSaved)
 
@@ -35,8 +37,8 @@ class SharedPreferencesTestCase {
 
     @Test
     fun shouldSaveListOfObjectsToRepository() {
-        val repository = createSharedPrefs<List<SimpleStructure>>(sharedPreferences)
         val valueSaved = listOf(SimpleStructure(1))
+        val repository = createSharedPrefs<List<SimpleStructure>>(sharedPreferences, moshiConverterAdapter(type = Types.newParameterizedType(List::class.java, SimpleStructure::class.java)))
         repository.write("key", valueSaved)
 
         val valueRead = repository.read("key")
@@ -45,7 +47,7 @@ class SharedPreferencesTestCase {
 
     @Test
     fun shouldBePossibleToSaveNull() {
-        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences)
+        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences, moshiConverterAdapter())
         repository.write("key", null)
 
         Assert.assertEquals(null, repository.read("key"))
@@ -53,14 +55,14 @@ class SharedPreferencesTestCase {
 
     @Test
     fun containsShouldReturnFalseWhenSharedPreferencesIsEmpty() {
-        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences)
+        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences, moshiConverterAdapter())
 
         Assert.assertFalse(repository.contains("key"))
     }
 
     @Test
     fun containsShouldReturnTrueWhenSharedPreferencesContainsGivenKey() {
-        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences)
+        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences, moshiConverterAdapter())
         repository.write("key", SimpleStructure(1))
 
         Assert.assertTrue(repository.contains("key"))
