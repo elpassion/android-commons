@@ -14,7 +14,7 @@ class SharedPreferencesTestCase {
 
     @Test
     fun shouldSaveStringToRepository() {
-        val repository = createSharedPrefs<String>(sharedPreferences, GsonConverterAdapter())
+        val repository = createSharedPrefs<String>(sharedPreferences, gsonConverterAdapter())
         val valueSaved = "someValue"
         repository.write("key", valueSaved)
 
@@ -26,7 +26,7 @@ class SharedPreferencesTestCase {
 
     @Test
     fun shouldSaveObjectToRepository() {
-        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences, GsonConverterAdapter())
+        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences, gsonConverterAdapter())
         val valueSaved = SimpleStructure(1)
         repository.write("key", valueSaved)
 
@@ -36,7 +36,7 @@ class SharedPreferencesTestCase {
 
     @Test
     fun shouldSaveListOfObjectsToRepository() {
-        val repository = createSharedPrefs<List<SimpleStructure>>(sharedPreferences, GsonConverterAdapter())
+        val repository = createSharedPrefs<List<SimpleStructure>>(sharedPreferences, gsonConverterAdapter())
         val valueSaved = listOf(SimpleStructure(1))
         repository.write("key", valueSaved)
 
@@ -46,7 +46,7 @@ class SharedPreferencesTestCase {
 
     @Test
     fun shouldBePossibleToSaveNull() {
-        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences, GsonConverterAdapter())
+        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences, gsonConverterAdapter())
         repository.write("key", null)
 
         Assert.assertEquals(null, repository.read("key"))
@@ -54,14 +54,14 @@ class SharedPreferencesTestCase {
 
     @Test
     fun containsShouldReturnFalseWhenSharedPreferencesIsEmpty() {
-        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences, GsonConverterAdapter())
+        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences, gsonConverterAdapter())
 
         Assert.assertFalse(repository.contains("key"))
     }
 
     @Test
     fun containsShouldReturnTrueWhenSharedPreferencesContainsGivenKey() {
-        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences, GsonConverterAdapter())
+        val repository = createSharedPrefs<SimpleStructure>(sharedPreferences, gsonConverterAdapter())
         repository.write("key", SimpleStructure(1))
 
         Assert.assertTrue(repository.contains("key"))
