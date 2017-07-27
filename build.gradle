@@ -12,6 +12,7 @@ buildscript {
     ext.retrofit_version = '2.1.0'
     repositories {
         jcenter()
+        maven { url "https://maven.google.com" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.0-alpha8'
@@ -25,9 +26,7 @@ apply plugin: 'com.github.ben-manes.versions'
 allprojects {
     repositories {
         jcenter()
-        maven {
-            url "https://maven.google.com"
-        }
+        maven { url "https://maven.google.com" }
     }
 }
 
