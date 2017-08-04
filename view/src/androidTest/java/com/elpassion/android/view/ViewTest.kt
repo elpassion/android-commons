@@ -36,6 +36,18 @@ class ViewTest : ApplicationTestCase<Application>(Application::class.java) {
         assertFalse(view.isVisible)
     }
 
+    fun testShouldViewHaveVisibleStateWhenIsVisibleSetTrue() {
+        val view = View(context)
+        view.isVisible = true
+        assertTrue(view.visibility == View.VISIBLE)
+    }
+
+    fun testShouldViewHaveGoneStateWhenIsVisibleSetFalse() {
+        val view = View(context)
+        view.isVisible = false
+        assertTrue(view.visibility == View.GONE)
+    }
+
     fun testShouldEnableDisabledView() {
         val view = View(context).apply { isEnabled = false }
         view.enable()
