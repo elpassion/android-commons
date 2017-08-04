@@ -10,7 +10,17 @@ fun View.hide() {
     visibility = View.GONE
 }
 
-fun View.isVisible(): Boolean = visibility == View.VISIBLE
+var View.isVisible: Boolean
+    set(value) {
+        if (value) {
+            show()
+        } else {
+            hide()
+        }
+    }
+    get() {
+        return visibility == View.VISIBLE
+    }
 
 fun View.disable() {
     isEnabled = false
