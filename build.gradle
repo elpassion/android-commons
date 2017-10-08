@@ -13,7 +13,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0-beta6'
+        classpath 'com.android.tools.build:gradle:3.0.0-beta7'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.14.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
@@ -75,7 +75,7 @@ int commonMinSdkVersion() {
 }
 
 String commonBuildToolsVersion() {
-    return '26.0.0'
+    return '26.0.2'
 }
 
 boolean isCI() {
