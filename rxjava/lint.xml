@@ -1,4 +1,0 @@
-<issue id="InvalidPackage" severity="error">
-    <ignore regexp="okio.*jar" />
-    <ignore regexp=".*retrofit.*" />
-</issue>
