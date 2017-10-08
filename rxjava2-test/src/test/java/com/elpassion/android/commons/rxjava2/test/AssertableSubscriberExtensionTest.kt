@@ -46,4 +46,19 @@ class AssertableSubscriberExtensionTest {
     fun shouldCompareLastElementWithPassedValue() {
         Observable.just(2, 3).test().assertLastValue(3)
     }
+
+    @Test
+    fun shouldTestLastElement() {
+        Observable.just(1, 3).test().assertLastValueThat { this > 2 }
+    }
+
+    @Test(expected = AssertionError::class)
+    fun shouldFailWhenTestingLastElement() {
+        Observable.just(3, 1).test().assertLastValueThat { this > 2 }
+    }
+
+    @Test
+    fun shouldTestLastElementWithPassedPredicate() {
+        Observable.just(3, 1).test().assertLastValueThat { this < 2 }
+    }
 }

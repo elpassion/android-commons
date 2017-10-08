@@ -15,3 +15,7 @@ fun <T> TestObserver<T>.assertValueThat(predicate: (T) -> Boolean) {
 fun <T> TestObserver<T>.assertLastValue(expected: T) {
     Assert.assertEquals(expected, values().last())
 }
+
+fun <T> TestObserver<T>.assertLastValueThat(predicate: (T.() -> Boolean)) {
+    Assert.assertTrue("${values().last()}\nDoes not match predicate", predicate(values().last()))
+}
