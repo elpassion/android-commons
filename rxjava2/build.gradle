@@ -1,0 +1,12 @@
+apply from: '../gradle/android-module.gradle'
+
+dependencies {
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compileOnly "io.reactivex.rxjava2:rxjava:$rx_java_two_version"
+
+    testCompile 'junit:junit:4.12'
+    testCompile project(':rxjava2-test')
+    testCompile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testCompile "io.reactivex.rxjava2:rxjava:$rx_java_two_version"
+    testCompile "com.nhaarman:mockito-kotlin:$mockito_kotlin"
+}

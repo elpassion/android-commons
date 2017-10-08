@@ -7,4 +7,5 @@ include ':pager',
         ':shared-preferences',
         ':espresso',
         ':recycler-example',
+        ':rxjava2',
         ':rxjava2-test'
