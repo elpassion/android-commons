@@ -1,10 +1,13 @@
 apply from: '../gradle/android-module.gradle'
 
 dependencies {
-    provided "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    provided "io.reactivex.rxjava2:rxjava:$rx_java_two_version"
-    provided "com.nhaarman:mockito-kotlin:$mockito_kotlin"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compileOnly "io.reactivex.rxjava2:rxjava:$rx_java_two_version"
+    compileOnly "com.nhaarman:mockito-kotlin:$mockito_kotlin"
+    compileOnly 'junit:junit:4.12'
 
-    provided 'junit:junit:4.12'
+    testCompile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testCompile "io.reactivex.rxjava2:rxjava:$rx_java_two_version"
+    testCompile "com.nhaarman:mockito-kotlin:$mockito_kotlin"
     testCompile 'junit:junit:4.12'
 }
