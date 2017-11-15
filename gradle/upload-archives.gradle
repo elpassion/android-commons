@@ -1,5 +1,5 @@
 apply plugin: 'com.github.dcendents.android-maven'
-group='com.elpassion.android.commons'
+group='com.github.elpassion'
 
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
