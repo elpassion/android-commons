@@ -2,7 +2,7 @@
 
 Libraries written in Kotlin and used in most EL Passion Android projects.
 
-[![Release](https://jitpack.io/v/elpassion/android-commons.svg)](https://jitpack.io/#User/Repo)
+[![Release](https://jitpack.io/v/elpassion/android-commons.svg)](https://jitpack.io/#elpassion/android-commons)
 
 ### Building with JitPack
 
