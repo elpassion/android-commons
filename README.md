@@ -1,12 +1,17 @@
 # android-commons
 
+Libraries written in Kotlin and used in most EL Passion Android projects.
+
+[![Release](https://jitpack.io/v/User/Repo.svg)](https://jitpack.io/#User/Repo)
+
+### Building with JitPack
+
 ```
 repositories {
     maven { url "https://jitpack.io" }
 }
 ```
-
-Libraries written in Kotlin and used in most EL Passion Android projects.
+Details: https://jitpack.io/#elpassion/android-commons
 
 Download
 --------
