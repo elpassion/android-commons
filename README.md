@@ -1,7 +1,17 @@
 # android-commons
-[![Maven Central](https://img.shields.io/maven-central/v/com.elpassion.android.commons/espresso.svg?label=maven%20central)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.elpassion.android.commons%22)
 
 Libraries written in Kotlin and used in most EL Passion Android projects.
+
+[![Release](https://jitpack.io/v/elpassion/android-commons.svg)](https://jitpack.io/#elpassion/android-commons)
+
+### Building with JitPack
+
+```
+repositories {
+    maven { url "https://jitpack.io" }
+}
+```
+Details: https://jitpack.io/#elpassion/android-commons
 
 Download
 --------
@@ -9,35 +19,35 @@ Download
 Espresso commons:
 
 ```groovy
-androidTestCompile "com.elpassion.android.commons:espresso:0.0.21"
+androidTestCompile "com.github.elpassion.android-commons:espresso:0.0.21"
 ```
 
 Pager commons:
 
 ```groovy
-compile "com.elpassion.android.commons:pager:0.0.21"
+compile "com.github.elpassion.android-commons:pager:0.0.21"
 ```
 
 Parcelable commons:
 
 ```groovy
-compile "com.elpassion.android.commons:parcelable:0.0.21"
+compile "com.github.elpassion.android-commons:parcelable:0.0.21"
 ```
 
 Recycler commons:
 
 ```groovy
-compile "com.elpassion.android.commons:recycler:0.0.21"
+compile "com.github.elpassion.android-commons:recycler:0.0.21"
 ```
 
 SharedPreferences commons:
 
 ```groovy
-compile "com.elpassion.android.commons:shared-preferences:0.0.21"
+compile "com.github.elpassion.android-commons:shared-preferences:0.0.21"
 ```
 
 View commons:
 
 ```groovy
-compile "com.elpassion.android.commons:view:0.0.21"
+compile "com.github.elpassion.android-commons:view:0.0.21"
 ```
