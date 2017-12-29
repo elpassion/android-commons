@@ -186,6 +186,43 @@ Pager
 
 Recycler
 =========
+Using recycler-view have never been easier.
+
+If all of your views are going to be the same type you can just write
+```kotlin
+items = /* list of your items */
+recyclerView.adapter = basicAdapterWithLayoutAndBinder(items, R.layout.my_item_layout) { holder, item ->
+            holder.itemView.myTextView.text = item.name
+        }
+```
+If you want to get benefits of using stableIds all you need to do is to make your item 
+implement `WithStableId` interface and of course tell the adapter to use stable ids:
+`adapter.setHasStableId(true)`
+
+On the other hand if you need to have different views for different types of items you just need to write
+```kotlin
+items = /* list of your items */
+recyclerView.adapter = basicAdapterWithConstructors(items) { position ->
+            positionToLayoutMapping(position)
+        }
+
+private fun positionToLayoutMapping(position) = when (position) {
+    isOdd() -> R.layout.github_item to ::SimpleUserViewHolder
+    isEven() -> R.layout.other_github_item to ::OtherSimpleUserViewHolder
+}
+```
+
+Dividing your data set into logical pieces is supported by `ListWithSections` class.
+Here is an example:
+```kotlin
+val users = createManyUsers().groupBy(User::organization).asBasicListWithSections()
+recyclerView.adapter = basicAdapterWithLayoutAndBinder(users, R.layout.github_item) { holder, user ->
+    with(holder.itemView) {
+        userName.text = user.name
+        organization.text = user.organization
+    }
+}
+```
 
 #### Download:
 ```groovy
