@@ -147,7 +147,7 @@ To create an instance of it use a factory function:
 
 #### Download:
 ```groovy
-    implementation "com.github.elpassion.android-commons:shared-preferences-moshi-converter-adapter:0.0.21"
+    implementation "com.github.elpassion.android-commons:shared-preferences-moshi-converter-adapter:0.0.22"
 ```
 [Back to overview](#overview)
 
@@ -162,7 +162,7 @@ To create an instance of it use a factory function:
 
 #### Download:
 ```groovy
-    implementation "com.github.elpassion.android-commons:shared-preferences-gson-converter-adapter:0.0.21"
+    implementation "com.github.elpassion.android-commons:shared-preferences-gson-converter-adapter:0.0.22"
 ```
 [Back to overview](#overview)
 
