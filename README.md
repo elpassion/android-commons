@@ -126,6 +126,10 @@ or you can use its non-nullable variant
     var token: String by sharedPreferences.asPropertyWithDefault(key = "authToken", default = "invalid")
 ```
 
+If you are reading very often we suggest you to wrap your sharedPreferences instance with CachingSharedPreferences wrapper.
+It uses the same interface so it is transparent from the usage perspective. Keep in mind that in order to cache values and 
+properly invalidate them, every interactions with sharedPreferences must now go through the same instance of the caching wrapper. 
+
 #### Download:
 ```groovy
     implementation "com.github.elpassion.android-commons:shared-preferences:0.0.21"
