@@ -48,9 +48,9 @@ task updateVersionName {
 task updateReadme {
     doLast {
         def readmeFile = new File('README.md')
-        def matcher = Pattern.compile("com.github.elpassion.android-commons:\\w+-?\\w+:(\\d+.\\d+.\\d+)").matcher(readmeFile.text)
+        def matcher = Pattern.compile("com.github.elpassion.android-commons:(\\w+-)*\\w+:(\\d+.\\d+.\\d+)").matcher(readmeFile.text)
         while (matcher.find()) {
-            def readmeText = new StringBuilder(readmeFile.text).replace(matcher.start(1), matcher.end(1), "${commonVersionName()}")
+            def readmeText = new StringBuilder(readmeFile.text).replace(matcher.start(2), matcher.end(2), "${commonVersionName()}")
             readmeFile.text = readmeText
         }
     }
