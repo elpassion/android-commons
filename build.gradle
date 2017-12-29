@@ -1,7 +1,7 @@
 import java.util.regex.Pattern
 
 buildscript {
-    ext.support_version = '25.4.0'
+    ext.support_version = '27.0.2'
     ext.kotlin_version = '1.2.10'
     ext.espresso_version = '3.0.0'
     ext.test_runner = '1.0.0'
@@ -65,7 +65,7 @@ String commonVersionName() {
 }
 
 int commonCompileSdkVersion() {
-    return 25
+    return 27
 }
 
 int commonTargetSdkVersion() {
@@ -74,10 +74,6 @@ int commonTargetSdkVersion() {
 
 int commonMinSdkVersion() {
     return 16
-}
-
-String commonBuildToolsVersion() {
-    return '26.0.2'
 }
 
 boolean isCI() {

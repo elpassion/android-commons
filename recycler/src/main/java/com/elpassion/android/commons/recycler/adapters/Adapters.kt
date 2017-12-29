@@ -2,50 +2,12 @@
 
 package com.elpassion.android.commons.recycler.adapters
 
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
-import com.elpassion.android.commons.recycler.RecyclerViewCompositeAdapter
 import com.elpassion.android.commons.recycler.basic.BasicAdapter
 import com.elpassion.android.commons.recycler.basic.ViewHolderBinder
-import com.elpassion.android.commons.recycler.components.ItemsStrategy
-import com.elpassion.android.commons.recycler.components.base.ItemAdapter
-import com.elpassion.android.commons.recycler.components.base.ListItemsStrategy
-import com.elpassion.android.commons.recycler.components.base.MutableListItemsStrategy
-import com.elpassion.android.commons.recycler.components.group.SectionedItemsStrategy
-import com.elpassion.android.commons.recycler.components.stable.StableItemAdapter
-import com.elpassion.android.commons.recycler.components.stable.createStableIdInitialization
-import com.elpassion.android.commons.recycler.components.stable.getStableItemIdentifier
 import com.elpassion.android.view.inflate
 import java.util.*
-
-@Deprecated("Use BasicAdapter instead", ReplaceWith("basicAdapterWithHolder"))
-fun recyclerViewAdapter(
-        adapters: List<ItemAdapter<*>>
-) = RecyclerViewCompositeAdapter(ListItemsStrategy(adapters))
-
-@Deprecated("Use BasicAdapter with MutableList instead", ReplaceWith("basicAdapterWithHolder"))
-fun mutableRecyclerViewAdapter(
-        adapters: MutableList<ItemAdapter<*>> = mutableListOf()
-) = RecyclerViewCompositeAdapter(MutableListItemsStrategy(adapters))
-
-@Deprecated("Use BasicAdapter with WithStableId instead", ReplaceWith("basicAdapterWithHolder"))
-fun stableRecyclerViewAdapter(
-        itemsStrategy: ItemsStrategy<StableItemAdapter<out RecyclerView.ViewHolder>>
-) = RecyclerViewCompositeAdapter(
-        itemsStrategy = itemsStrategy,
-        getItemIdentifier = getStableItemIdentifier(itemsStrategy),
-        init = createStableIdInitialization()
-)
-
-@Deprecated("Use BasicAdapter with BasicListWithSections instead", ReplaceWith("basicAdapterWithHolder"))
-fun <Section, Item : StableItemAdapter<out RecyclerView.ViewHolder>> stableSectionedRecyclerViewAdapter(
-        itemsStrategy: SectionedItemsStrategy<Section, Item>
-) = RecyclerViewCompositeAdapter(
-        itemsStrategy = itemsStrategy,
-        getItemIdentifier = getStableItemIdentifier(itemsStrategy),
-        init = createStableIdInitialization()
-)
 
 fun <Item> basicAdapterWithHolder(items: List<Item>, createHolder: (parent: ViewGroup) -> ViewHolderBinder<Item>) =
         object : BasicAdapter<Item>(items) {
