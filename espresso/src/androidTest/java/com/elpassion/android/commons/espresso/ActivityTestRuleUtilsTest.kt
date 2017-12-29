@@ -1,9 +1,7 @@
 package com.elpassion.android.commons.espresso
 
-import android.app.Instrumentation
 import android.content.Intent
 import android.os.Bundle
-import android.support.test.InstrumentationRegistry
 import android.support.test.rule.ActivityTestRule
 import android.widget.TextView
 import org.junit.Assert.assertNull

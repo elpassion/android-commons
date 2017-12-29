@@ -21,19 +21,31 @@ class ViewTest : ApplicationTestCase<Application>(Application::class.java) {
 
     fun testShouldReturnThatViewIsVisibleWhenViewIsVisible() {
         val view = View(context)
-        assertTrue(view.isVisible())
+        assertTrue(view.isVisible)
     }
 
     fun testShouldReturnThatViewIsInvisibleWhenIsGone() {
         val view = View(context)
         view.visibility = View.GONE
-        assertFalse(view.isVisible())
+        assertFalse(view.isVisible)
     }
 
     fun testShouldReturnThatViewIsInvisibleWhenIsInvisible() {
         val view = View(context)
         view.visibility = View.INVISIBLE
-        assertFalse(view.isVisible())
+        assertFalse(view.isVisible)
+    }
+
+    fun testShouldViewHaveVisibleStateWhenIsVisibleSetTrue() {
+        val view = View(context)
+        view.isVisible = true
+        assertTrue(view.visibility == View.VISIBLE)
+    }
+
+    fun testShouldViewHaveGoneStateWhenIsVisibleSetFalse() {
+        val view = View(context)
+        view.isVisible = false
+        assertTrue(view.visibility == View.GONE)
     }
 
     fun testShouldEnableDisabledView() {

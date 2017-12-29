@@ -1,22 +1,23 @@
 import java.util.regex.Pattern
 
 buildscript {
-    ext.support_version = '25.4.0'
-    ext.kotlin_version = '1.1.3-2'
+    ext.support_version = '27.0.2'
+    ext.kotlin_version = '1.2.10'
     ext.espresso_version = '3.0.0'
-    ext.test_runner = '0.5'
-    ext.mockito_kotlin = '1.3.0'
+    ext.test_runner = '1.0.0'
+    ext.mockito_kotlin = '1.5.0'
     ext.mockito_version = '1.10.19'
-    ext.rx_java_one_version = '1.2.7'
-    ext.rx_java_two_version = '2.1.0'
+    ext.rx_java_two_version = '2.1.8'
     ext.retrofit_version = '2.1.0'
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
-        classpath 'com.github.ben-manes:gradle-versions-plugin:0.14.0'
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.17.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
     }
 }
 
@@ -25,9 +26,7 @@ apply plugin: 'com.github.ben-manes.versions'
 allprojects {
     repositories {
         jcenter()
-        maven {
-            url "https://maven.google.com"
-        }
+        maven { url "https://maven.google.com" }
     }
 }
 
@@ -49,7 +48,7 @@ task updateVersionName {
 task updateReadme {
     doLast {
         def readmeFile = new File('README.md')
-        def matcher = Pattern.compile("com.elpassion.android.commons:\\w+-?\\w+:(\\d+.\\d+.\\d+)").matcher(readmeFile.text)
+        def matcher = Pattern.compile("com.github.elpassion.android-commons:\\w+-?\\w+:(\\d+.\\d+.\\d+)").matcher(readmeFile.text)
         while (matcher.find()) {
             def readmeText = new StringBuilder(readmeFile.text).replace(matcher.start(1), matcher.end(1), "${commonVersionName()}")
             readmeFile.text = readmeText
@@ -66,7 +65,7 @@ String commonVersionName() {
 }
 
 int commonCompileSdkVersion() {
-    return 25
+    return 27
 }
 
 int commonTargetSdkVersion() {
@@ -75,10 +74,6 @@ int commonTargetSdkVersion() {
 
 int commonMinSdkVersion() {
     return 16
-}
-
-String commonBuildToolsVersion() {
-    return '26.0.0'
 }
 
 boolean isCI() {

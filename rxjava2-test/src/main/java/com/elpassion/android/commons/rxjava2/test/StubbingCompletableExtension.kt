@@ -6,7 +6,7 @@ import org.mockito.stubbing.OngoingStubbing
 
 fun OngoingStubbing<Completable>.thenNever(): OngoingStubbing<Completable> = thenReturn(Completable.never())
 
-fun OngoingStubbing<Completable>.thenError(exception: Exception): OngoingStubbing<Completable> = thenReturn(Completable.error(exception))
+fun OngoingStubbing<Completable>.thenError(exception: Exception = RuntimeException()): OngoingStubbing<Completable> = thenReturn(Completable.error(exception))
 
 fun OngoingStubbing<Completable>.thenComplete(): OngoingStubbing<Completable> = thenReturn(Completable.complete())
 
@@ -14,4 +14,4 @@ fun OngoingStubbing<Completable>.doReturnComplete() = doReturn(Completable.compl
 
 fun OngoingStubbing<Completable>.doReturnNever() = doReturn(Completable.never())
 
-fun OngoingStubbing<Completable>.doReturnError(exception: Exception) = doReturn(Completable.error(exception))
+fun OngoingStubbing<Completable>.doReturnError(exception: Exception = RuntimeException()) = doReturn(Completable.error(exception))

@@ -1,6 +1,8 @@
 package com.elpassion.android.commons.rxjava2.test
 
 import io.reactivex.Observable
+import io.reactivex.observers.TestObserver
+import org.junit.Assert
 import org.junit.Test
 
 class AssertableSubscriberExtensionTest {
@@ -28,5 +30,20 @@ class AssertableSubscriberExtensionTest {
     @Test(expected = AssertionError::class)
     fun shouldFirstValueAssertionFailed() {
         Observable.just(1, -1, -10).test().assertValueThat { it == 0 }
+    }
+
+    @Test
+    fun shouldCompareLastElement() {
+        Observable.just(1, 2).test().assertLastValue(2)
+    }
+
+    @Test(expected = AssertionError::class)
+    fun shouldFailWhenComparingLastElement() {
+        Observable.just(2, 3).test().assertLastValue(2)
+    }
+
+    @Test
+    fun shouldCompareLastElementWithPassedValue() {
+        Observable.just(2, 3).test().assertLastValue(3)
     }
 }

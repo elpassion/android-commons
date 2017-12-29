@@ -17,17 +17,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".list.SimpleListActivity" />
-
         <activity android:name=".list.BasicListActivity" />
 
-        <activity android:name=".group.RecyclerWithSectionActivity" />
-
         <activity android:name=".group.BasicRecyclerWithSectionActivity" />
-
-        <activity android:name=".group.MutableRecyclerWithSectionsActivity" />
-
-        <activity android:name=".group.StableMutableRecyclerWithSectionsActivity" />
 
         <activity android:name=".group.BasicMutableRecyclerWithSectionsActivity" />
 

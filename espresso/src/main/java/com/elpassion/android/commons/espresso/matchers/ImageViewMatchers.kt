@@ -14,7 +14,7 @@ fun withImage(@DrawableRes imageId: Int): Matcher<View> = createViewMatcher(
 private fun ImageView.hasImageWithId(@DrawableRes imageId: Int): Boolean {
     val drawable = drawable ?: return false
     val actualState = drawable.constantState
-    val expectedState = ContextCompat.getDrawable(context, imageId).constantState
+    val expectedState = ContextCompat.getDrawable(context, imageId)?.constantState
     return actualState == expectedState
 }
 
