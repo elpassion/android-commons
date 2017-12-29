@@ -22,14 +22,14 @@ it well.
 That's why we follow highly modularized approach.
 
 Our library consists of following modules:
-- [Espresso](#Espresso) 
-- [RxJava2-test](#RxJava2-test)
-- [SharedPreferences](#SharedPreferences)
-- [SharedPreferences-Moshi](#SharedPreferences-Moshi)
-- [SharedPreferences-Gson](#SharedPreferences-Gson)
-- [View](#View)
-- [Pager](#Pager)
-- [Recycler](#Recycler)
+- [Espresso](#espresso) 
+- [RxJava2-test](#rxjava2-test)
+- [SharedPreferences](#sharedpreferences)
+- [SharedPreferences-Moshi](#sharedpreferences-moshi)
+- [SharedPreferences-Gson](#sharedpreferences-gson)
+- [View](#view)
+- [Pager](#pager)
+- [Recycler](#recycler)
 
 Espresso
 =========
