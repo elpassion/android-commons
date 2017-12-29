@@ -74,7 +74,7 @@ RxJava2-test module basically contains two things.
 
 #### Download:
 ```groovy
-    androidTestCompile "com.github.elpassion.android-commons:rxjava-test:0.0.21"
+    androidTestImplementation "com.github.elpassion.android-commons:rxjava-test:0.0.21"
 ```
 [Back to overview](#overview)
 
