@@ -211,6 +211,16 @@ private fun positionToLayoutMapping(position) = when (position) {
     isEven() -> R.layout.other_github_item to ::OtherSimpleUserViewHolder
 }
 ```
+Where a view holder may look like this
+```kotlin
+class SimpleUserViewHolder(itemView: View) : ViewHolderBinder<User>(itemView) {
+
+    override fun bind(item: User) {
+        itemView.userName.text = item.name
+        itemView.organization.text = item.organization
+    }
+}
+```
 
 Dividing your data set into logical pieces is supported by `ListWithSections` class.
 Here is an example:
@@ -222,6 +232,12 @@ recyclerView.adapter = basicAdapterWithLayoutAndBinder(users, R.layout.github_it
         organization.text = user.organization
     }
 }
+```
+There is also a mutable equivalent of this class `ListWithMutableSections`.
+With use of it you can e.g. clear all section at once
+```kotlin
+    users.sections["Organization 1"]!!.clear()
+    adapter.notifyDataSetChanged()
 ```
 
 #### Download:
