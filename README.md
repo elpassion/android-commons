@@ -47,7 +47,7 @@ Leveraging the kotlin expressiveness we can write:
 
 #### Download:
 ```groovy
-    androidTestImplementation "com.github.elpassion.android-commons:espresso:0.0.21"
+    androidTestImplementation "com.github.elpassion.android-commons:espresso:0.0.22"
 ```
 [Back to overview](#overview)
 
@@ -74,7 +74,7 @@ RxJava2-test module basically contains two things.
 
 #### Download:
 ```groovy
-    androidTestImplementation "com.github.elpassion.android-commons:rxjava-test:0.0.21"
+    androidTestImplementation "com.github.elpassion.android-commons:rxjava-test:0.0.22"
 ```
 [Back to overview](#overview)
 
@@ -132,7 +132,7 @@ properly invalidate them, every interactions with sharedPreferences must now go 
 
 #### Download:
 ```groovy
-    implementation "com.github.elpassion.android-commons:shared-preferences:0.0.21"
+    implementation "com.github.elpassion.android-commons:shared-preferences:0.0.22"
 ```
 [Back to overview](#overview)
 
@@ -171,7 +171,7 @@ View
 
 #### Download:
 ```groovy
-    implementation "com.github.elpassion.android-commons:view:0.0.21"
+    implementation "com.github.elpassion.android-commons:view:0.0.22"
 ```
 [Back to overview](#overview)
 
@@ -180,7 +180,7 @@ Pager
 
 #### Download:
 ```groovy
-    implementation "com.github.elpassion.android-commons:pager:0.0.21"
+    implementation "com.github.elpassion.android-commons:pager:0.0.22"
 ```
 [Back to overview](#overview)
 
@@ -242,6 +242,6 @@ With use of it you can e.g. clear all section at once
 
 #### Download:
 ```groovy
-    implementation "com.github.elpassion.android-commons:recycler:0.0.21"
+    implementation "com.github.elpassion.android-commons:recycler:0.0.22"
 ```
 [Back to overview](#overview)
