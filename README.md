@@ -136,6 +136,11 @@ SharedPreferences-Moshi
 =========
 It is a moshi adapter for our sharedPreferences library.
 
+To create an instance of it use a factory function:
+```kotlin
+    moshiConverterAdapter(moshi = instanceOfMoshi)
+```
+
 #### Download:
 ```groovy
     implementation "com.github.elpassion.android-commons:shared-preferences-moshi-converter-adapter:0.0.21"
@@ -145,6 +150,11 @@ It is a moshi adapter for our sharedPreferences library.
 SharedPreferences-Gson
 =========
 It is a gson adapter for our sharedPreferences library.
+
+To create an instance of it use a factory function:
+```kotlin
+    gsonConverterAdapter(gson = instanceOfGson)
+```
 
 #### Download:
 ```groovy
