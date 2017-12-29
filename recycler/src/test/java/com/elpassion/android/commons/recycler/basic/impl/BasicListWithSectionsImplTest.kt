@@ -1,5 +1,6 @@
 package com.elpassion.android.commons.recycler.basic.impl
 
+import com.elpassion.android.commons.recycler.basic.ListWithSections
 import com.elpassion.android.commons.recycler.basic.asBasicListWithSections
 import org.junit.Assert.assertEquals
 import org.junit.Test
