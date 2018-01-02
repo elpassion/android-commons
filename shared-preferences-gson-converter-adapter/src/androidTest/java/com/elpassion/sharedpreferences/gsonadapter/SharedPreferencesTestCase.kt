@@ -14,7 +14,10 @@ class SharedPreferencesTestCase {
 
     @Test
     fun shouldSaveStringToRepository() {
-        val repository = createSharedPrefs<String>(sharedPreferences, gsonConverterAdapter())
+        val jsonAdapter = gsonConverterAdapter<String>()
+        // tag::sharedpreferences-create-shared-prefs[]
+        val repository = createSharedPrefs<String>(sharedPreferences, jsonAdapter)
+        // end::sharedpreferences-create-shared-prefs[]
         val valueSaved = "someValue"
         repository.write("key", valueSaved)
 
