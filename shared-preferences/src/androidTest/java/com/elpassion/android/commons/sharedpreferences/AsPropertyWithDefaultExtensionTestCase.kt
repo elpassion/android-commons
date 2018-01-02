@@ -13,7 +13,9 @@ import org.mockito.Mockito.verify
 class AsPropertyWithDefaultExtensionTestCase {
 
     val repository = mock<SharedPreferenceRepository<String>>()
+    // tag::sharedpreferences-as-property-with-default-declaration[]
     var secretKeyWithDefault by repository.asPropertyWithDefault("secret-key", "12345678")
+    // end::sharedpreferences-as-property-with-default-declaration[]
 
     @Test
     fun shouldReadDefaultValueWhenRepositoryIsEmpty() {

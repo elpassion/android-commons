@@ -13,7 +13,9 @@ import org.junit.runner.RunWith
 class AsPropertyExtensionTestCase {
 
     val repository = mock<SharedPreferenceRepository<String>>()
+    // tag::sharedpreferences-as-property-declaration[]
     var secretKey by repository.asProperty("secret-key")
+    // end::sharedpreferences-as-property-declaration[]
 
     @Test
     fun shouldReadNullValueFromRepository() {

@@ -140,12 +140,12 @@ We have created two adapters for the most commonly used serialization libraries:
 There is also an extension method which binds any field into specific key from shared preferences
 [source,kotlin]
 ----
-    var token: String? by sharedPreferences.asProperty(key = "authToken")
+include::shared-preferences/src/androidTest/java/com/elpassion/android/commons/sharedpreferences/AsPropertyExtensionTestCase.kt[tags=sharedpreferences-as-property-declaration]
 ----
 or you can use its non-nullable variant
 [source,kotlin]
 ----
-    var token: String by sharedPreferences.asPropertyWithDefault(key = "authToken", default = "invalid")
+include::shared-preferences/src/androidTest/java/com/elpassion/android/commons/sharedpreferences/AsPropertyWithDefaultExtensionTestCase.kt[tags=sharedpreferences-as-property-with-default-declaration]
 ----
 
 If you are reading very often we suggest you to wrap your sharedPreferences instance with CachingSharedPreferences wrapper.
@@ -166,7 +166,7 @@ It is a moshi adapter for our sharedPreferences library.
 To create an instance of it use a factory function:
 [source,kotlin]
 ----
-    moshiConverterAdapter(moshi = instanceOfMoshi)
+include::shared-preferences-moshi-converter-adapter/src/androidTest/java/com/elpassion/sharedpreferences/moshiadapter/SharedPreferencesTestCase.kt[tags=sharedpreferences-create-moshi-converter-adapter]
 ----
 
 === Download:
@@ -183,7 +183,7 @@ It is a gson adapter for our sharedPreferences library.
 To create an instance of it use a factory function:
 [source,kotlin]
 ----
-    gsonConverterAdapter(gson = instanceOfGson)
+include::shared-preferences-gson-converter-adapter/src/androidTest/java/com/elpassion/sharedpreferences/gsonadapter/SharedPreferencesTestCase.kt[tags=sharedpreferences-create-gson-converter-adapter]
 ----
 
 === Download:

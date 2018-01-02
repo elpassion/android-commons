@@ -657,7 +657,7 @@ it well.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">    var token: String? by sharedPreferences.asProperty(key = "authToken")</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">    var secretKey by repository.asProperty("secret-key")</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -665,7 +665,7 @@ it well.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">    var token: String by sharedPreferences.asPropertyWithDefault(key = "authToken", default = "invalid")</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">    var secretKeyWithDefault by repository.asPropertyWithDefault("secret-key", "12345678")</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -697,7 +697,7 @@ properly invalidate them, every interactions with sharedPreferences must now go 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">    moshiConverterAdapter(moshi = instanceOfMoshi)</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">        val jsonAdapter = moshiConverterAdapter&lt;String&gt;()</code></pre>
 </div>
 </div>
 <div class="sect2">
@@ -724,7 +724,7 @@ properly invalidate them, every interactions with sharedPreferences must now go 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">    gsonConverterAdapter(gson = instanceOfGson)</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">        val jsonAdapter = gsonConverterAdapter&lt;String&gt;()</code></pre>
 </div>
 </div>
 <div class="sect2">
@@ -865,7 +865,7 @@ With use of it you can e.g. clear all section at once</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-02 14:00:46 CET
+Last updated 2018-01-02 15:10:34 CET
 </div>
 </div>
 </body>
