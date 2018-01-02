@@ -17,6 +17,7 @@ class MenuActivity : AppCompatActivity() {
         setContentView(R.layout.menu_layout)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
+        // tag::recycler-basic-adapter-with-layout-and-binder[]
         val examples = listOf(
                 ExampleItem(name = BasicListActivity.DESCRIPTION, onClick = { BasicListActivity.start(this) }),
                 ExampleItem(name = BasicRecyclerWithSectionActivity.DESCRIPTION, onClick = { BasicRecyclerWithSectionActivity.start(this) }),
@@ -28,5 +29,6 @@ class MenuActivity : AppCompatActivity() {
             holder.itemView.example_name.text = item.name
             holder.itemView.setOnClickListener { item.onClick() }
         }
+        // end::recycler-basic-adapter-with-layout-and-binder[]
     }
 }

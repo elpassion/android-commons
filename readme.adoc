@@ -97,7 +97,7 @@ include::rxjava2-test/src/test/java/com/elpassion/android/commons/rxjava2/test/A
 +
 [source,kotlin]
 ----
-include::shared-preferences/src/main/java/com/elpassion/android/commons/sharedpreferences/SharedPreferenceRepository.kt[tags=sharedpreferences-interface]
+include::rxjava2-test/src/test/java/com/elpassion/android/commons/rxjava2/test/AssertableSubscriberExtensionTest.kt[tags=rxjava2-assertLastValue]
 ----
 
 
@@ -218,10 +218,7 @@ Using recycler-view have never been easier.
 If all of your views are going to be the same type you can just write
 [source,kotlin]
 ----
-items = /* list of your items */
-recyclerView.adapter = basicAdapterWithLayoutAndBinder(items, R.layout.my_item_layout) { holder, item ->
-            holder.itemView.myTextView.text = item.name
-        }
+include::recycler-example/src/main/java/com/elpassion/android/commons/recycler_example/menu/MenuActivity.kt[tags=recycler-basic-adapter-with-layout-and-binder]
 ----
 If you want to get benefits of using stableIds all you need to do is to make your item
 implement `WithStableId` interface and of course tell the adapter to use stable ids:
