@@ -18,8 +18,9 @@ class BasicListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.recycler_view)
-        val users = createManyUsers()
         recyclerView.layoutManager = LinearLayoutManager(this)
+    // tag::recycler-basic-adapter-with-constructor[]
+        val users = createManyUsers()
 
         recyclerView.adapter = basicAdapterWithConstructors(users) { position ->
             getLayoutAndConstructor(users[position])
@@ -30,6 +31,7 @@ class BasicListActivity : AppCompatActivity() {
         "A" -> R.layout.github_item to ::SimpleUserViewHolder
         else -> R.layout.other_github_item to ::OtherSimpleUserViewHolder
     }
+    // end::recycler-basic-adapter-with-constructor[]
 
     companion object {
         fun start(context: Context) {

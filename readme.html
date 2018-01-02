@@ -835,7 +835,7 @@ it well.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">        onId(existingId).isDisplayed()</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">onId(existingId).isDisplayed()</code></pre>
 </div>
 </div>
 <div class="sect2">
@@ -866,7 +866,7 @@ it well.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">    whenever(api.makeRequest()).thenReturn(Completable.error(RuntimeException()))</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">whenever(api.makeRequest()).thenReturn(Completable.error(RuntimeException()))</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -874,7 +874,7 @@ it well.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">        whenever(api.invoke()).thenError(error)</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">whenever(api.invoke()).thenError(error)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -889,7 +889,7 @@ it well.</p>
 <p>assertValueThat</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">        Observable.just(4, -1).test().assertValueThat { it &gt; 0 }</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Observable.just(4, -1).test().assertValueThat { it &gt; 0 }</code></pre>
 </div>
 </div>
 </li>
@@ -897,7 +897,7 @@ it well.</p>
 <p>assertValuesThat</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">        Observable.just(2, 3, 4).test().assertValuesThat { it &gt; 0 }</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Observable.just(2, 3, 4).test().assertValuesThat { it &gt; 0 }</code></pre>
 </div>
 </div>
 </li>
@@ -905,7 +905,7 @@ it well.</p>
 <p>assertLastValueThat</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">        Observable.just(1, 2).test().assertLastValue(2)</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Observable.just(1, 2).test().assertLastValue(2)</code></pre>
 </div>
 </div>
 </li>
@@ -950,7 +950,7 @@ it well.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">        val repository = createSharedPrefs&lt;String&gt;(sharedPreferences, jsonAdapter)</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">val repository = createSharedPrefs&lt;String&gt;(sharedPreferences, jsonAdapter)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -986,7 +986,7 @@ it well.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">    var secretKey by repository.asProperty("secret-key")</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">var secretKey by repository.asProperty("secret-key")</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -994,7 +994,7 @@ it well.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">    var secretKeyWithDefault by repository.asPropertyWithDefault("secret-key", "12345678")</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">var secretKeyWithDefault by repository.asPropertyWithDefault("secret-key", "12345678")</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1026,14 +1026,14 @@ properly invalidate them, every interactions with sharedPreferences must now go 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">        val jsonAdapter = moshiConverterAdapter&lt;String&gt;()</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">val jsonAdapter = moshiConverterAdapter&lt;String&gt;()</code></pre>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_download_4">5.1. Download:</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">    implementation "com.github.elpassion.android-commons:shared-preferences-moshi-converter-adapter:0.0.22"</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">implementation "com.github.elpassion.android-commons:shared-preferences-moshi-converter-adapter:0.0.22"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1053,14 +1053,14 @@ properly invalidate them, every interactions with sharedPreferences must now go 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">        val jsonAdapter = gsonConverterAdapter&lt;String&gt;()</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">val jsonAdapter = gsonConverterAdapter&lt;String&gt;()</code></pre>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_download_5">6.1. Download:</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">    implementation "com.github.elpassion.android-commons:shared-preferences-gson-converter-adapter:0.0.22"</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">implementation "com.github.elpassion.android-commons:shared-preferences-gson-converter-adapter:0.0.22"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1076,7 +1076,7 @@ properly invalidate them, every interactions with sharedPreferences must now go 
 <h3 id="_download_6">7.1. Download:</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">    implementation "com.github.elpassion.android-commons:view:0.0.22"</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">implementation "com.github.elpassion.android-commons:view:0.0.22"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1092,7 +1092,7 @@ properly invalidate them, every interactions with sharedPreferences must now go 
 <h3 id="_download_7">8.1. Download:</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">    implementation "com.github.elpassion.android-commons:pager:0.0.22"</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">implementation "com.github.elpassion.android-commons:pager:0.0.22"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1112,17 +1112,17 @@ properly invalidate them, every interactions with sharedPreferences must now go 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">        val examples = listOf(
-                ExampleItem(name = BasicListActivity.DESCRIPTION, onClick = { BasicListActivity.start(this) }),
-                ExampleItem(name = BasicRecyclerWithSectionActivity.DESCRIPTION, onClick = { BasicRecyclerWithSectionActivity.start(this) }),
-                ExampleItem(name = BasicMutableRecyclerWithSectionsActivity.DESCRIPTION, onClick = { BasicMutableRecyclerWithSectionsActivity.start(this) }),
-                ExampleItem(name = BasicContactsListActivity.DESCRIPTION, onClick = { BasicContactsListActivity.start(this) })
-        )
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">val examples = listOf(
+        ExampleItem(name = BasicListActivity.DESCRIPTION, onClick = { BasicListActivity.start(this) }),
+        ExampleItem(name = BasicRecyclerWithSectionActivity.DESCRIPTION, onClick = { BasicRecyclerWithSectionActivity.start(this) }),
+        ExampleItem(name = BasicMutableRecyclerWithSectionsActivity.DESCRIPTION, onClick = { BasicMutableRecyclerWithSectionsActivity.start(this) }),
+        ExampleItem(name = BasicContactsListActivity.DESCRIPTION, onClick = { BasicContactsListActivity.start(this) })
+)
 
-        recyclerView.adapter = basicAdapterWithLayoutAndBinder(examples, R.layout.example_item) { holder, item -&gt;
-            holder.itemView.example_name.text = item.name
-            holder.itemView.setOnClickListener { item.onClick() }
-        }</code></pre>
+recyclerView.adapter = basicAdapterWithLayoutAndBinder(examples, R.layout.example_item) { holder, item -&gt;
+    holder.itemView.example_name.text = item.name
+    holder.itemView.setOnClickListener { item.onClick() }
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1135,14 +1135,16 @@ implement <code>WithStableId</code> interface and of course tell the adapter to 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">items = /* list of your items */
-recyclerView.adapter = basicAdapterWithConstructors(items) { position -&gt;
-            positionToLayoutMapping(position)
-        }
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">    val users = createManyUsers()
 
-private fun positionToLayoutMapping(position) = when (position) {
-    isOdd() -&gt; R.layout.github_item to ::SimpleUserViewHolder
-    isEven() -&gt; R.layout.other_github_item to ::OtherSimpleUserViewHolder
+    recyclerView.adapter = basicAdapterWithConstructors(users) { position -&gt;
+        getLayoutAndConstructor(users[position])
+    }
+}
+
+private fun getLayoutAndConstructor(user: User) = when (user.organization) {
+    "A" -&gt; R.layout.github_item to ::SimpleUserViewHolder
+    else -&gt; R.layout.other_github_item to ::OtherSimpleUserViewHolder
 }</code></pre>
 </div>
 </div>
@@ -1166,13 +1168,16 @@ Here is an example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">val users = createManyUsers().groupBy(User::organization).asBasicListWithSections()
-recyclerView.adapter = basicAdapterWithLayoutAndBinder(users, R.layout.github_item) { holder, user -&gt;
-    with(holder.itemView) {
-        userName.text = user.name
-        organization.text = user.organization
-    }
-}</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">val users = createManyUsers()
+        .groupByTo(LinkedHashMap(), User::organization)
+        .mapValuesTo(LinkedHashMap()) { it.value }
+        .asBasicListWithMutableSections()
+    val adapter = basicAdapterWithConstructors(users) { position -&gt;
+        when (users[position].organization) {
+            "A" -&gt; R.layout.github_item to ::SimpleUserViewHolder
+            else -&gt; R.layout.other_github_item to ::OtherSimpleUserViewHolder
+        }
+    }</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1181,8 +1186,8 @@ With use of it you can e.g. clear all section at once</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">    users.sections["Organization 1"]!!.clear()
-    adapter.notifyDataSetChanged()</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">users.sections["Organization 1"]!!.clear()
+adapter.notifyDataSetChanged()</code></pre>
 </div>
 </div>
 <div class="sect2">
@@ -1201,7 +1206,7 @@ With use of it you can e.g. clear all section at once</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-02 17:20:03 CET
+Last updated 2018-01-02 17:47:40 CET
 </div>
 </div>
 </body>

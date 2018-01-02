@@ -38,7 +38,7 @@ For example instead of writing
     .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
 ----
 Leveraging the kotlin expressiveness we can write:
-[source,kotlin]
+[source,kotlin,indent=0]
 ----
 include::espresso/src/androidTest/java/com/elpassion/android/commons/espresso/OnIdTest.kt[tags=espresso-on-id-test]
 ----
@@ -60,7 +60,7 @@ RxJava2-test module basically contains two things.
 For example instead of writing:
 
 +
-[source,kotlin]
+[source,kotlin,indent=0]
 ----
     whenever(api.makeRequest()).thenReturn(Completable.error(RuntimeException()))
 ----
@@ -69,7 +69,7 @@ For example instead of writing:
 We can write:
 
 +
-[source,kotlin]
+[source,kotlin,indent=0]
 ----
 include::rxjava2-test/src/test/java/com/elpassion/android/commons/rxjava2/test/StubbingSingleExtensionTest.kt[tags=rxjava2-then-error]
 ----
@@ -81,21 +81,21 @@ There are corresponding methods for Observable, and Single classes as well.
 
     * assertValueThat
 +
-[source,kotlin]
+[source,kotlin,indent=0]
 ----
 include::rxjava2-test/src/test/java/com/elpassion/android/commons/rxjava2/test/AssertableSubscriberExtensionTest.kt[tags=rxjava2-assertValueThat]
 ----
 
     * assertValuesThat
 +
-[source,kotlin]
+[source,kotlin,indent=0]
 ----
 include::rxjava2-test/src/test/java/com/elpassion/android/commons/rxjava2/test/AssertableSubscriberExtensionTest.kt[tags=rxjava2-assertValuesThat]
 ----
 
     * assertLastValueThat
 +
-[source,kotlin]
+[source,kotlin,indent=0]
 ----
 include::rxjava2-test/src/test/java/com/elpassion/android/commons/rxjava2/test/AssertableSubscriberExtensionTest.kt[tags=rxjava2-assertLastValue]
 ----
@@ -112,21 +112,21 @@ Back to <<Overview>>
 
 This is a core module which provides an abstraction over android shared preferences.
 
-[source,kotlin]
+[source,kotlin,indent=0]
 ----
 include::shared-preferences/src/main/java/com/elpassion/android/commons/sharedpreferences/SharedPreferenceRepository.kt[tags=sharedpreferences-interface]
 ----
 
 To create an instance of it use the factory method:
 
-[source,kotlin]
+[source,kotlin,indent=0]
 ----
 include::shared-preferences-gson-converter-adapter/src/androidTest/java/com/elpassion/sharedpreferences/gsonadapter/SharedPreferencesTestCase.kt[tags=sharedpreferences-create-shared-prefs]
 ----
 
 A JsonAdapter is a class which fulfills following contract:
 
-[source,kotlin]
+[source,kotlin,indent=0]
 ----
 include::shared-preferences/src/main/java/com/elpassion/android/commons/sharedpreferences/JsonConverterAdapter.kt[tags=sharedpreferences-json-converter-adapter-interface]
 ----
@@ -138,12 +138,12 @@ We have created two adapters for the most commonly used serialization libraries:
 . <<SharedPreferences-Gson>>
 
 There is also an extension method which binds any field into specific key from shared preferences
-[source,kotlin]
+[source,kotlin,indent=0]
 ----
 include::shared-preferences/src/androidTest/java/com/elpassion/android/commons/sharedpreferences/AsPropertyExtensionTestCase.kt[tags=sharedpreferences-as-property-declaration]
 ----
 or you can use its non-nullable variant
-[source,kotlin]
+[source,kotlin,indent=0]
 ----
 include::shared-preferences/src/androidTest/java/com/elpassion/android/commons/sharedpreferences/AsPropertyWithDefaultExtensionTestCase.kt[tags=sharedpreferences-as-property-with-default-declaration]
 ----
@@ -164,13 +164,13 @@ Back to <<Overview>>
 It is a moshi adapter for our sharedPreferences library.
 
 To create an instance of it use a factory function:
-[source,kotlin]
+[source,kotlin,indent=0]
 ----
 include::shared-preferences-moshi-converter-adapter/src/androidTest/java/com/elpassion/sharedpreferences/moshiadapter/SharedPreferencesTestCase.kt[tags=sharedpreferences-create-moshi-converter-adapter]
 ----
 
 === Download:
-[source,kotlin]
+[source,groovy]
 ----
     implementation "com.github.elpassion.android-commons:shared-preferences-moshi-converter-adapter:0.0.22"
 ----
@@ -181,13 +181,13 @@ Back to <<Overview>>
 It is a gson adapter for our sharedPreferences library.
 
 To create an instance of it use a factory function:
-[source,kotlin]
+[source,kotlin,indent=0]
 ----
 include::shared-preferences-gson-converter-adapter/src/androidTest/java/com/elpassion/sharedpreferences/gsonadapter/SharedPreferencesTestCase.kt[tags=sharedpreferences-create-gson-converter-adapter]
 ----
 
 === Download:
-[source,kotlin]
+[source,groovy]
 ----
     implementation "com.github.elpassion.android-commons:shared-preferences-gson-converter-adapter:0.0.22"
 ----
@@ -196,7 +196,7 @@ Back to <<Overview>>
 == View
 
 === Download:
-[source,kotlin]
+[source,groovy]
 ----
     implementation "com.github.elpassion.android-commons:view:0.0.22"
 ----
@@ -205,7 +205,7 @@ Back to <<Overview>>
 == Pager
 
 === Download:
-[source,kotlin]
+[source,groovy]
 ----
     implementation "com.github.elpassion.android-commons:pager:0.0.22"
 ----
@@ -216,7 +216,7 @@ Back to <<Overview>>
 Using recycler-view have never been easier.
 
 If all of your views are going to be the same type you can just write
-[source,kotlin]
+[source,kotlin,indent=0]
 ----
 include::recycler-example/src/main/java/com/elpassion/android/commons/recycler_example/menu/MenuActivity.kt[tags=recycler-basic-adapter-with-layout-and-binder]
 ----
@@ -225,45 +225,26 @@ implement `WithStableId` interface and of course tell the adapter to use stable 
 `adapter.setHasStableId(true)`
 
 On the other hand if you need to have different views for different types of items you just need to write
-[source,kotlin]
+[source,kotlin,indent=0]
 ----
-items = /* list of your items */
-recyclerView.adapter = basicAdapterWithConstructors(items) { position ->
-            positionToLayoutMapping(position)
-        }
-
-private fun positionToLayoutMapping(position) = when (position) {
-    isOdd() -> R.layout.github_item to ::SimpleUserViewHolder
-    isEven() -> R.layout.other_github_item to ::OtherSimpleUserViewHolder
-}
+include::recycler-example/src/main/java/com/elpassion/android/commons/recycler_example/list/BasicListActivity.kt[tags=recycler-basic-adapter-with-constructor]
 ----
 Where a view holder may look like this
-[source,kotlin]
+[source,kotlin,indent=0]
 ----
-class SimpleUserViewHolder(itemView: View) : ViewHolderBinder<User>(itemView) {
-
-    override fun bind(item: User) {
-        itemView.userName.text = item.name
-        itemView.organization.text = item.organization
-    }
-}
+include::recycler-example/src/main/java/com/elpassion/android/commons/recycler_example/common/SimpleUserViewHolder.kt[tags=recycler-simple-user-view-holder]
 ----
 
 Dividing your data set into logical pieces is supported by `ListWithSections` class.
 Here is an example:
-[source,kotlin]
+[source,kotlin,indent=0]
 ----
-val users = createManyUsers().groupBy(User::organization).asBasicListWithSections()
-recyclerView.adapter = basicAdapterWithLayoutAndBinder(users, R.layout.github_item) { holder, user ->
-    with(holder.itemView) {
-        userName.text = user.name
-        organization.text = user.organization
-    }
-}
+include::recycler-example/src/main/java/com/elpassion/android/commons/recycler_example/group/BasicMutableRecyclerWithSectionsActivity.kt[tags=recycler-mutable-list-with-sections]
+include::recycler-example/src/main/java/com/elpassion/android/commons/recycler_example/group/BasicMutableRecyclerWithSectionsActivity.kt[tags=recycler-mutable-list-with-sections-usage]
 ----
 There is also a mutable equivalent of this class `ListWithMutableSections`.
 With use of it you can e.g. clear all section at once
-[source,kotlin]
+[source,kotlin,indent=0]
 ----
     users.sections["Organization 1"]!!.clear()
     adapter.notifyDataSetChanged()
