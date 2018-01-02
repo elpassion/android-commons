@@ -3,6 +3,7 @@
 :sectnums:
 :toclevels: 1
 :doctype: book
+:version: 0.0.22
 
 Libraries written in Kotlin and used in most EL Passion Android projects.
 
@@ -19,7 +20,7 @@ toc::[]
 
 === Building with JitPack
 
-[source,groovy]
+[source,groovy,subs="attributes"]
 ----
 repositories {
     maven { url "https://jitpack.io" }
@@ -44,9 +45,9 @@ include::espresso/src/androidTest/java/com/elpassion/android/commons/espresso/On
 ----
 
 === Download:
-[source,groovy]
+[source,groovy,subs="attributes"]
 ----
-    androidTestImplementation "com.github.elpassion.android-commons:espresso:0.0.22"
+    androidTestImplementation "com.github.elpassion.android-commons:espresso:{version}"
 ----
 Back to <<Overview>>
 
@@ -102,9 +103,9 @@ include::rxjava2-test/src/test/java/com/elpassion/android/commons/rxjava2/test/A
 
 
 === Download:
-[source,groovy]
+[source,groovy,subs="attributes"]
 ----
-    androidTestImplementation "com.github.elpassion.android-commons:rxjava-test:0.0.22"
+    androidTestImplementation "com.github.elpassion.android-commons:rxjava-test:{version}"
 ----
 Back to <<Overview>>
 
@@ -153,9 +154,9 @@ It uses the same interface so it is transparent from the usage perspective. Keep
 properly invalidate them, every interactions with sharedPreferences must now go through the same instance of the caching wrapper.
 
 === Download:
-[source,groovy]
+[source,groovy,subs="attributes"]
 ----
-    implementation "com.github.elpassion.android-commons:shared-preferences:0.0.22"
+    implementation "com.github.elpassion.android-commons:shared-preferences:{version}"
 ----
 Back to <<Overview>>
 
@@ -170,9 +171,9 @@ include::shared-preferences-moshi-converter-adapter/src/androidTest/java/com/elp
 ----
 
 === Download:
-[source,groovy]
+[source,groovy,subs="attributes"]
 ----
-    implementation "com.github.elpassion.android-commons:shared-preferences-moshi-converter-adapter:0.0.22"
+    implementation "com.github.elpassion.android-commons:shared-preferences-moshi-converter-adapter:{version}"
 ----
 Back to <<Overview>>
 
@@ -187,27 +188,27 @@ include::shared-preferences-gson-converter-adapter/src/androidTest/java/com/elpa
 ----
 
 === Download:
-[source,groovy]
+[source,groovy,subs="attributes"]
 ----
-    implementation "com.github.elpassion.android-commons:shared-preferences-gson-converter-adapter:0.0.22"
+    implementation "com.github.elpassion.android-commons:shared-preferences-gson-converter-adapter:{version}"
 ----
 Back to <<Overview>>
 
 == View
 
 === Download:
-[source,groovy]
+[source,groovy,subs="attributes"]
 ----
-    implementation "com.github.elpassion.android-commons:view:0.0.22"
+    implementation "com.github.elpassion.android-commons:view:{version}"
 ----
 Back to <<Overview>>
 
 == Pager
 
 === Download:
-[source,groovy]
+[source,groovy,subs="attributes"]
 ----
-    implementation "com.github.elpassion.android-commons:pager:0.0.22"
+    implementation "com.github.elpassion.android-commons:pager:{version}"
 ----
 Back to <<Overview>>
 
@@ -251,8 +252,8 @@ With use of it you can e.g. clear all section at once
 ----
 
 === Download:
-[source,groovy]
+[source,groovy,subs="attributes"]
 ----
-    implementation "com.github.elpassion.android-commons:recycler:0.0.22"
+    implementation "com.github.elpassion.android-commons:recycler:{version}"
 ----
 Back to <<Overview>>
