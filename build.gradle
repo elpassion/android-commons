@@ -19,20 +19,32 @@ buildscript {
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.17.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.3'
     }
 }
-
+plugins {
+    id 'org.asciidoctor.convert' version '1.5.3'
+}
 apply plugin: 'com.github.ben-manes.versions'
+apply plugin: 'org.asciidoctor.convert'
+
+asciidoctorj {
+    version = '1.5.4'
+}
+
+asciidoctor {
+    sourceDir = project.rootDir
+    outputDir = file('docs')
+    attributes  \
+         'build-gradle': file('build.gradle'),
+            'stylesheet': 'wider_asciidoctor.css'
+}
 
 allprojects {
     repositories {
         jcenter()
         maven { url "https://maven.google.com" }
     }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
 }
 
 task updateVersionName {
@@ -56,6 +68,8 @@ task updateReadme {
         }
     }
 }
+
+task updateDocs dependsOn updateReadme, asciidoctor
 
 int commonVersionCode() {
     return 1
