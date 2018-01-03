@@ -37,7 +37,7 @@ asciidoctor {
     outputDir = file('docs')
     attributes  \
          'build-gradle': file('build.gradle'),
-            'stylesheet': 'docs/styles/wider_asciidoctor.css'
+            'stylesheet': 'styles/wider_asciidoctor.css'
 }
 
 allprojects {
