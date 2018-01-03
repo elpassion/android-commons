@@ -33,7 +33,7 @@ asciidoctorj {
 }
 
 asciidoctor {
-    sourceDir = project.rootDir
+    sourceDir = new File(project.rootDir,'docs')
     outputDir = file('docs')
     attributes  \
          'build-gradle': file('build.gradle'),
@@ -60,7 +60,7 @@ task updateVersionName {
 
 task updateReadme {
     doLast {
-        def readmeFile = new File('readme.adoc')
+        def readmeFile = new File('docs/readme.adoc')
         def matcher = Pattern.compile(":version: (\\d+.\\d+.\\d+)").matcher(readmeFile.text)
         while (matcher.find()) {
             def readmeText = new StringBuilder(readmeFile.text).replace(matcher.start(1), matcher.end(1), "${commonVersionName()}")
