@@ -47,7 +47,7 @@ include::espresso/src/androidTest/java/com/elpassion/android/commons/espresso/On
 === Download:
 [source,groovy,subs="attributes"]
 ----
-    androidTestImplementation "com.github.elpassion.android-commons:espresso:{version}"
+androidTestImplementation "com.github.elpassion.android-commons:espresso:{version}"
 ----
 Back to <<Overview>>
 
@@ -105,7 +105,7 @@ include::rxjava2-test/src/test/java/com/elpassion/android/commons/rxjava2/test/A
 === Download:
 [source,groovy,subs="attributes"]
 ----
-    androidTestImplementation "com.github.elpassion.android-commons:rxjava-test:{version}"
+androidTestImplementation "com.github.elpassion.android-commons:rxjava-test:{version}"
 ----
 Back to <<Overview>>
 
@@ -156,7 +156,7 @@ properly invalidate them, every interactions with sharedPreferences must now go 
 === Download:
 [source,groovy,subs="attributes"]
 ----
-    implementation "com.github.elpassion.android-commons:shared-preferences:{version}"
+implementation "com.github.elpassion.android-commons:shared-preferences:{version}"
 ----
 Back to <<Overview>>
 
@@ -173,7 +173,7 @@ include::shared-preferences-moshi-converter-adapter/src/androidTest/java/com/elp
 === Download:
 [source,groovy,subs="attributes"]
 ----
-    implementation "com.github.elpassion.android-commons:shared-preferences-moshi-converter-adapter:{version}"
+implementation "com.github.elpassion.android-commons:shared-preferences-moshi-converter-adapter:{version}"
 ----
 Back to <<Overview>>
 
@@ -190,7 +190,7 @@ include::shared-preferences-gson-converter-adapter/src/androidTest/java/com/elpa
 === Download:
 [source,groovy,subs="attributes"]
 ----
-    implementation "com.github.elpassion.android-commons:shared-preferences-gson-converter-adapter:{version}"
+implementation "com.github.elpassion.android-commons:shared-preferences-gson-converter-adapter:{version}"
 ----
 Back to <<Overview>>
 
@@ -199,7 +199,7 @@ Back to <<Overview>>
 === Download:
 [source,groovy,subs="attributes"]
 ----
-    implementation "com.github.elpassion.android-commons:view:{version}"
+implementation "com.github.elpassion.android-commons:view:{version}"
 ----
 Back to <<Overview>>
 
@@ -208,7 +208,7 @@ Back to <<Overview>>
 === Download:
 [source,groovy,subs="attributes"]
 ----
-    implementation "com.github.elpassion.android-commons:pager:{version}"
+implementation "com.github.elpassion.android-commons:pager:{version}"
 ----
 Back to <<Overview>>
 
@@ -254,6 +254,6 @@ With use of it you can e.g. clear all section at once
 === Download:
 [source,groovy,subs="attributes"]
 ----
-    implementation "com.github.elpassion.android-commons:recycler:{version}"
+implementation "com.github.elpassion.android-commons:recycler:{version}"
 ----
 Back to <<Overview>>
