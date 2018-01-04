@@ -25,7 +25,7 @@ checkResult
 checkResult
 ./gradlew updateVersionName -PversionName=$VERSION_NAME
 checkResult
-./gradlew updateReadme
+./gradlew updateDocs
 checkResult
 git commit -a -m "Update version to $VERSION_NAME."
 checkResult

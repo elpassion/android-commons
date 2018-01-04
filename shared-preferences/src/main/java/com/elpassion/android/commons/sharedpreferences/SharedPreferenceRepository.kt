@@ -2,6 +2,7 @@ package com.elpassion.android.commons.sharedpreferences
 
 import android.content.SharedPreferences
 
+// tag::sharedpreferences-interface[]
 interface SharedPreferenceRepository<T> {
 
     fun write(key: String, value: T?)
@@ -10,6 +11,7 @@ interface SharedPreferenceRepository<T> {
 
     fun contains(key: String): Boolean
 }
+// end::sharedpreferences-interface[]
 
 inline fun <reified T> createSharedPrefs(
         noinline sharedPreferencesProvider: () -> SharedPreferences,

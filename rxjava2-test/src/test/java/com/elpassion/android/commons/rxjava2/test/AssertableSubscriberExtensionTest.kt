@@ -9,7 +9,9 @@ class AssertableSubscriberExtensionTest {
 
     @Test
     fun shouldMultipleValuesAssertionSuccessful() {
+        // tag::rxjava2-assertValuesThat[]
         Observable.just(2, 3, 4).test().assertValuesThat { it > 0 }
+        // end::rxjava2-assertValuesThat[]
     }
 
     @Test(expected = AssertionError::class)
@@ -24,7 +26,9 @@ class AssertableSubscriberExtensionTest {
 
     @Test
     fun shouldFirstValueAssertionSuccessful() {
+        // tag::rxjava2-assertValueThat[]
         Observable.just(4, -1).test().assertValueThat { it > 0 }
+        // end::rxjava2-assertValueThat[]
     }
 
     @Test(expected = AssertionError::class)
@@ -34,7 +38,9 @@ class AssertableSubscriberExtensionTest {
 
     @Test
     fun shouldCompareLastElement() {
+        // tag::rxjava2-assertLastValue[]
         Observable.just(1, 2).test().assertLastValue(2)
+        // end::rxjava2-assertLastValue[]
     }
 
     @Test(expected = AssertionError::class)

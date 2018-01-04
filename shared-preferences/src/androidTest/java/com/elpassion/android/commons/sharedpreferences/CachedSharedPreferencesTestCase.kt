@@ -1,20 +1,19 @@
 package com.elpassion.android.commons.sharedpreferences
 
 import android.support.test.runner.AndroidJUnit4
+import com.nhaarman.mockito_kotlin.mock
 import org.junit.Assert
 import org.junit.Assert.assertSame
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Matchers.anyString
-import org.mockito.Mockito
 import org.mockito.Mockito.*
 import org.mockito.Mockito.`when` as on
 
 @RunWith(AndroidJUnit4::class)
 class CachedSharedPreferencesTestCase {
 
-    @Suppress("UNCHECKED_CAST")
-    val repositoryMock = Mockito.mock(SharedPreferenceRepository::class.java) as SharedPreferenceRepository<SimpleStructure>
+    val repositoryMock = mock<SharedPreferenceRepository<SimpleStructure>>()
     val cachingRepository = CachingSharedPreferenceRepository(repositoryMock)
 
     @Test

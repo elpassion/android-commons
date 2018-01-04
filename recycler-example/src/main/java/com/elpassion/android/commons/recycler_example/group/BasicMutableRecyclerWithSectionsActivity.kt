@@ -16,18 +16,25 @@ import java.util.*
 
 class BasicMutableRecyclerWithSectionsActivity : AppCompatActivity() {
 
+    // tag::recycler-mutable-list-with-sections[]
     val users = createManyUsers()
             .groupByTo(LinkedHashMap(), User::organization)
             .mapValuesTo(LinkedHashMap()) { it.value }
             .asBasicListWithMutableSections()
+    // end::recycler-mutable-list-with-sections[]
 
     override fun onCreate(savedInstanceState: android.os.Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.recycler_view_with_action)
         recyclerView.layoutManager = LinearLayoutManager(this)
+        // tag::recycler-mutable-list-with-sections-usage[]
         val adapter = basicAdapterWithConstructors(users) { position ->
-            getViewLayoutAndConstructor(users[position])
+            when (users[position].organization) {
+                "A" -> R.layout.github_item to ::SimpleUserViewHolder
+                else -> R.layout.other_github_item to ::OtherSimpleUserViewHolder
+            }
         }
+        // end::recycler-mutable-list-with-sections-usage[]
         adapter.setHasStableIds(true)
         recyclerView.adapter = adapter
 
@@ -51,11 +58,6 @@ class BasicMutableRecyclerWithSectionsActivity : AppCompatActivity() {
         adapter.notifyDataSetChanged()
         restoreSectionButton.disable()
         clearSectionButton.enable()
-    }
-
-    private fun getViewLayoutAndConstructor(user: User) = when (user.organization) {
-        "A" -> R.layout.github_item to ::SimpleUserViewHolder
-        else -> R.layout.other_github_item to ::OtherSimpleUserViewHolder
     }
 
     companion object {
