@@ -242,6 +242,7 @@ include::../view/src/androidTest/java/com/elpassion/android/view/ViewTest.kt[tag
 ----
 
 . ViewGroup
+  - TBD
 
 === Download:
 [source,groovy,subs="attributes"]
@@ -251,6 +252,7 @@ implementation "{artifact-group-name}:view:{version}"
 Back to <<Overview>>
 
 == Pager
+ TBD
 
 === Download:
 [source,groovy,subs="attributes"]
