@@ -47,8 +47,10 @@ class BasicMutableRecyclerWithSectionsActivity : AppCompatActivity() {
     }
 
     private fun onClearClicked(adapter: BasicAdapter<User>) {
+        // tag::recycler-mutable-list-with-sections-clear[]
         users.sections["A"]!!.clear()
         adapter.notifyDataSetChanged()
+        // end::recycler-mutable-list-with-sections-clear[]
         restoreSectionButton.enable()
         clearSectionButton.disable()
     }

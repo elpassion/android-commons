@@ -296,8 +296,7 @@ There is also a mutable equivalent of this class `ListWithMutableSections`.
 With use of it you can e.g. clear all section at once
 [source,kotlin,indent=0]
 ----
-    users.sections["Organization 1"]!!.clear()
-    adapter.notifyDataSetChanged()
+include::../recycler-example/src/main/java/com/elpassion/android/commons/recycler_example/group/BasicMutableRecyclerWithSectionsActivity.kt[tags=recycler-mutable-list-with-sections-clear]
 ----
 
 === Download:
