@@ -1,2 +1,2 @@
 Since github do not render properly '.adoc' files neither html pages please use following page to reach
-[documentation](http://htmlpreview.github.io/?https://github.com/elpassion/android-commons/blob/ascii-doctor/docs/html5/readme.html) 
+[documentation](http://elpassion.github.io/android-commons.) 
