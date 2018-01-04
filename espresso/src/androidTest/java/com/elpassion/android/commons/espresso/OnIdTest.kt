@@ -21,7 +21,9 @@ class OnIdTest {
 
     @Test
     fun shouldFindViewById() {
+        // tag::espresso-on-id-test[]
         onId(existingId).isDisplayed()
+        // end::espresso-on-id-test[]
     }
 
     class Activity : android.app.Activity() {

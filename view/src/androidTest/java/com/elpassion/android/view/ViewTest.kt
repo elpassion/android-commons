@@ -9,13 +9,17 @@ class ViewTest : ApplicationTestCase<Application>(Application::class.java) {
     fun testShouldSetViewVisibilityToVisible() {
         val view = View(context)
         view.visibility = View.INVISIBLE
+        // tag::view-show[]
         view.show()
+        // end::view-show[]
         assertEquals(View.VISIBLE, view.visibility)
     }
 
     fun testShouldSetViewVisibilityToGone() {
         val view = View(context)
+        // tag::view-hide[]
         view.hide()
+        // end::view-hide[]
         assertEquals(View.GONE, view.visibility)
     }
 
@@ -38,7 +42,9 @@ class ViewTest : ApplicationTestCase<Application>(Application::class.java) {
 
     fun testShouldViewHaveVisibleStateWhenIsVisibleSetTrue() {
         val view = View(context)
+        // tag::view-is-visible-set[]
         view.isVisible = true
+        // end::view-is-visible-set[]
         assertTrue(view.visibility == View.VISIBLE)
     }
 
@@ -50,13 +56,17 @@ class ViewTest : ApplicationTestCase<Application>(Application::class.java) {
 
     fun testShouldEnableDisabledView() {
         val view = View(context).apply { isEnabled = false }
+        // tag::view-enable[]
         view.enable()
+        // end::view-enable[]
         assertTrue(view.isEnabled)
     }
 
     fun testShouldDisableEnabledView() {
         val view = View(context)
+        // tag::view-disable[]
         view.disable()
+        // end::view-disable[]
         assertFalse(view.isEnabled)
     }
 }

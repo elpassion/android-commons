@@ -38,10 +38,12 @@ class StubbingSingleExtensionTest {
 
     @Test
     fun shouldReturnSingleErrorWhenThenErrorIsUsed() {
-        val mock = mock<Function0<Single<Unit>>>()
-        val expectedError = RuntimeException()
-        whenever(mock.invoke()).thenError(expectedError)
-        mock.invoke().test().assertSingleError(expectedError)
+        val api = mock<Function0<Single<Unit>>>()
+        val error = RuntimeException()
+        // tag::rxjava2-then-error[]
+        whenever(api.invoke()).thenError(error)
+        // end::rxjava2-then-error[]
+        api.invoke().test().assertSingleError(error)
     }
 
     @Test

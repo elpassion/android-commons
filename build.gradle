@@ -9,6 +9,7 @@ buildscript {
     ext.mockito_version = '1.10.19'
     ext.rx_java_two_version = '2.1.8'
     ext.retrofit_version = '2.1.0'
+    ext.mockito_android_version = '2.11.0'
     repositories {
         jcenter()
         google()
@@ -18,20 +19,32 @@ buildscript {
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.17.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.3'
     }
 }
-
+plugins {
+    id 'org.asciidoctor.convert' version '1.5.3'
+}
 apply plugin: 'com.github.ben-manes.versions'
+apply plugin: 'org.asciidoctor.convert'
+
+asciidoctorj {
+    version = '1.5.4'
+}
+
+asciidoctor {
+    sourceDir = new File(project.rootDir,'docs')
+    outputDir = file('docs')
+    attributes  \
+         'build-gradle': file('build.gradle'),
+            'stylesheet': 'styles/wider_asciidoctor.css'
+}
 
 allprojects {
     repositories {
         jcenter()
         maven { url "https://maven.google.com" }
     }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
 }
 
 task updateVersionName {
@@ -47,14 +60,20 @@ task updateVersionName {
 
 task updateReadme {
     doLast {
-        def readmeFile = new File('README.md')
-        def matcher = Pattern.compile("com.github.elpassion.android-commons:\\w+-?\\w+:(\\d+.\\d+.\\d+)").matcher(readmeFile.text)
+        def readmeFile = new File('docs/index.adoc')
+        def matcher = Pattern.compile(":version: (\\d+.\\d+.\\d+)").matcher(readmeFile.text)
         while (matcher.find()) {
             def readmeText = new StringBuilder(readmeFile.text).replace(matcher.start(1), matcher.end(1), "${commonVersionName()}")
             readmeFile.text = readmeText
         }
     }
 }
+
+task copyToRoot(type: Copy) {
+    from 'docs/html5' into '.'
+}
+
+task updateDocs dependsOn updateReadme, asciidoctor, copyToRoot
 
 int commonVersionCode() {
     return 1

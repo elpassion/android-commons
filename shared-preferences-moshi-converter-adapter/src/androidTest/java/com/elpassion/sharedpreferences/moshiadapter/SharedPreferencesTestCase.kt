@@ -15,7 +15,10 @@ class SharedPreferencesTestCase {
 
     @Test
     fun shouldSaveStringToRepository() {
-        val repository = createSharedPrefs<String>(sharedPreferences, moshiConverterAdapter())
+        // tag::sharedpreferences-create-moshi-converter-adapter[]
+        val jsonAdapter = moshiConverterAdapter<String>()
+        // end::sharedpreferences-create-moshi-converter-adapter[]
+        val repository = createSharedPrefs(sharedPreferences, jsonAdapter)
         val valueSaved = "someValue"
         repository.write("key", valueSaved)
 
