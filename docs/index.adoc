@@ -4,6 +4,7 @@
 :toclevels: 1
 :doctype: book
 :version: 0.0.22
+:artifact-group-name: '{artifact-group-name}'
 
 Libraries written in Kotlin and used in most EL Passion Android projects.
 
@@ -47,7 +48,7 @@ include::../espresso/src/androidTest/java/com/elpassion/android/commons/espresso
 === Download:
 [source,groovy,subs="attributes"]
 ----
-androidTestImplementation "com.github.elpassion.android-commons:espresso:{version}"
+androidTestImplementation "{artifact-group-name}:espresso:{version}"
 ----
 Back to <<Overview>>
 
@@ -105,7 +106,7 @@ include::../rxjava2-test/src/test/java/com/elpassion/android/commons/rxjava2/tes
 === Download:
 [source,groovy,subs="attributes"]
 ----
-androidTestImplementation "com.github.elpassion.android-commons:rxjava-test:{version}"
+androidTestImplementation "{artifact-group-name}:rxjava-test:{version}"
 ----
 Back to <<Overview>>
 
@@ -156,7 +157,7 @@ properly invalidate them, every interactions with sharedPreferences must now go 
 === Download:
 [source,groovy,subs="attributes"]
 ----
-implementation "com.github.elpassion.android-commons:shared-preferences:{version}"
+implementation "{artifact-group-name}:shared-preferences:{version}"
 ----
 Back to <<Overview>>
 
@@ -173,7 +174,7 @@ include::../shared-preferences-moshi-converter-adapter/src/androidTest/java/com/
 === Download:
 [source,groovy,subs="attributes"]
 ----
-implementation "com.github.elpassion.android-commons:shared-preferences-moshi-converter-adapter:{version}"
+implementation "{artifact-group-name}:shared-preferences-moshi-converter-adapter:{version}"
 ----
 Back to <<Overview>>
 
@@ -190,7 +191,7 @@ include::../shared-preferences-gson-converter-adapter/src/androidTest/java/com/e
 === Download:
 [source,groovy,subs="attributes"]
 ----
-implementation "com.github.elpassion.android-commons:shared-preferences-gson-converter-adapter:{version}"
+implementation "{artifact-group-name}:shared-preferences-gson-converter-adapter:{version}"
 ----
 Back to <<Overview>>
 
@@ -199,7 +200,7 @@ Back to <<Overview>>
 === Download:
 [source,groovy,subs="attributes"]
 ----
-implementation "com.github.elpassion.android-commons:view:{version}"
+implementation "{artifact-group-name}:view:{version}"
 ----
 Back to <<Overview>>
 
@@ -208,7 +209,7 @@ Back to <<Overview>>
 === Download:
 [source,groovy,subs="attributes"]
 ----
-implementation "com.github.elpassion.android-commons:pager:{version}"
+implementation "{artifact-group-name}:pager:{version}"
 ----
 Back to <<Overview>>
 
@@ -254,6 +255,6 @@ With use of it you can e.g. clear all section at once
 === Download:
 [source,groovy,subs="attributes"]
 ----
-implementation "com.github.elpassion.android-commons:recycler:{version}"
+implementation "{artifact-group-name}:recycler:{version}"
 ----
 Back to <<Overview>>

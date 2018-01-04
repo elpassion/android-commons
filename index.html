@@ -835,7 +835,7 @@ it well.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Unresolved directive in index.adoc - include::espresso/src/androidTest/java/com/elpassion/android/commons/espresso/OnIdTest.kt[tags=espresso-on-id-test]</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">onId(existingId).isDisplayed()</code></pre>
 </div>
 </div>
 <div class="sect2">
@@ -874,7 +874,7 @@ it well.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Unresolved directive in index.adoc - include::rxjava2-test/src/test/java/com/elpassion/android/commons/rxjava2/test/StubbingSingleExtensionTest.kt[tags=rxjava2-then-error]</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">whenever(api.invoke()).thenError(error)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -889,7 +889,7 @@ it well.</p>
 <p>assertValueThat</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Unresolved directive in index.adoc - include::rxjava2-test/src/test/java/com/elpassion/android/commons/rxjava2/test/AssertableSubscriberExtensionTest.kt[tags=rxjava2-assertValueThat]</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Observable.just(4, -1).test().assertValueThat { it &gt; 0 }</code></pre>
 </div>
 </div>
 </li>
@@ -897,7 +897,7 @@ it well.</p>
 <p>assertValuesThat</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Unresolved directive in index.adoc - include::rxjava2-test/src/test/java/com/elpassion/android/commons/rxjava2/test/AssertableSubscriberExtensionTest.kt[tags=rxjava2-assertValuesThat]</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Observable.just(2, 3, 4).test().assertValuesThat { it &gt; 0 }</code></pre>
 </div>
 </div>
 </li>
@@ -905,7 +905,7 @@ it well.</p>
 <p>assertLastValueThat</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Unresolved directive in index.adoc - include::rxjava2-test/src/test/java/com/elpassion/android/commons/rxjava2/test/AssertableSubscriberExtensionTest.kt[tags=rxjava2-assertLastValue]</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Observable.just(1, 2).test().assertLastValue(2)</code></pre>
 </div>
 </div>
 </li>
@@ -935,7 +935,14 @@ it well.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Unresolved directive in index.adoc - include::shared-preferences/src/main/java/com/elpassion/android/commons/sharedpreferences/SharedPreferenceRepository.kt[tags=sharedpreferences-interface]</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">interface SharedPreferenceRepository&lt;T&gt; {
+
+    fun write(key: String, value: T?)
+
+    fun read(key: String): T?
+
+    fun contains(key: String): Boolean
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -943,7 +950,7 @@ it well.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Unresolved directive in index.adoc - include::shared-preferences-gson-converter-adapter/src/androidTest/java/com/elpassion/sharedpreferences/gsonadapter/SharedPreferencesTestCase.kt[tags=sharedpreferences-create-shared-prefs]</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">val repository = createSharedPrefs&lt;String&gt;(sharedPreferences, jsonAdapter)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -951,7 +958,11 @@ it well.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Unresolved directive in index.adoc - include::shared-preferences/src/main/java/com/elpassion/android/commons/sharedpreferences/JsonConverterAdapter.kt[tags=sharedpreferences-json-converter-adapter-interface]</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">interface JsonConverterAdapter&lt;T&gt; {
+    fun toJson(t: T?): String
+
+    fun fromJson(t: String): T?
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -975,7 +986,7 @@ it well.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Unresolved directive in index.adoc - include::shared-preferences/src/androidTest/java/com/elpassion/android/commons/sharedpreferences/AsPropertyExtensionTestCase.kt[tags=sharedpreferences-as-property-declaration]</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">var secretKey by repository.asProperty("secret-key")</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -983,7 +994,7 @@ it well.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Unresolved directive in index.adoc - include::shared-preferences/src/androidTest/java/com/elpassion/android/commons/sharedpreferences/AsPropertyWithDefaultExtensionTestCase.kt[tags=sharedpreferences-as-property-with-default-declaration]</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">var secretKeyWithDefault by repository.asPropertyWithDefault("secret-key", "12345678")</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1015,7 +1026,7 @@ properly invalidate them, every interactions with sharedPreferences must now go 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Unresolved directive in index.adoc - include::shared-preferences-moshi-converter-adapter/src/androidTest/java/com/elpassion/sharedpreferences/moshiadapter/SharedPreferencesTestCase.kt[tags=sharedpreferences-create-moshi-converter-adapter]</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">val jsonAdapter = moshiConverterAdapter&lt;String&gt;()</code></pre>
 </div>
 </div>
 <div class="sect2">
@@ -1042,7 +1053,7 @@ properly invalidate them, every interactions with sharedPreferences must now go 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Unresolved directive in index.adoc - include::shared-preferences-gson-converter-adapter/src/androidTest/java/com/elpassion/sharedpreferences/gsonadapter/SharedPreferencesTestCase.kt[tags=sharedpreferences-create-gson-converter-adapter]</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">val jsonAdapter = gsonConverterAdapter&lt;String&gt;()</code></pre>
 </div>
 </div>
 <div class="sect2">
@@ -1101,7 +1112,21 @@ properly invalidate them, every interactions with sharedPreferences must now go 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Unresolved directive in index.adoc - include::recycler-example/src/main/java/com/elpassion/android/commons/recycler_example/menu/MenuActivity.kt[tags=recycler-basic-adapter-with-layout-and-binder]</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">val examples = listOf(
+        ExampleItem(name = BasicListActivity.DESCRIPTION,
+                onClick = { BasicListActivity.start(this) }),
+        ExampleItem(name = BasicRecyclerWithSectionActivity.DESCRIPTION,
+                onClick = { BasicRecyclerWithSectionActivity.start(this) }),
+        ExampleItem(name = BasicMutableRecyclerWithSectionsActivity.DESCRIPTION,
+                onClick = { BasicMutableRecyclerWithSectionsActivity.start(this) }),
+        ExampleItem(name = BasicContactsListActivity.DESCRIPTION,
+                onClick = { BasicContactsListActivity.start(this) })
+)
+
+recyclerView.adapter = basicAdapterWithLayoutAndBinder(examples, R.layout.example_item) { holder, item -&gt;
+    holder.itemView.example_name.text = item.name
+    holder.itemView.setOnClickListener { item.onClick() }
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1114,7 +1139,17 @@ implement <code>WithStableId</code> interface and of course tell the adapter to 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Unresolved directive in index.adoc - include::recycler-example/src/main/java/com/elpassion/android/commons/recycler_example/list/BasicListActivity.kt[tags=recycler-basic-adapter-with-constructor]</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">    val users = createManyUsers()
+
+    recyclerView.adapter = basicAdapterWithConstructors(users) { position -&gt;
+        getLayoutAndConstructor(users[position])
+    }
+}
+
+private fun getLayoutAndConstructor(user: User) = when (user.organization) {
+    "A" -&gt; R.layout.github_item to ::SimpleUserViewHolder
+    else -&gt; R.layout.other_github_item to ::OtherSimpleUserViewHolder
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1122,7 +1157,13 @@ implement <code>WithStableId</code> interface and of course tell the adapter to 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Unresolved directive in index.adoc - include::recycler-example/src/main/java/com/elpassion/android/commons/recycler_example/common/SimpleUserViewHolder.kt[tags=recycler-simple-user-view-holder]</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">class SimpleUserViewHolder(itemView: View) : ViewHolderBinder&lt;User&gt;(itemView) {
+
+    override fun bind(item: User) {
+        itemView.userName.text = item.name
+        itemView.organization.text = item.organization
+    }
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1131,8 +1172,16 @@ Here is an example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">Unresolved directive in index.adoc - include::recycler-example/src/main/java/com/elpassion/android/commons/recycler_example/group/BasicMutableRecyclerWithSectionsActivity.kt[tags=recycler-mutable-list-with-sections]
-Unresolved directive in index.adoc - include::recycler-example/src/main/java/com/elpassion/android/commons/recycler_example/group/BasicMutableRecyclerWithSectionsActivity.kt[tags=recycler-mutable-list-with-sections-usage]</code></pre>
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">val users = createManyUsers()
+        .groupByTo(LinkedHashMap(), User::organization)
+        .mapValuesTo(LinkedHashMap()) { it.value }
+        .asBasicListWithMutableSections()
+    val adapter = basicAdapterWithConstructors(users) { position -&gt;
+        when (users[position].organization) {
+            "A" -&gt; R.layout.github_item to ::SimpleUserViewHolder
+            else -&gt; R.layout.other_github_item to ::OtherSimpleUserViewHolder
+        }
+    }</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1161,7 +1210,7 @@ adapter.notifyDataSetChanged()</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-03 13:06:45 +01:00
+Last updated 2018-01-04 10:11:49 +01:00
 </div>
 </div>
 </body>
