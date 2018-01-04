@@ -197,6 +197,52 @@ Back to <<Overview>>
 
 == View
 
+This module contains useful extensions defined for both `View` and `ViewGroup` classes.
+
+. View
+    * show - sets the visibility property of view to `VISIBLE`
+
++
+[source,kotlin,indent=0]
+----
+include::../view/src/androidTest/java/com/elpassion/android/view/ViewTest.kt[tags=view-show]
+----
+
+    * hide - sets the visibility property of view to `GONE`
+
++
+[source,kotlin,indent=0]
+----
+include::../view/src/androidTest/java/com/elpassion/android/view/ViewTest.kt[tags=view-hide]
+----
+
+    * isVisible - property of type boolean. If it is true the view's visibility is `VISIBLE` otherwise
+    is `GONE`
+
++
+[source,kotlin,indent=0]
+----
+include::../view/src/androidTest/java/com/elpassion/android/view/ViewTest.kt[tags=view-is-visible-set]
+----
+
+    * enable - sets the enable property of view to `true`
+
++
+[source,kotlin,indent=0]
+----
+include::../view/src/androidTest/java/com/elpassion/android/view/ViewTest.kt[tags=view-enable]
+----
+
+    * disable - sets the enable property of view to `false`
+
++
+[source,kotlin,indent=0]
+----
+include::../view/src/androidTest/java/com/elpassion/android/view/ViewTest.kt[tags=view-disable]
+----
+
+. ViewGroup
+
 === Download:
 [source,groovy,subs="attributes"]
 ----

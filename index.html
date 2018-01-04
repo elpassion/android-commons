@@ -842,7 +842,7 @@ it well.</p>
 <h3 id="_download">2.1. Download:</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">androidTestImplementation "com.github.elpassion.android-commons:espresso:0.0.22"</code></pre>
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">androidTestImplementation "{com.github.elpassion.android-commons}:espresso:0.0.22"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -918,7 +918,7 @@ it well.</p>
 <h3 id="_download_2">3.1. Download:</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">androidTestImplementation "com.github.elpassion.android-commons:rxjava-test:0.0.22"</code></pre>
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">androidTestImplementation "{com.github.elpassion.android-commons}:rxjava-test:0.0.22"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1006,7 +1006,7 @@ properly invalidate them, every interactions with sharedPreferences must now go 
 <h3 id="_download_3">4.1. Download:</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">implementation "com.github.elpassion.android-commons:shared-preferences:0.0.22"</code></pre>
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">implementation "{com.github.elpassion.android-commons}:shared-preferences:0.0.22"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1033,7 +1033,7 @@ properly invalidate them, every interactions with sharedPreferences must now go 
 <h3 id="_download_4">5.1. Download:</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">implementation "com.github.elpassion.android-commons:shared-preferences-moshi-converter-adapter:0.0.22"</code></pre>
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">implementation "{com.github.elpassion.android-commons}:shared-preferences-moshi-converter-adapter:0.0.22"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1060,7 +1060,7 @@ properly invalidate them, every interactions with sharedPreferences must now go 
 <h3 id="_download_5">6.1. Download:</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">implementation "com.github.elpassion.android-commons:shared-preferences-gson-converter-adapter:0.0.22"</code></pre>
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">implementation "{com.github.elpassion.android-commons}:shared-preferences-gson-converter-adapter:0.0.22"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1072,11 +1072,69 @@ properly invalidate them, every interactions with sharedPreferences must now go 
 <div class="sect1">
 <h2 id="_view">7. View</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This module contains useful extensions defined for both <code>View</code> and <code>ViewGroup</code> classes.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>View</p>
+<div class="ulist">
+<ul>
+<li>
+<p>show - sets the visibility property of view to <code>VISIBLE</code></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">view.show()</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>hide - sets the visibility property of view to <code>GONE</code></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">view.hide()</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>isVisible - property of type boolean. If it is true the view&#8217;s visibility is <code>VISIBLE</code> otherwise
+is <code>GONE</code></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">view.isVisible = true</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>enable - sets the enable property of view to <code>true</code></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">view.enable()</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>disable - sets the enable property of view to <code>false</code></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">view.disable()</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>ViewGroup</p>
+</li>
+</ol>
+</div>
 <div class="sect2">
 <h3 id="_download_6">7.1. Download:</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">implementation "com.github.elpassion.android-commons:view:0.0.22"</code></pre>
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">implementation "{com.github.elpassion.android-commons}:view:0.0.22"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1092,7 +1150,7 @@ properly invalidate them, every interactions with sharedPreferences must now go 
 <h3 id="_download_7">8.1. Download:</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">implementation "com.github.elpassion.android-commons:pager:0.0.22"</code></pre>
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">implementation "{com.github.elpassion.android-commons}:pager:0.0.22"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1198,7 +1256,7 @@ adapter.notifyDataSetChanged()</code></pre>
 <h3 id="_download_8">9.1. Download:</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">implementation "com.github.elpassion.android-commons:recycler:0.0.22"</code></pre>
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">implementation "{com.github.elpassion.android-commons}:recycler:0.0.22"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1210,7 +1268,7 @@ adapter.notifyDataSetChanged()</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-04 10:11:49 +01:00
+Last updated 2018-01-04 11:45:30 +01:00
 </div>
 </div>
 </body>
