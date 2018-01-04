@@ -4,7 +4,7 @@
 :toclevels: 1
 :doctype: book
 :version: 0.0.22
-:artifact-group-name: '{artifact-group-name}'
+:artifact-group-name: {com.github.elpassion.android-commons}
 
 Libraries written in Kotlin and used in most EL Passion Android projects.
 
