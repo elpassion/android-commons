@@ -9,6 +9,8 @@
 Libraries written in Kotlin and used in most EL Passion Android projects.
 
 image:https://jitpack.io/v/elpassion/android-commons.svg[https://jitpack.io/#elpassion/android-commons]
+image:http://isitmaintained.com/badge/resolution/elpassion/android-commons.svg[http://isitmaintained.com/project/elpassion/android-commons]
+image:https://badge.waffle.io/elpassion/android-commons.svg?label=ready&title=Ready[https://waffle.io/elpassion/android-commons]
 
 == Overview
 
