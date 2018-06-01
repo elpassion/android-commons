@@ -1,9 +1,9 @@
 apply from: '../gradle/android-module.gradle'
 
 dependencies {
-    provided "com.android.support:support-annotations:$support_version"
-    provided "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compileOnly "com.android.support:support-annotations:$support_version"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    androidTestCompile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    androidTestCompile "com.android.support.test:runner:$test_runner"
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    androidTestImplementation "com.android.support.test:runner:$test_runner"
 }

@@ -1,12 +1,12 @@
 apply from: '../gradle/android-module.gradle'
 
 dependencies {
-    provided "com.android.support:appcompat-v7:$support_version"
-    provided "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compileOnly "com.android.support:appcompat-v7:$support_version"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    androidTestCompile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    androidTestCompile 'junit:junit:4.12'
-    androidTestCompile "com.android.support.test:runner:$test_runner"
-    androidTestCompile("com.nhaarman:mockito-kotlin:$mockito_kotlin")
-    androidTestCompile group: 'org.mockito', name: 'mockito-android', version: "$mockito_android_version"
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation "com.android.support.test:runner:$test_runner"
+    androidTestImplementation("com.nhaarman:mockito-kotlin:$mockito_kotlin")
+    androidTestImplementation group: 'org.mockito', name: 'mockito-android', version: "$mockito_android_version"
 }

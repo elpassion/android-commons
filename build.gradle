@@ -1,21 +1,21 @@
 import java.util.regex.Pattern
 
 buildscript {
-    ext.support_version = '27.0.2'
-    ext.kotlin_version = '1.2.10'
-    ext.espresso_version = '3.0.0'
+    ext.support_version = '27.1.1'
+    ext.kotlin_version = '1.2.41'
+    ext.espresso_version = '3.0.2'
     ext.test_runner = '1.0.0'
     ext.mockito_kotlin = '1.5.0'
     ext.mockito_version = '1.10.19'
     ext.rx_java_two_version = '2.1.8'
-    ext.retrofit_version = '2.1.0'
+    ext.retrofit_version = '2.3.0'
     ext.mockito_android_version = '2.11.0'
     repositories {
         jcenter()
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.2.0-alpha16'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.17.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'

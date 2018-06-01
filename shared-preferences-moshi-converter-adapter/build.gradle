@@ -5,20 +5,20 @@ buildscript {
 }
 
 dependencies {
-    provided "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile "com.squareup.moshi:moshi-kotlin:$moshi_version"
-    compile "com.squareup.moshi:moshi-adapters:$moshi_version"
-    compile project(":shared-preferences")
-    androidTestCompile "com.android.support.test:runner:$test_runner"
-    androidTestCompile 'junit:junit:4.12'
-    androidTestCompile("org.mockito:mockito-core:$mockito_version") {
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
+    implementation "com.squareup.moshi:moshi-adapters:$moshi_version"
+    implementation project(":shared-preferences")
+    androidTestImplementation "com.android.support.test:runner:$test_runner"
+    androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation("org.mockito:mockito-core:$mockito_version") {
         exclude group: 'org.hamcrest'
     }
-    androidTestCompile "com.nhaarman:mockito-kotlin:$mockito_kotlin"
-    androidTestCompile('com.google.dexmaker:dexmaker:1.2') {
+    androidTestImplementation "com.nhaarman:mockito-kotlin:$mockito_kotlin"
+    androidTestImplementation('com.google.dexmaker:dexmaker:1.2') {
         exclude group: 'org.hamcrest'
     }
-    androidTestCompile('com.google.dexmaker:dexmaker-mockito:1.2') {
+    androidTestImplementation('com.google.dexmaker:dexmaker-mockito:1.2') {
         exclude group: 'org.hamcrest'
     }
 }
