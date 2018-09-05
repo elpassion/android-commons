@@ -2,12 +2,12 @@ import java.util.regex.Pattern
 
 buildscript {
     ext.support_version = '27.1.1'
-    ext.kotlin_version = '1.2.41'
+    ext.kotlin_version = '1.2.61'
     ext.espresso_version = '3.0.2'
-    ext.test_runner = '1.0.0'
+    ext.test_runner = '1.0.1'
     ext.mockito_kotlin = '1.5.0'
     ext.mockito_version = '1.10.19'
-    ext.rx_java_two_version = '2.1.8'
+    ext.rx_java_two_version = '2.2.1'
     ext.retrofit_version = '2.3.0'
     ext.mockito_android_version = '2.11.0'
     repositories {
@@ -15,10 +15,10 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0-alpha16'
+        classpath 'com.android.tools.build:gradle:3.2.0-rc02'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.17.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
         classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.3'
     }
 }
