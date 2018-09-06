@@ -1,9 +1,9 @@
 package com.elpassion.android.commons.pager
 
-import android.support.v4.view.PagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.viewpager.widget.PagerAdapter
 
 abstract class BasePagerAdapter(val items: List<PagerItemAdapter>) : PagerAdapter() {
 

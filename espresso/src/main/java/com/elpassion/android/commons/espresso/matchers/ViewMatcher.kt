@@ -1,8 +1,8 @@
 package com.elpassion.android.commons.espresso.matchers
 
-import android.support.annotation.IdRes
-import android.support.test.espresso.matcher.ViewMatchers
 import android.view.View
+import androidx.annotation.IdRes
+import androidx.test.espresso.matcher.ViewMatchers
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers

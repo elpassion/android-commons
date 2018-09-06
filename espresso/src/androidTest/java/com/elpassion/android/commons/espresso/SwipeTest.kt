@@ -2,12 +2,11 @@ package com.elpassion.android.commons.espresso
 
 import android.app.Activity
 import android.os.Bundle
-import android.support.test.rule.ActivityTestRule
-import android.support.v4.view.GestureDetectorCompat
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.widget.Button
-import com.elpassion.android.commons.espresso.test.R
+import androidx.core.view.GestureDetectorCompat
+import androidx.test.rule.ActivityTestRule
 import org.junit.Rule
 import org.junit.Test
 import java.lang.Math.abs

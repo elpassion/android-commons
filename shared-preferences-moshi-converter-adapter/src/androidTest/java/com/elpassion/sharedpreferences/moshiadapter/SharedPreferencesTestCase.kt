@@ -1,8 +1,8 @@
 package com.elpassion.sharedpreferences.moshiadapter
 
 import android.preference.PreferenceManager
-import android.support.test.InstrumentationRegistry
-import android.support.test.runner.AndroidJUnit4
+import androidx.test.InstrumentationRegistry
+import androidx.test.runner.AndroidJUnit4
 import com.elpassion.android.commons.sharedpreferences.createSharedPrefs
 import com.squareup.moshi.Types
 import org.junit.After

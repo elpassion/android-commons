@@ -2,8 +2,8 @@ package com.elpassion.android.commons.recycler_example.group
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.elpassion.android.commons.recycler.adapters.basicAdapterWithConstructors
 import com.elpassion.android.commons.recycler.basic.BasicAdapter
 import com.elpassion.android.commons.recycler.basic.asBasicListWithMutableSections

@@ -1,7 +1,7 @@
 package com.elpassion.android.commons.espresso
 
-import android.support.test.espresso.ViewInteraction
-import android.support.test.espresso.action.ViewActions
+import androidx.test.espresso.ViewInteraction
+import androidx.test.espresso.action.ViewActions
 
 fun ViewInteraction.click(): ViewInteraction = perform(ViewActions.click())
 

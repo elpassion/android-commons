@@ -1,8 +1,8 @@
 package com.elpassion.android.commons.recycler_example.menu
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.elpassion.android.commons.recycler.adapters.basicAdapterWithLayoutAndBinder
 import com.elpassion.android.commons.recycler_example.R
 import com.elpassion.android.commons.recycler_example.group.BasicContactsListActivity
@@ -10,7 +10,7 @@ import com.elpassion.android.commons.recycler_example.group.BasicMutableRecycler
 import com.elpassion.android.commons.recycler_example.group.BasicRecyclerWithSectionActivity
 import com.elpassion.android.commons.recycler_example.list.BasicListActivity
 import kotlinx.android.synthetic.main.example_item.view.*
-import kotlinx.android.synthetic.main.recycler_view.*
+import kotlinx.android.synthetic.main.menu_layout.*
 
 class MenuActivity : AppCompatActivity() {
 

@@ -1,11 +1,11 @@
 package com.elpassion.android.commons.espresso
 
-import android.support.annotation.IdRes
-import android.support.annotation.StringRes
-import android.support.test.InstrumentationRegistry
-import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.ViewInteraction
-import android.support.test.espresso.matcher.ViewMatchers.*
+import androidx.annotation.IdRes
+import androidx.annotation.StringRes
+import androidx.test.InstrumentationRegistry
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.ViewInteraction
+import androidx.test.espresso.matcher.ViewMatchers.*
 
 fun onId(@IdRes viewId: Int): ViewInteraction = onView(withId(viewId))
 

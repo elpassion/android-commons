@@ -1,11 +1,18 @@
 package com.elpassion.android.view
 
-import android.app.Application
-import android.test.ApplicationTestCase
 import android.view.View
+import androidx.test.InstrumentationRegistry
+import androidx.test.runner.AndroidJUnit4
+import junit.framework.Assert.*
+import org.junit.Test
+import org.junit.runner.RunWith
 
-class ViewTest : ApplicationTestCase<Application>(Application::class.java) {
+@RunWith(AndroidJUnit4::class)
+class ViewTest {
 
+    private val context = InstrumentationRegistry.getContext()
+
+    @Test
     fun testShouldSetViewVisibilityToVisible() {
         val view = View(context)
         view.visibility = View.INVISIBLE
@@ -15,6 +22,7 @@ class ViewTest : ApplicationTestCase<Application>(Application::class.java) {
         assertEquals(View.VISIBLE, view.visibility)
     }
 
+    @Test
     fun testShouldSetViewVisibilityToGone() {
         val view = View(context)
         // tag::view-hide[]

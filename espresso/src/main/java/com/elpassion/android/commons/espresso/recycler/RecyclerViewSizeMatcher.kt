@@ -1,9 +1,9 @@
 package com.elpassion.android.commons.espresso.recycler
 
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import androidx.recyclerview.widget.RecyclerView
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
@@ -15,9 +15,9 @@ fun containerHasChildCount(count: Int): Matcher<View> = object : TypeSafeMatcher
         return groupSize == count
     }
 
-    private fun getGroupCount(view: View): Int = when (view) {
-        is RecyclerView -> view.adapter.itemCount
-        is AdapterView<*> -> view.adapter.count
+    private fun getGroupCount(view: View): Int? = when (view) {
+        is RecyclerView -> view.adapter?.itemCount
+        is AdapterView<*> -> view.adapter?.count
         is ViewGroup -> view.childCount
         else -> throw IllegalArgumentException("Unknown view type")
     }

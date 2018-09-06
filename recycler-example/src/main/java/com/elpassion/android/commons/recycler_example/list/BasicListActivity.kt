@@ -3,8 +3,8 @@ package com.elpassion.android.commons.recycler_example.list
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.elpassion.android.commons.recycler.adapters.basicAdapterWithConstructors
 import com.elpassion.android.commons.recycler_example.R
 import com.elpassion.android.commons.recycler_example.common.OtherSimpleUserViewHolder
@@ -19,7 +19,7 @@ class BasicListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
-    // tag::recycler-basic-adapter-with-constructor[]
+        // tag::recycler-basic-adapter-with-constructor[]
         val users = createManyUsers()
 
         recyclerView.adapter = basicAdapterWithConstructors(users) { position ->

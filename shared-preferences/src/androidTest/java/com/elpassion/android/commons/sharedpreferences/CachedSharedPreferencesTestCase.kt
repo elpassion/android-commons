@@ -1,6 +1,6 @@
 package com.elpassion.android.commons.sharedpreferences
 
-import android.support.test.runner.AndroidJUnit4
+import androidx.test.runner.AndroidJUnit4
 import com.nhaarman.mockito_kotlin.mock
 import org.junit.Assert
 import org.junit.Assert.assertSame
@@ -13,8 +13,8 @@ import org.mockito.Mockito.`when` as on
 @RunWith(AndroidJUnit4::class)
 class CachedSharedPreferencesTestCase {
 
-    val repositoryMock = mock<SharedPreferenceRepository<SimpleStructure>>()
-    val cachingRepository = CachingSharedPreferenceRepository(repositoryMock)
+    private val repositoryMock = mock<SharedPreferenceRepository<SimpleStructure>>()
+    private val cachingRepository = CachingSharedPreferenceRepository(repositoryMock)
 
     @Test
     fun twoReadsShouldCallRepositoryOnlyOnce() {

@@ -1,6 +1,6 @@
 package com.elpassion.android.commons.sharedpreferences
 
-import android.support.test.runner.AndroidJUnit4
+import androidx.test.runner.AndroidJUnit4
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
@@ -12,9 +12,9 @@ import org.mockito.Mockito.verify
 @RunWith(AndroidJUnit4::class)
 class AsPropertyWithDefaultExtensionTestCase {
 
-    val repository = mock<SharedPreferenceRepository<String>>()
+    private val repository = mock<SharedPreferenceRepository<String>>()
     // tag::sharedpreferences-as-property-with-default-declaration[]
-    var secretKeyWithDefault by repository.asPropertyWithDefault("secret-key", "12345678")
+    private var secretKeyWithDefault by repository.asPropertyWithDefault("secret-key", "12345678")
     // end::sharedpreferences-as-property-with-default-declaration[]
 
     @Test

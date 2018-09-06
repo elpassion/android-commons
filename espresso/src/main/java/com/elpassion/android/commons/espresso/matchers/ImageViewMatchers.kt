@@ -1,9 +1,9 @@
 package com.elpassion.android.commons.espresso.matchers
 
-import android.support.annotation.DrawableRes
-import android.support.v4.content.ContextCompat
 import android.view.View
 import android.widget.ImageView
+import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
 import org.hamcrest.Matcher
 
 fun withImage(@DrawableRes imageId: Int): Matcher<View> = createViewMatcher(

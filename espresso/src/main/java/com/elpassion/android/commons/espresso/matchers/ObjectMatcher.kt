@@ -1,6 +1,6 @@
 package com.elpassion.android.commons.espresso.matchers
 
-import android.support.test.espresso.matcher.BoundedMatcher
+import androidx.test.espresso.matcher.BoundedMatcher
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 

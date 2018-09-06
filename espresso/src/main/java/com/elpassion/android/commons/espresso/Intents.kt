@@ -3,9 +3,9 @@ package com.elpassion.android.commons.espresso
 import android.app.Activity
 import android.app.Instrumentation
 import android.content.Intent
-import android.support.test.espresso.intent.Intents
-import android.support.test.espresso.intent.VerificationModes.noUnverifiedIntents
-import android.support.test.espresso.intent.matcher.IntentMatchers
+import androidx.test.espresso.intent.Intents
+import androidx.test.espresso.intent.VerificationModes.noUnverifiedIntents
+import androidx.test.espresso.intent.matcher.IntentMatchers
 
 const val autoFinishingIntentActionName = "com.elpassion.android.commons.espresso.AutoFinishingIntent"
 const val autoCancelingIntentActionName = "com.elpassion.android.commons.espresso.AutoCancelingIntent"
