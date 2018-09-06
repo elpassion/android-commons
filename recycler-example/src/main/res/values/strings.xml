@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Recycler-example</string>
+    <string name="clear_a_section">Clear A section</string>
+    <string name="restore_a_section">Restore A section</string>
 </resources>

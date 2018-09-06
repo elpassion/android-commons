@@ -15,12 +15,12 @@ fun containerHasChildCount(count: Int): Matcher<View> = object : TypeSafeMatcher
         return groupSize == count
     }
 
-    private fun getGroupCount(view: View): Int? = when (view) {
+    private fun getGroupCount(view: View): Int = when (view) {
         is RecyclerView -> view.adapter?.itemCount
         is AdapterView<*> -> view.adapter?.count
         is ViewGroup -> view.childCount
         else -> throw IllegalArgumentException("Unknown view type")
-    }
+    } ?: throw IllegalStateException("View adapter can't be null")
 
     override fun describeTo(description: Description) {
         description.appendText("ViewGroup has child count: $count")

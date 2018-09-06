@@ -14,7 +14,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Clear A section" />
+            android:text="@string/clear_a_section" />
 
         <Button
             android:id="@+id/restoreSectionButton"
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:enabled="false"
-            android:text="Restore A section" />
+            android:text="@string/restore_a_section" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
