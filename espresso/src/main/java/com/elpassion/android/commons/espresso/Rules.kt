@@ -1,6 +1,6 @@
 package com.elpassion.android.commons.espresso
 
-import android.support.test.espresso.intent.Intents
+import androidx.test.espresso.intent.Intents
 import org.junit.rules.TestRule
 import org.junit.runner.Description
 import org.junit.runners.model.Statement

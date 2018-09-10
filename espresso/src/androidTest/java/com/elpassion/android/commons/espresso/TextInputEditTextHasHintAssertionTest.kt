@@ -1,10 +1,9 @@
 package com.elpassion.android.commons.espresso
 
 import android.os.Bundle
-import android.support.design.widget.TextInputEditText
-import android.support.design.widget.TextInputLayout
-import android.support.test.rule.ActivityTestRule
-import com.elpassion.android.commons.espresso.test.R
+import androidx.test.rule.ActivityTestRule
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import junit.framework.AssertionFailedError
 import org.junit.Rule
 import org.junit.Test

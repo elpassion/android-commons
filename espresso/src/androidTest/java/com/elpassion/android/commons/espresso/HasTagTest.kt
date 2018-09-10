@@ -2,10 +2,9 @@ package com.elpassion.android.commons.espresso
 
 import android.app.Activity
 import android.os.Bundle
-import android.support.test.rule.ActivityTestRule
 import android.widget.Button
 import android.widget.FrameLayout
-import com.elpassion.android.commons.espresso.test.R
+import androidx.test.rule.ActivityTestRule
 import junit.framework.AssertionFailedError
 import org.hamcrest.core.IsEqual.equalTo
 import org.hamcrest.core.IsNull.nullValue

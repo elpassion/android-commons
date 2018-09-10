@@ -2,10 +2,9 @@ package com.elpassion.android.commons.espresso
 
 import android.app.Activity
 import android.os.Bundle
-import android.support.test.rule.ActivityTestRule
 import android.widget.FrameLayout
 import android.widget.ImageView
-import com.elpassion.android.commons.espresso.test.R
+import androidx.test.rule.ActivityTestRule
 import junit.framework.AssertionFailedError
 import org.junit.Rule
 import org.junit.Test

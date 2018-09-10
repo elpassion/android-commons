@@ -1,11 +1,11 @@
 package com.elpassion.android.commons.espresso.recycler
 
-import android.support.annotation.IdRes
-import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.ViewInteraction
-import android.support.test.espresso.matcher.ViewMatchers.*
-import android.support.v7.widget.RecyclerView
 import android.view.View
+import androidx.annotation.IdRes
+import androidx.recyclerview.widget.RecyclerView
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.ViewInteraction
+import androidx.test.espresso.matcher.ViewMatchers.*
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
@@ -41,7 +41,7 @@ private fun atPosition(position: Int) = object : TypeSafeMatcher<View>() {
     override fun matchesSafely(item: View): Boolean {
         val parent = item.parent as? RecyclerView ?: return false
         val layoutManager = parent.layoutManager
-        val viewAtPosition = layoutManager.findViewByPosition(position)
+        val viewAtPosition = layoutManager?.findViewByPosition(position)
         return item == viewAtPosition
     }
 

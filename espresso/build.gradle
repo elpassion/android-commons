@@ -1,20 +1,20 @@
 apply from: '../gradle/android-module.gradle'
 
 dependencies {
-    implementation "com.android.support:appcompat-v7:$support_version"
+    implementation "androidx.appcompat:appcompat:$androidx_version"
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compileOnly "com.android.support:design:$support_version"
-    compileOnly "com.android.support:recyclerview-v7:$support_version"
-    implementation("com.android.support.test.espresso:espresso-core:$espresso_version") {
-        exclude group: 'com.android.support'
+    compileOnly "com.google.android.material:material:$material_design_version"
+    compileOnly "androidx.recyclerview:recyclerview:$androidx_version"
+    implementation("androidx.test.espresso:espresso-core:$espresso_version") {
+        exclude group: 'androidx'
     }
-    implementation("com.android.support.test.espresso:espresso-contrib:$espresso_version") {
-        exclude group: 'com.android.support'
+    implementation("androidx.test.espresso:espresso-contrib:$espresso_version") {
+        exclude group: 'androidx'
     }
-    implementation("com.android.support.test.espresso:espresso-intents:$espresso_version") {
-        exclude group: 'com.android.support'
+    implementation("androidx.test.espresso:espresso-intents:$espresso_version") {
+        exclude group: 'androidx'
     }
     androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    androidTestImplementation "com.android.support:design:$support_version"
-    androidTestImplementation "com.android.support:recyclerview-v7:$support_version"
+    androidTestImplementation "com.google.android.material:material:$material_design_version"
+    androidTestImplementation "androidx.appcompat:appcompat:$androidx_version"
 }

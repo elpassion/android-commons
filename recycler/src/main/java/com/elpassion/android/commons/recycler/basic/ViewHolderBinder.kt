@@ -1,8 +1,8 @@
 package com.elpassion.android.commons.recycler.basic
 
-import android.support.v7.widget.RecyclerView.ViewHolder
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 
-open class ViewHolderBinder<in Item>(itemView: View) : ViewHolder(itemView){
+open class ViewHolderBinder<in Item>(itemView: View) : RecyclerView.ViewHolder(itemView) {
     open fun bind(item: Item) {}
 }

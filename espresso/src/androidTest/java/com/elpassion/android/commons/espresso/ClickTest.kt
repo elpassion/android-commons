@@ -1,9 +1,9 @@
 package com.elpassion.android.commons.espresso
 
 import android.os.Bundle
-import android.support.test.rule.ActivityTestRule
 import android.widget.Button
 import android.widget.FrameLayout
+import androidx.test.rule.ActivityTestRule
 import org.junit.Rule
 import org.junit.Test
 

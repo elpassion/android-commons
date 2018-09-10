@@ -9,7 +9,7 @@ dependencies {
     implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
     implementation "com.squareup.moshi:moshi-adapters:$moshi_version"
     implementation project(":shared-preferences")
-    androidTestImplementation "com.android.support.test:runner:$test_runner"
+    androidTestImplementation "androidx.test:runner:$test_runner"
     androidTestImplementation 'junit:junit:4.12'
     androidTestImplementation("org.mockito:mockito-core:$mockito_version") {
         exclude group: 'org.hamcrest'

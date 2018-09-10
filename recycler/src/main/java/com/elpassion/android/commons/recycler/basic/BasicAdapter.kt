@@ -1,7 +1,8 @@
 package com.elpassion.android.commons.recycler.basic
 
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.RecyclerView.NO_ID
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.NO_ID
+
 
 abstract class BasicAdapter<Item>(
         var items: List<Item>

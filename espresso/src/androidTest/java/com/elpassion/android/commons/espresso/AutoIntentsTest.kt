@@ -4,12 +4,12 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.test.espresso.intent.Intents.intended
-import android.support.test.espresso.intent.matcher.IntentMatchers.anyIntent
-import android.support.test.espresso.intent.matcher.IntentMatchers.hasAction
-import android.support.test.rule.ActivityTestRule
 import android.widget.Button
 import android.widget.LinearLayout
+import androidx.test.espresso.intent.Intents.intended
+import androidx.test.espresso.intent.matcher.IntentMatchers.anyIntent
+import androidx.test.espresso.intent.matcher.IntentMatchers.hasAction
+import androidx.test.rule.ActivityTestRule
 import org.hamcrest.core.AllOf.allOf
 import org.junit.Assert.assertTrue
 import org.junit.Rule

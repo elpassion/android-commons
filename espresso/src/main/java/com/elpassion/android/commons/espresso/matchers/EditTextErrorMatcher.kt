@@ -1,8 +1,8 @@
 package com.elpassion.android.commons.espresso.matchers
 
-import android.support.annotation.StringRes
-import android.support.design.widget.TextInputLayout
 import android.view.View
+import androidx.annotation.StringRes
+import com.google.android.material.textfield.TextInputLayout
 import org.hamcrest.Description
 import org.hamcrest.TypeSafeMatcher
 

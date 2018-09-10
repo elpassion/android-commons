@@ -1,14 +1,13 @@
 package com.elpassion.android.commons.espresso
 
 import android.os.Bundle
-import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.matcher.ViewMatchers.withId
-import android.support.test.rule.ActivityTestRule
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.rule.ActivityTestRule
 import com.elpassion.android.commons.espresso.matchers.withParentId
-import com.elpassion.android.commons.espresso.test.R
 import org.junit.Rule
 import org.junit.Test
 

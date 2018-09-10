@@ -1,17 +1,17 @@
 package com.elpassion.android.commons.espresso
 
-import android.support.annotation.DrawableRes
-import android.support.annotation.StringRes
-import android.support.test.espresso.ViewInteraction
-import android.support.test.espresso.assertion.ViewAssertions
-import android.support.test.espresso.assertion.ViewAssertions.matches
-import android.support.test.espresso.matcher.ViewMatchers
-import android.support.test.espresso.matcher.ViewMatchers.*
-import android.support.test.espresso.matcher.ViewMatchers.Visibility.GONE
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+import androidx.test.espresso.ViewInteraction
+import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.matcher.ViewMatchers.Visibility.GONE
 import com.elpassion.android.commons.espresso.matchers.EditTextErrorMatcher
 import com.elpassion.android.commons.espresso.matchers.TextInputEditTextHintMatcher
-import com.elpassion.android.commons.espresso.matchers.withImage
 import com.elpassion.android.commons.espresso.matchers.withAnyImage
+import com.elpassion.android.commons.espresso.matchers.withImage
 import com.elpassion.android.commons.espresso.recycler.containerHasChildCount
 import org.hamcrest.Matcher
 import org.hamcrest.core.IsNot.not
