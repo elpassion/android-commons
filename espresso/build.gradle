@@ -2,9 +2,8 @@ apply from: '../gradle/android-module.gradle'
 
 dependencies {
     implementation "androidx.appcompat:appcompat:$androidx_version"
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compileOnly "com.google.android.material:material:$material_design_version"
-    compileOnly "androidx.recyclerview:recyclerview:$androidx_version"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "com.google.android.material:material:$material_design_version"
     implementation("androidx.test.espresso:espresso-core:$espresso_version") {
         exclude group: 'androidx'
     }
@@ -14,7 +13,7 @@ dependencies {
     implementation("androidx.test.espresso:espresso-intents:$espresso_version") {
         exclude group: 'androidx'
     }
-    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     androidTestImplementation "com.google.android.material:material:$material_design_version"
     androidTestImplementation "androidx.appcompat:appcompat:$androidx_version"
 }
