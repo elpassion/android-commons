@@ -1,7 +1,7 @@
 apply from: '../gradle/android-module.gradle'
 
 dependencies {
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "com.google.code.gson:gson:2.8.2"
     implementation project(":shared-preferences")
     androidTestImplementation "androidx.test:runner:$test_runner"

@@ -2,5 +2,5 @@ apply from: '../gradle/android-module.gradle'
 
 dependencies {
     compileOnly "androidx.appcompat:appcompat:$androidx_version"
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

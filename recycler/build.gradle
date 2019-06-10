@@ -3,16 +3,16 @@ apply from: '../gradle/android-module.gradle'
 dependencies {
     api project(":view")
     implementation "androidx.appcompat:appcompat:$androidx_version"
-    api "androidx.recyclerview:recyclerview:$androidx_version"
+    api "com.google.android.material:material:$material_design_version"
 
     compileOnly "androidx.appcompat:appcompat:$androidx_version"
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     androidTestImplementation "androidx.test:runner:$test_runner"
     androidTestImplementation 'junit:junit:4.12'
 
-    testImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     testImplementation 'junit:junit:4.12'
     testImplementation "org.mockito:mockito-core:$mockito_version"
 }
